@@ -32353,3 +32353,23 @@
 [NX Daemon Server] - 2023-10-27T08:27:35.300Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2023-10-27T08:27:35.354Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2023-10-27T08:27:35.356Z - [WATCHER]: .nx/cache/d/daemon.log was modified
+[NX Daemon Server] - 2023-10-27T08:27:36.990Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-10-27T08:27:36.990Z - [REQUEST]: .nx/cache/d/daemon.log,.nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-10-27T08:27:36.990Z - [REQUEST]: .nx/cache/project-graph.json~0f2cb1ae,.nx/cache/file-map.json~0f2cb1ae
+[NX Daemon Server] - 2023-10-27T08:27:37.056Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.058Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-10-27T08:27:37.061Z - [WATCHER]: .nx/cache/d/daemon.log was modified
+[NX Daemon Server] - 2023-10-27T08:27:37.074Z - [WATCHER]: 0 file(s) created or restored, 5 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2023-10-27T08:27:37.081Z - [WATCHER]: 0 file(s) created or restored, 8 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2023-10-27T08:27:37.085Z - [WATCHER]: 0 file(s) created or restored, 10 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2023-10-27T08:27:37.090Z - [WATCHER]: 0 file(s) created or restored, 4 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2023-10-27T08:27:37.094Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2023-10-27T08:27:37.098Z - Time taken for 'hash changed files from watcher' 1566.27429997921ms
+[NX Daemon Server] - 2023-10-27T08:27:37.099Z - [WATCHER]: Stopping the watcher for c:\Users\jose.tabares.sotelo\Dev\node-assets (sources)
+[NX Daemon Server] - 2023-10-27T08:27:37.100Z - [WATCHER]: Stopping the watcher for c:\Users\jose.tabares.sotelo\Dev\node-assets (outputs)
+[NX Daemon Server] - 2023-10-27T08:27:37.100Z - Server stopped because: "Stopping the daemon the set of ignored files changed (native)"
