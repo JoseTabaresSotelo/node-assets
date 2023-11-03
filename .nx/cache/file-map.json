@@ -21,15 +21,15 @@
       },
       {
         "file": ".nx/cache/d/daemon.log",
-        "hash": "3511060141099056894"
+        "hash": "7848914860269320692"
       },
       {
         "file": ".nx/cache/d/server-process.json",
-        "hash": "2189051876301546730"
+        "hash": "10289408537829811545"
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "4555089067833525104"
+        "hash": "1685775465728265805"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -41,6 +41,10 @@
       },
       {
         "file": ".nx/cache/project-graph.json",
+        "hash": "16301928848678384210"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~4471c18b",
         "hash": "10786980724512671389"
       },
       {
@@ -74,9 +78,133 @@
       {
         "file": "packages/northwind-database/northwind.sql",
         "hash": "10773099633976583702"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~0ddc7b88",
+        "hash": "16301928848678384210"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~e7c97f77",
+        "hash": "16301928848678384210"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~64860373",
+        "hash": "16301928848678384210"
       }
     ],
     "projectFileMap": {
+      "northwind-api": [
+        {
+          "file": "packages/northwind-api/.eslintrc.js",
+          "hash": "7461846271827386206"
+        },
+        {
+          "file": "packages/northwind-api/.gitignore",
+          "hash": "672911037926083482"
+        },
+        {
+          "file": "packages/northwind-api/.prettierrc",
+          "hash": "4808572120966128913"
+        },
+        {
+          "file": "packages/northwind-api/README.md",
+          "hash": "88028313855074524"
+        },
+        {
+          "file": "packages/northwind-api/nest-cli.json",
+          "hash": "789240945379598733"
+        },
+        {
+          "file": "packages/northwind-api/package.json",
+          "hash": "688172446931237650",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:@nestjs/cli",
+            "npm:@nestjs/schematics",
+            "npm:@nestjs/testing",
+            "npm:@types/express",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@types/supertest",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-prettier",
+            "npm:jest",
+            "npm:prettier",
+            "npm:source-map-support",
+            "npm:supertest",
+            "npm:ts-jest",
+            "npm:ts-loader",
+            "npm:ts-node",
+            "npm:tsconfig-paths",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "packages/northwind-api/src/app.controller.spec.ts",
+          "hash": "2727664763654384995"
+        },
+        {
+          "file": "packages/northwind-api/src/app.controller.ts",
+          "hash": "4552329938751326480"
+        },
+        {
+          "file": "packages/northwind-api/src/app.module.ts",
+          "hash": "11673476679848632172"
+        },
+        {
+          "file": "packages/northwind-api/src/app.service.ts",
+          "hash": "16892833931858030153"
+        },
+        {
+          "file": "packages/northwind-api/src/main.ts",
+          "hash": "16836780892212170881"
+        },
+        {
+          "file": "packages/northwind-api/test/app.e2e-spec.ts",
+          "hash": "15142680097789702029"
+        },
+        {
+          "file": "packages/northwind-api/test/jest-e2e.json",
+          "hash": "7570273541430074424"
+        },
+        {
+          "file": "packages/northwind-api/tsconfig.build.json",
+          "hash": "276845246908739715"
+        },
+        {
+          "file": "packages/northwind-api/tsconfig.json",
+          "hash": "1876265833229380624"
+        }
+      ],
+      "db-utils": [
+        {
+          "file": "packages/fastify-postgres/db/utils/.eslintrc.json",
+          "hash": "6997211072099135238"
+        },
+        {
+          "file": "packages/fastify-postgres/db/utils/project.json",
+          "hash": "7658574406217243652"
+        },
+        {
+          "file": "packages/fastify-postgres/db/utils/src/index.ts",
+          "hash": "2939904805614063368"
+        },
+        {
+          "file": "packages/fastify-postgres/db/utils/tsconfig.json",
+          "hash": "3896990019654448024"
+        },
+        {
+          "file": "packages/fastify-postgres/db/utils/tsconfig.lib.json",
+          "hash": "17512648156706774563"
+        }
+      ],
       "api": [
         {
           "file": "packages/fastify-postgres/.env.example",
@@ -182,7 +310,7 @@
         },
         {
           "file": "packages/fastify-postgres/src/app/app.ts",
-          "hash": "13089021675857476360"
+          "hash": "18319375776650605874"
         },
         {
           "file": "packages/fastify-postgres/src/app/plugins/db.ts",
@@ -193,15 +321,11 @@
           "hash": "5872162997886440305"
         },
         {
-          "file": "packages/fastify-postgres/src/app/routes/posts.ts",
-          "hash": "14444307307274550131"
-        },
-        {
           "file": "packages/fastify-postgres/src/app/routes/root.ts",
           "hash": "18052840807408675476"
         },
         {
-          "file": "packages/fastify-postgres/src/app/routes/users.ts",
+          "file": "packages/fastify-postgres/src/app/routes/users/users.ts",
           "hash": "3189198259947706669"
         },
         {
@@ -223,28 +347,10 @@
         {
           "file": "packages/fastify-postgres/tsconfig.spec.json",
           "hash": "3170436939515323801"
-        }
-      ],
-      "db-utils": [
-        {
-          "file": "packages/fastify-postgres/db/utils/.eslintrc.json",
-          "hash": "6997211072099135238"
         },
         {
-          "file": "packages/fastify-postgres/db/utils/project.json",
-          "hash": "7658574406217243652"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/src/index.ts",
-          "hash": "2939904805614063368"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/tsconfig.json",
-          "hash": "3896990019654448024"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/tsconfig.lib.json",
-          "hash": "17512648156706774563"
+          "file": "packages/fastify-postgres/src/app/routes/posts/posts.ts",
+          "hash": "13179769021343019041"
         }
       ],
       "e2e": [
@@ -283,96 +389,6 @@
         {
           "file": "packages/fastify-postgres/e2e/tsconfig.spec.json",
           "hash": "2004942633809930099"
-        }
-      ],
-      "northwind-api": [
-        {
-          "file": "packages/northwind-api/.eslintrc.js",
-          "hash": "7461846271827386206"
-        },
-        {
-          "file": "packages/northwind-api/.gitignore",
-          "hash": "672911037926083482"
-        },
-        {
-          "file": "packages/northwind-api/.prettierrc",
-          "hash": "4808572120966128913"
-        },
-        {
-          "file": "packages/northwind-api/README.md",
-          "hash": "88028313855074524"
-        },
-        {
-          "file": "packages/northwind-api/nest-cli.json",
-          "hash": "789240945379598733"
-        },
-        {
-          "file": "packages/northwind-api/package.json",
-          "hash": "688172446931237650",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:@nestjs/platform-express",
-            "npm:reflect-metadata",
-            "npm:rxjs",
-            "npm:@nestjs/cli",
-            "npm:@nestjs/schematics",
-            "npm:@nestjs/testing",
-            "npm:@types/express",
-            "npm:@types/jest",
-            "npm:@types/node",
-            "npm:@types/supertest",
-            "npm:@typescript-eslint/eslint-plugin",
-            "npm:@typescript-eslint/parser",
-            "npm:eslint",
-            "npm:eslint-config-prettier",
-            "npm:eslint-plugin-prettier",
-            "npm:jest",
-            "npm:prettier",
-            "npm:source-map-support",
-            "npm:supertest",
-            "npm:ts-jest",
-            "npm:ts-loader",
-            "npm:ts-node",
-            "npm:tsconfig-paths",
-            "npm:typescript"
-          ]
-        },
-        {
-          "file": "packages/northwind-api/src/app.controller.spec.ts",
-          "hash": "2727664763654384995"
-        },
-        {
-          "file": "packages/northwind-api/src/app.controller.ts",
-          "hash": "4552329938751326480"
-        },
-        {
-          "file": "packages/northwind-api/src/app.module.ts",
-          "hash": "11673476679848632172"
-        },
-        {
-          "file": "packages/northwind-api/src/app.service.ts",
-          "hash": "16892833931858030153"
-        },
-        {
-          "file": "packages/northwind-api/src/main.ts",
-          "hash": "16836780892212170881"
-        },
-        {
-          "file": "packages/northwind-api/test/app.e2e-spec.ts",
-          "hash": "15142680097789702029"
-        },
-        {
-          "file": "packages/northwind-api/test/jest-e2e.json",
-          "hash": "7570273541430074424"
-        },
-        {
-          "file": "packages/northwind-api/tsconfig.build.json",
-          "hash": "276845246908739715"
-        },
-        {
-          "file": "packages/northwind-api/tsconfig.json",
-          "hash": "1876265833229380624"
         }
       ]
     }

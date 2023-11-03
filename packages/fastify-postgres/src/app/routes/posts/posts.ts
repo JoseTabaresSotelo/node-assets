@@ -15,7 +15,7 @@ export default async function (fastify: FastifyInstance) {
   });
 
   fastify.get(
-    '/api/posts/:id',
+    '/posts/:id',
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
       const { id } = request.params;
       const { rows } = await runQuery(fastify.pg, getPostById, [id]);
@@ -24,7 +24,7 @@ export default async function (fastify: FastifyInstance) {
   );
 
   fastify.post(
-    '/api/posts',
+    '/posts',
     async (
       request: FastifyRequest<{
         Body: { title: string; content: string; author_email: string };
