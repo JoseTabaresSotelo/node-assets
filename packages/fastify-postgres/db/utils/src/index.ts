@@ -1,6 +1,6 @@
 import { PostgresDb } from '@fastify/postgres';
 
-export const RESET_DB = `DROP TABLE IF EXISTS users, posts CASCADE;
+export const RESET_DB = `DROP TABLE IF EXISTS users_sample, posts_sample CASCADE;
 
 CREATE TABLE users_sample (
   id SERIAL PRIMARY KEY,

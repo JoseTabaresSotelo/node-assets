@@ -1,11 +1,11 @@
 import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
-const getAllPosts = 'SELECT * from posts';
-const getPostById = 'SELECT * from posts WHERE id = $1';
-const createPostWithUserEmail = `INSERT INTO posts (title, content, user_id)
+const getAllPosts = 'SELECT * from posts_sample';
+const getPostById = 'SELECT * from posts_sample WHERE id = $1';
+const createPostWithUserEmail = `INSERT INTO posts_sample (title, content, user_id)
 VALUES ($1, $2, (
-  SELECT id FROM users WHERE email = $3 
+  SELECT id FROM users_sample WHERE email = $3 
 )) RETURNING * ;`;
 
 export default async function (fastify: FastifyInstance) {
