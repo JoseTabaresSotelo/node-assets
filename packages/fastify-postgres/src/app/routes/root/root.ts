@@ -1,8 +1,10 @@
 import { FastifyInstance } from 'fastify';
 import { resetDb } from '@api/db/utils';
 
-export default async function (fastify: FastifyInstance) {
+const root = async (fastify: FastifyInstance) => {
   fastify.get('/reset', async () => {
     return await resetDb(fastify.pg);
   });
 }
+
+export default root;

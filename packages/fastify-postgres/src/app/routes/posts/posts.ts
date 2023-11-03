@@ -8,8 +8,8 @@ VALUES ($1, $2, (
   SELECT id FROM users_sample WHERE email = $3 
 )) RETURNING * ;`;
 
-export default async function (fastify: FastifyInstance) {
-  fastify.get('/api/posts', async () => {
+const posts = async (fastify: FastifyInstance) => {
+  fastify.get('/posts', async () => {
     const { rows } = await runQuery(fastify.pg, getAllPosts);
     return rows;
   });
@@ -39,4 +39,6 @@ export default async function (fastify: FastifyInstance) {
       return rows;
     }
   );
-}
+};
+
+export default posts;

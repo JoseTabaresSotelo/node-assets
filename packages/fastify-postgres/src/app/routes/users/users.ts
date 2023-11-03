@@ -1,11 +1,17 @@
 import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
-const addUser = `INSERT INTO users (username, email) VALUES ($1, $2) RETURNING *;`;
+const getAllUsers = 'SELECT * from users_sample';
+const addUser = `INSERT INTO users_sample (username, email) VALUES ($1, $2) RETURNING *;`;
 
-export default async function (fastify: FastifyInstance) {
+const users = async (fastify: FastifyInstance) => {
+  fastify.get('/users', async () => {
+    const { rows } = await runQuery(fastify.pg, getAllUsers);
+    return rows;
+  });
+  
   fastify.post(
-    '/api/users',
+    '/users',
     async (
       request: FastifyRequest<{ Body: { username: string; email: string } }>
     ) => {
@@ -15,4 +21,6 @@ export default async function (fastify: FastifyInstance) {
       return rows;
     }
   );
-}
+};
+
+export default users;

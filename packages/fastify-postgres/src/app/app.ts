@@ -21,7 +21,8 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
   // This loads all plugins defined in routes
   // define your routes in one of these
   fastify.register(AutoLoad, {
-    dir: path.join(__dirname, 'routes/posts'),
+    dir: path.join(__dirname, 'routes'),
+    dirNameRoutePrefix: false,
     ignorePattern: /.test.(t|j)s/,
     options: { prefix: '/api' },
   });
