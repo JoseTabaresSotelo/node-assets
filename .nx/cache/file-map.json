@@ -21,7 +21,7 @@
       },
       {
         "file": ".nx/cache/d/daemon.log",
-        "hash": "7848914860269320692"
+        "hash": "5527143832142798994"
       },
       {
         "file": ".nx/cache/d/server-process.json",
@@ -29,7 +29,7 @@
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "1685775465728265805"
+        "hash": "7608786609874835"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -89,6 +89,10 @@
       },
       {
         "file": ".nx/cache/project-graph.json~64860373",
+        "hash": "16301928848678384210"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~2401b7c2",
         "hash": "16301928848678384210"
       }
     ],
@@ -310,7 +314,7 @@
         },
         {
           "file": "packages/fastify-postgres/src/app/app.ts",
-          "hash": "18319375776650605874"
+          "hash": "12976297022144870108"
         },
         {
           "file": "packages/fastify-postgres/src/app/plugins/db.ts",
@@ -321,12 +325,8 @@
           "hash": "5872162997886440305"
         },
         {
-          "file": "packages/fastify-postgres/src/app/routes/root.ts",
-          "hash": "18052840807408675476"
-        },
-        {
           "file": "packages/fastify-postgres/src/app/routes/users/users.ts",
-          "hash": "3189198259947706669"
+          "hash": "754643341930336974"
         },
         {
           "file": "packages/fastify-postgres/src/assets/.gitkeep",
@@ -350,7 +350,15 @@
         },
         {
           "file": "packages/fastify-postgres/src/app/routes/posts/posts.ts",
-          "hash": "13179769021343019041"
+          "hash": "9967684749156965533"
+        },
+        {
+          "file": "packages/fastify-postgres/fastify-postgres.postman_collection.json",
+          "hash": "9449379869415363774"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/root/root.ts",
+          "hash": "6259221674115210337"
         }
       ],
       "e2e": [
