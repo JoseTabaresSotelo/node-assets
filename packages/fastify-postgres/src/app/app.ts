@@ -23,7 +23,7 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
     dirNameRoutePrefix: false,
-    ignorePattern: /.test.(t|j)s/,
+    ignorePattern: /.spec.(t|j)s/,
     options: { prefix: '/api' },
   });
 }

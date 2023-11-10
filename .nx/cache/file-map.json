@@ -21,15 +21,15 @@
       },
       {
         "file": ".nx/cache/d/daemon.log",
-        "hash": "5527143832142798994"
+        "hash": "719040731670866171"
       },
       {
         "file": ".nx/cache/d/server-process.json",
-        "hash": "10289408537829811545"
+        "hash": "6597170018638068845"
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "7608786609874835"
+        "hash": "7527588098359151422"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -41,6 +41,14 @@
       },
       {
         "file": ".nx/cache/project-graph.json",
+        "hash": "17718076181192915303"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~0ddc7b88",
+        "hash": "16301928848678384210"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~2401b7c2",
         "hash": "16301928848678384210"
       },
       {
@@ -48,12 +56,16 @@
         "hash": "10786980724512671389"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "15542186811534988851"
+        "file": ".nx/cache/project-graph.json~64860373",
+        "hash": "16301928848678384210"
       },
       {
-        "file": ".vscode/settings.json",
-        "hash": "18212781096192777120"
+        "file": ".nx/cache/project-graph.json~e7c97f77",
+        "hash": "16301928848678384210"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "15542186811534988851"
       },
       {
         "file": "README.md",
@@ -78,25 +90,169 @@
       {
         "file": "packages/northwind-database/northwind.sql",
         "hash": "10773099633976583702"
-      },
-      {
-        "file": ".nx/cache/project-graph.json~0ddc7b88",
-        "hash": "16301928848678384210"
-      },
-      {
-        "file": ".nx/cache/project-graph.json~e7c97f77",
-        "hash": "16301928848678384210"
-      },
-      {
-        "file": ".nx/cache/project-graph.json~64860373",
-        "hash": "16301928848678384210"
-      },
-      {
-        "file": ".nx/cache/project-graph.json~2401b7c2",
-        "hash": "16301928848678384210"
       }
     ],
     "projectFileMap": {
+      "api": [
+        {
+          "file": "packages/fastify-postgres/.env.example",
+          "hash": "16160054946132588190"
+        },
+        {
+          "file": "packages/fastify-postgres/.eslintignore",
+          "hash": "13404745306227114823"
+        },
+        {
+          "file": "packages/fastify-postgres/.eslintrc.base.json",
+          "hash": "9188201835120897554"
+        },
+        {
+          "file": "packages/fastify-postgres/.eslintrc.json",
+          "hash": "15431507165765203778"
+        },
+        {
+          "file": "packages/fastify-postgres/.gitignore",
+          "hash": "11817571289657355511"
+        },
+        {
+          "file": "packages/fastify-postgres/.prettierignore",
+          "hash": "2687824826588932174"
+        },
+        {
+          "file": "packages/fastify-postgres/.prettierrc",
+          "hash": "6820402234827505055"
+        },
+        {
+          "file": "packages/fastify-postgres/.vscode/extensions.json",
+          "hash": "13391140343975966684"
+        },
+        {
+          "file": "packages/fastify-postgres/README.md",
+          "hash": "17086827365743217883"
+        },
+        {
+          "file": "packages/fastify-postgres/extras/Nx_Fastify_Postgres.postman_collection.json",
+          "hash": "134440907252127419"
+        },
+        {
+          "file": "packages/fastify-postgres/extras/nx_fastify_postgres_graph.png",
+          "hash": "6771381022907919342"
+        },
+        {
+          "file": "packages/fastify-postgres/fastify-postgres.postman_collection.json",
+          "hash": "9449379869415363774"
+        },
+        {
+          "file": "packages/fastify-postgres/jest.config.ts",
+          "hash": "2023118395648768778"
+        },
+        {
+          "file": "packages/fastify-postgres/jest.preset.js",
+          "hash": "7473220183190921152"
+        },
+        {
+          "file": "packages/fastify-postgres/nx.json",
+          "hash": "2198007993366852709"
+        },
+        {
+          "file": "packages/fastify-postgres/package-lock.json",
+          "hash": "15310548227167961249"
+        },
+        {
+          "file": "packages/fastify-postgres/package.json",
+          "hash": "15965187208482033845",
+          "deps": [
+            "npm:@fastify/autoload",
+            "npm:@fastify/postgres",
+            "npm:@fastify/sensible",
+            "npm:axios",
+            "npm:fastify",
+            "npm:fastify-plugin",
+            "npm:tslib",
+            "npm:@nx/esbuild",
+            "npm:@nx/jest",
+            "npm:@nx/js",
+            "npm:@nx/node",
+            "npm:@nx/workspace",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:esbuild",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:jest",
+            "npm:jest-environment-node",
+            "npm:nx",
+            "npm:pino-pretty",
+            "npm:prettier",
+            "npm:ts-jest",
+            "npm:ts-node",
+            "npm:typescript",
+            "npm:@nx/eslint"
+          ]
+        },
+        {
+          "file": "packages/fastify-postgres/project.json",
+          "hash": "15624592068781339307"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/app.spec.ts",
+          "hash": "14796824185993465598"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/app.ts",
+          "hash": "17740081911693659714"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/plugins/db.ts",
+          "hash": "17576685955588084431"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/plugins/sensible.ts",
+          "hash": "5872162997886440305"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/categories/categories.ts",
+          "hash": "5024167668456526525"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/posts/posts.spec.ts",
+          "hash": "16464992771945689466"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/posts/posts.ts",
+          "hash": "9967684749156965533"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/root/root.ts",
+          "hash": "6259221674115210337"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/users/users.ts",
+          "hash": "754643341930336974"
+        },
+        {
+          "file": "packages/fastify-postgres/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "packages/fastify-postgres/src/main.ts",
+          "hash": "11959199412842642814"
+        },
+        {
+          "file": "packages/fastify-postgres/tsconfig.app.json",
+          "hash": "4528189873462250769"
+        },
+        {
+          "file": "packages/fastify-postgres/tsconfig.json",
+          "hash": "242702350403395720"
+        },
+        {
+          "file": "packages/fastify-postgres/tsconfig.spec.json",
+          "hash": "3170436939515323801"
+        }
+      ],
       "northwind-api": [
         {
           "file": "packages/northwind-api/.eslintrc.js",
@@ -207,158 +363,6 @@
         {
           "file": "packages/fastify-postgres/db/utils/tsconfig.lib.json",
           "hash": "17512648156706774563"
-        }
-      ],
-      "api": [
-        {
-          "file": "packages/fastify-postgres/.env.example",
-          "hash": "16160054946132588190"
-        },
-        {
-          "file": "packages/fastify-postgres/.eslintignore",
-          "hash": "13404745306227114823"
-        },
-        {
-          "file": "packages/fastify-postgres/.eslintrc.base.json",
-          "hash": "9188201835120897554"
-        },
-        {
-          "file": "packages/fastify-postgres/.eslintrc.json",
-          "hash": "15431507165765203778"
-        },
-        {
-          "file": "packages/fastify-postgres/.gitignore",
-          "hash": "11817571289657355511"
-        },
-        {
-          "file": "packages/fastify-postgres/.prettierignore",
-          "hash": "2687824826588932174"
-        },
-        {
-          "file": "packages/fastify-postgres/.prettierrc",
-          "hash": "6820402234827505055"
-        },
-        {
-          "file": "packages/fastify-postgres/.vscode/extensions.json",
-          "hash": "13391140343975966684"
-        },
-        {
-          "file": "packages/fastify-postgres/README.md",
-          "hash": "17086827365743217883"
-        },
-        {
-          "file": "packages/fastify-postgres/extras/Nx_Fastify_Postgres.postman_collection.json",
-          "hash": "134440907252127419"
-        },
-        {
-          "file": "packages/fastify-postgres/extras/nx_fastify_postgres_graph.png",
-          "hash": "6771381022907919342"
-        },
-        {
-          "file": "packages/fastify-postgres/jest.config.ts",
-          "hash": "2023118395648768778"
-        },
-        {
-          "file": "packages/fastify-postgres/jest.preset.js",
-          "hash": "7473220183190921152"
-        },
-        {
-          "file": "packages/fastify-postgres/nx.json",
-          "hash": "2198007993366852709"
-        },
-        {
-          "file": "packages/fastify-postgres/package-lock.json",
-          "hash": "15310548227167961249"
-        },
-        {
-          "file": "packages/fastify-postgres/package.json",
-          "hash": "15965187208482033845",
-          "deps": [
-            "npm:@fastify/autoload",
-            "npm:@fastify/postgres",
-            "npm:@fastify/sensible",
-            "npm:axios",
-            "npm:fastify",
-            "npm:fastify-plugin",
-            "npm:tslib",
-            "npm:@nx/esbuild",
-            "npm:@nx/jest",
-            "npm:@nx/js",
-            "npm:@nx/node",
-            "npm:@nx/workspace",
-            "npm:@types/jest",
-            "npm:@types/node",
-            "npm:@typescript-eslint/eslint-plugin",
-            "npm:@typescript-eslint/parser",
-            "npm:esbuild",
-            "npm:eslint",
-            "npm:eslint-config-prettier",
-            "npm:jest",
-            "npm:jest-environment-node",
-            "npm:nx",
-            "npm:pino-pretty",
-            "npm:prettier",
-            "npm:ts-jest",
-            "npm:ts-node",
-            "npm:typescript",
-            "npm:@nx/eslint"
-          ]
-        },
-        {
-          "file": "packages/fastify-postgres/project.json",
-          "hash": "15624592068781339307"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/app.spec.ts",
-          "hash": "18201966494753869302"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/app.ts",
-          "hash": "12976297022144870108"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/plugins/db.ts",
-          "hash": "17576685955588084431"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/plugins/sensible.ts",
-          "hash": "5872162997886440305"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/routes/users/users.ts",
-          "hash": "754643341930336974"
-        },
-        {
-          "file": "packages/fastify-postgres/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "packages/fastify-postgres/src/main.ts",
-          "hash": "11959199412842642814"
-        },
-        {
-          "file": "packages/fastify-postgres/tsconfig.app.json",
-          "hash": "4528189873462250769"
-        },
-        {
-          "file": "packages/fastify-postgres/tsconfig.json",
-          "hash": "242702350403395720"
-        },
-        {
-          "file": "packages/fastify-postgres/tsconfig.spec.json",
-          "hash": "3170436939515323801"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/routes/posts/posts.ts",
-          "hash": "9967684749156965533"
-        },
-        {
-          "file": "packages/fastify-postgres/fastify-postgres.postman_collection.json",
-          "hash": "9449379869415363774"
-        },
-        {
-          "file": "packages/fastify-postgres/src/app/routes/root/root.ts",
-          "hash": "6259221674115210337"
         }
       ],
       "e2e": [
