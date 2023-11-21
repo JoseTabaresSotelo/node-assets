@@ -1,8 +1,15 @@
 import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
-const getAllTerritories = 'SELECT * FROM public.territories ORDER BY territory_id ASC';
-const getTerritoryById = 'SELECT * FROM public.territories WHERE territory_id = $1';
+const territoriesQuery = `
+    SELECT 
+        t.territory_id,
+        t.territory_description,
+        r.region_description
+    FROM public.territories AS t
+    INNER JOIN public.region AS r ON t.region_id = r.region_id`;
+const getAllTerritories = `${territoriesQuery} ORDER BY t.territory_id ASC`;
+const getTerritoryById = `${territoriesQuery} WHERE territory_id = $1`;
 
 const territories = async (fastify: FastifyInstance) => {
   fastify.get('/territories', async () => {
