@@ -6,15 +6,15 @@
 
 -- DROP DATABASE IF EXISTS northwind;
 
-CREATE DATABASE northwind
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'C.UTF-8'
-    LC_CTYPE = 'C.UTF-8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
+-- CREATE DATABASE northwind
+--     WITH
+--     OWNER = postgres
+--     ENCODING = 'UTF8'
+--     LC_COLLATE = 'C.UTF-8'
+--     LC_CTYPE = 'C.UTF-8'
+--     TABLESPACE = pg_default
+--     CONNECTION LIMIT = -1
+--     IS_TEMPLATE = False;
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
