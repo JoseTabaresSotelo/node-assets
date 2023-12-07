@@ -5,7 +5,8 @@
   "scripts": {},
   "private": true,
   "dependencies": {
-    "@angular/compiler-cli": "^15.2.10"
+    "@angular/compiler-cli": "^15.2.10",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "@nx/js": "16.10.0",
