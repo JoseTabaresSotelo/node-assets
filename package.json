@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@angular/compiler-cli": "^15.2.10"
+  },
   "devDependencies": {
     "@nx/js": "16.10.0",
     "nx": "16.10.0",

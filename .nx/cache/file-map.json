@@ -21,11 +21,31 @@
       },
       {
         "file": ".nx/cache/d/daemon.log",
-        "hash": "8400558509882664127"
+        "hash": "17225940226018038628"
       },
       {
         "file": ".nx/cache/d/server-process.json",
-        "hash": "12365059205131734459"
+        "hash": "8921971030703157915"
+      },
+      {
+        "file": ".nx/cache/file-map.json",
+        "hash": "14004536868657830494"
+      },
+      {
+        "file": ".nx/cache/lockfile.hash",
+        "hash": "11771206013832783025"
+      },
+      {
+        "file": ".nx/cache/parsed-lock-file.json",
+        "hash": "9522060044769673328"
+      },
+      {
+        "file": ".nx/cache/project-graph.json",
+        "hash": "7843701533744286666"
+      },
+      {
+        "file": ".nx/cache/project-graph.json~547a6d05",
+        "hash": "8012086839921025355"
       },
       {
         "file": ".vscode/extensions.json",
@@ -62,14 +82,6 @@
       {
         "file": "packages/northwind-database/northwind.sql",
         "hash": "18222851015184157906"
-      },
-      {
-        "file": ".nx/cache/file-map.json",
-        "hash": "9653308151700990638"
-      },
-      {
-        "file": ".nx/cache/project-graph.json",
-        "hash": "8012086839921025355"
       }
     ],
     "projectFileMap": {
@@ -163,42 +175,26 @@
           "hash": "1876265833229380624"
         }
       ],
-      "e2e": [
+      "db-utils": [
         {
-          "file": "packages/fastify-postgres/e2e/.eslintrc.json",
-          "hash": "12505813350031880088"
+          "file": "packages/fastify-postgres/db/utils/.eslintrc.json",
+          "hash": "6997211072099135238"
         },
         {
-          "file": "packages/fastify-postgres/e2e/jest.config.ts",
-          "hash": "1456555062157936470"
+          "file": "packages/fastify-postgres/db/utils/project.json",
+          "hash": "7658574406217243652"
         },
         {
-          "file": "packages/fastify-postgres/e2e/project.json",
-          "hash": "9790091124017189772"
+          "file": "packages/fastify-postgres/db/utils/src/index.ts",
+          "hash": "2939904805614063368"
         },
         {
-          "file": "packages/fastify-postgres/e2e/src/server/server.spec.ts",
-          "hash": "3026045886657059088"
+          "file": "packages/fastify-postgres/db/utils/tsconfig.json",
+          "hash": "3896990019654448024"
         },
         {
-          "file": "packages/fastify-postgres/e2e/src/support/global-setup.ts",
-          "hash": "18221119270488052961"
-        },
-        {
-          "file": "packages/fastify-postgres/e2e/src/support/global-teardown.ts",
-          "hash": "17927034305001160425"
-        },
-        {
-          "file": "packages/fastify-postgres/e2e/src/support/test-setup.ts",
-          "hash": "4165311015569872896"
-        },
-        {
-          "file": "packages/fastify-postgres/e2e/tsconfig.json",
-          "hash": "3552952790334018146"
-        },
-        {
-          "file": "packages/fastify-postgres/e2e/tsconfig.spec.json",
-          "hash": "2004942633809930099"
+          "file": "packages/fastify-postgres/db/utils/tsconfig.lib.json",
+          "hash": "17512648156706774563"
         }
       ],
       "northwind-angular-app": [
@@ -1010,28 +1006,6 @@
           "hash": "15575553540147145788"
         }
       ],
-      "db-utils": [
-        {
-          "file": "packages/fastify-postgres/db/utils/.eslintrc.json",
-          "hash": "6997211072099135238"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/project.json",
-          "hash": "7658574406217243652"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/src/index.ts",
-          "hash": "2939904805614063368"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/tsconfig.json",
-          "hash": "3896990019654448024"
-        },
-        {
-          "file": "packages/fastify-postgres/db/utils/tsconfig.lib.json",
-          "hash": "17512648156706774563"
-        }
-      ],
       "api": [
         {
           "file": "packages/fastify-postgres/.env.example",
@@ -1218,6 +1192,44 @@
         {
           "file": "packages/fastify-postgres/tsconfig.spec.json",
           "hash": "3170436939515323801"
+        }
+      ],
+      "e2e": [
+        {
+          "file": "packages/fastify-postgres/e2e/.eslintrc.json",
+          "hash": "12505813350031880088"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/jest.config.ts",
+          "hash": "1456555062157936470"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/project.json",
+          "hash": "9790091124017189772"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/src/server/server.spec.ts",
+          "hash": "3026045886657059088"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/src/support/global-setup.ts",
+          "hash": "18221119270488052961"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/src/support/global-teardown.ts",
+          "hash": "17927034305001160425"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/src/support/test-setup.ts",
+          "hash": "4165311015569872896"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/tsconfig.json",
+          "hash": "3552952790334018146"
+        },
+        {
+          "file": "packages/fastify-postgres/e2e/tsconfig.spec.json",
+          "hash": "2004942633809930099"
         }
       ]
     }
