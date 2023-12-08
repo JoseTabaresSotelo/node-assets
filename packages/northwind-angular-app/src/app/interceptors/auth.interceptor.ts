@@ -21,12 +21,40 @@ export class AuthInterceptor implements HttpInterceptor {
     let tokenModel: AccessTokenModel | null =
       this.localStorageService.get<AccessTokenModel>('tokenModel');
 
-    let newRequest: HttpRequest<any> = request.clone({
+    // let newRequest: HttpRequest<any> = request.clone({
+    //   headers: request.headers.set(
+    //     'Authorization',
+    //     `Bearer ${tokenModel?.Token}`
+    //   ),
+    // });
+
+    let newRequest = request.clone({
       headers: request.headers.set(
-        'Authorization',
-        `Bearer ${tokenModel?.Token}`
+        'Access-Control-Allow-Origin',
+        `*`
       ),
     });
+
+    // newRequest = request.clone({
+    //   headers: request.headers.set(
+    //     'Access-Control-Allow-Methods',
+    //     `GET, POST, PUT, DELETE, PATCH, OPTIONS`
+    //   ),
+    // });
+
+    //  newRequest = request.clone({
+    //   headers: request.headers.set(
+    //     'Referer',
+    //     `http://127.0.0.1:3000/api`
+    //   ),
+    // });
+
+    // newRequest = request.clone({
+    //   headers: request.headers.set(
+    //     'Access-Control-Allow-Headers',
+    //     `X-Requested-With, content-type, Authorization`
+    //   ),
+    // });
 
     return next.handle(newRequest);
   }

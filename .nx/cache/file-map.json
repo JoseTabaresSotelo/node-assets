@@ -2,6 +2,8 @@
   "version": "6.0",
   "nxVersion": "16.10.0",
   "deps": {
+    "@angular/compiler-cli": "^15.2.10",
+    "pg": "^8.11.3",
     "@nx/js": "16.10.0",
     "nx": "16.10.0",
     "nx-cloud": "latest"
@@ -21,27 +23,27 @@
       },
       {
         "file": ".nx/cache/d/daemon.log",
-        "hash": "17225940226018038628"
+        "hash": "15010734405183613545"
       },
       {
         "file": ".nx/cache/d/server-process.json",
-        "hash": "8921971030703157915"
+        "hash": "14973619639665948943"
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "14004536868657830494"
+        "hash": "4015829315503861518"
       },
       {
         "file": ".nx/cache/lockfile.hash",
-        "hash": "11771206013832783025"
+        "hash": "9433794211619209015"
       },
       {
         "file": ".nx/cache/parsed-lock-file.json",
-        "hash": "9522060044769673328"
+        "hash": "5404792500298039793"
       },
       {
         "file": ".nx/cache/project-graph.json",
-        "hash": "7843701533744286666"
+        "hash": "11178911585069636715"
       },
       {
         "file": ".nx/cache/project-graph.json~547a6d05",
@@ -65,11 +67,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "10845942144254394412"
+        "hash": "14020963031842195133"
       },
       {
         "file": "package.json",
-        "hash": "5821174056433126546"
+        "hash": "4535010966824534620"
       },
       {
         "file": "packages/enviroments/.env",
@@ -85,96 +87,6 @@
       }
     ],
     "projectFileMap": {
-      "northwind-api": [
-        {
-          "file": "packages/northwind-api/.eslintrc.js",
-          "hash": "7461846271827386206"
-        },
-        {
-          "file": "packages/northwind-api/.gitignore",
-          "hash": "672911037926083482"
-        },
-        {
-          "file": "packages/northwind-api/.prettierrc",
-          "hash": "4808572120966128913"
-        },
-        {
-          "file": "packages/northwind-api/README.md",
-          "hash": "88028313855074524"
-        },
-        {
-          "file": "packages/northwind-api/nest-cli.json",
-          "hash": "789240945379598733"
-        },
-        {
-          "file": "packages/northwind-api/package.json",
-          "hash": "688172446931237650",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:@nestjs/platform-express",
-            "npm:reflect-metadata",
-            "npm:rxjs",
-            "npm:@nestjs/cli",
-            "npm:@nestjs/schematics",
-            "npm:@nestjs/testing",
-            "npm:@types/express",
-            "npm:@types/jest",
-            "npm:@types/node",
-            "npm:@types/supertest",
-            "npm:@typescript-eslint/eslint-plugin",
-            "npm:@typescript-eslint/parser",
-            "npm:eslint",
-            "npm:eslint-config-prettier",
-            "npm:eslint-plugin-prettier",
-            "npm:jest",
-            "npm:prettier",
-            "npm:source-map-support",
-            "npm:supertest",
-            "npm:ts-jest",
-            "npm:ts-loader",
-            "npm:ts-node",
-            "npm:tsconfig-paths",
-            "npm:typescript"
-          ]
-        },
-        {
-          "file": "packages/northwind-api/src/app.controller.spec.ts",
-          "hash": "2727664763654384995"
-        },
-        {
-          "file": "packages/northwind-api/src/app.controller.ts",
-          "hash": "4552329938751326480"
-        },
-        {
-          "file": "packages/northwind-api/src/app.module.ts",
-          "hash": "11673476679848632172"
-        },
-        {
-          "file": "packages/northwind-api/src/app.service.ts",
-          "hash": "16892833931858030153"
-        },
-        {
-          "file": "packages/northwind-api/src/main.ts",
-          "hash": "16836780892212170881"
-        },
-        {
-          "file": "packages/northwind-api/test/app.e2e-spec.ts",
-          "hash": "15142680097789702029"
-        },
-        {
-          "file": "packages/northwind-api/test/jest-e2e.json",
-          "hash": "7570273541430074424"
-        },
-        {
-          "file": "packages/northwind-api/tsconfig.build.json",
-          "hash": "276845246908739715"
-        },
-        {
-          "file": "packages/northwind-api/tsconfig.json",
-          "hash": "1876265833229380624"
-        }
-      ],
       "db-utils": [
         {
           "file": "packages/fastify-postgres/db/utils/.eslintrc.json",
@@ -220,30 +132,24 @@
         },
         {
           "file": "packages/northwind-angular-app/README.md",
-          "hash": "3453259915852583981"
+          "hash": "12894461601386720828"
         },
         {
           "file": "packages/northwind-angular-app/angular.json",
-          "hash": "18210021506012090015"
+          "hash": "14736946682584140199"
         },
         {
           "file": "packages/northwind-angular-app/package.json",
-          "hash": "4432440819314171534",
+          "hash": "8799953573211720937",
           "deps": [
-            "npm:@angular/animations",
-            "npm:@angular/common",
             "npm:@angular/compiler",
             "npm:@angular/core",
-            "npm:@angular/forms",
-            "npm:@angular/platform-browser",
-            "npm:@angular/platform-browser-dynamic",
-            "npm:@angular/router",
             "npm:bootstrap",
             "npm:rxjs",
             "npm:tslib",
             "npm:zone.js",
             "npm:@angular-devkit/build-angular",
-            "npm:@angular/cli",
+            "npm:@angular/compiler-cli",
             "npm:karma",
             "npm:karma-chrome-launcher",
             "npm:typescript"
@@ -743,7 +649,7 @@
         },
         {
           "file": "packages/northwind-angular-app/src/app/interceptors/auth.interceptor.ts",
-          "hash": "3813061967881938661"
+          "hash": "9764388697073587268"
         },
         {
           "file": "packages/northwind-angular-app/src/app/models/accessTokenModel.ts",
@@ -975,7 +881,7 @@
         },
         {
           "file": "packages/northwind-angular-app/src/environments/environment.ts",
-          "hash": "5350989476195548874"
+          "hash": "971259227655835587"
         },
         {
           "file": "packages/northwind-angular-app/src/favicon.ico",
@@ -988,6 +894,10 @@
         {
           "file": "packages/northwind-angular-app/src/main.ts",
           "hash": "12246588107753938993"
+        },
+        {
+          "file": "packages/northwind-angular-app/src/proxy.conf.json",
+          "hash": "12573854221107478716"
         },
         {
           "file": "packages/northwind-angular-app/src/styles.scss",
@@ -1064,6 +974,10 @@
           "hash": "2198007993366852709"
         },
         {
+          "file": "packages/fastify-postgres/package-lock.json",
+          "hash": "7363889808608393277"
+        },
+        {
           "file": "packages/fastify-postgres/package.json",
           "hash": "15965187208482033845",
           "deps": [
@@ -1116,6 +1030,10 @@
         {
           "file": "packages/fastify-postgres/src/app/plugins/sensible.ts",
           "hash": "5872162997886440305"
+        },
+        {
+          "file": "packages/fastify-postgres/src/app/routes/auth/auth.ts",
+          "hash": "6780598206992206385"
         },
         {
           "file": "packages/fastify-postgres/src/app/routes/categories/categories.ts",
@@ -1192,6 +1110,96 @@
         {
           "file": "packages/fastify-postgres/tsconfig.spec.json",
           "hash": "3170436939515323801"
+        }
+      ],
+      "northwind-api": [
+        {
+          "file": "packages/northwind-api/.eslintrc.js",
+          "hash": "7461846271827386206"
+        },
+        {
+          "file": "packages/northwind-api/.gitignore",
+          "hash": "672911037926083482"
+        },
+        {
+          "file": "packages/northwind-api/.prettierrc",
+          "hash": "4808572120966128913"
+        },
+        {
+          "file": "packages/northwind-api/README.md",
+          "hash": "88028313855074524"
+        },
+        {
+          "file": "packages/northwind-api/nest-cli.json",
+          "hash": "789240945379598733"
+        },
+        {
+          "file": "packages/northwind-api/package.json",
+          "hash": "688172446931237650",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:@nestjs/cli",
+            "npm:@nestjs/schematics",
+            "npm:@nestjs/testing",
+            "npm:@types/express",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@types/supertest",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-prettier",
+            "npm:jest",
+            "npm:prettier",
+            "npm:source-map-support",
+            "npm:supertest",
+            "npm:ts-jest",
+            "npm:ts-loader",
+            "npm:ts-node",
+            "npm:tsconfig-paths",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "packages/northwind-api/src/app.controller.spec.ts",
+          "hash": "2727664763654384995"
+        },
+        {
+          "file": "packages/northwind-api/src/app.controller.ts",
+          "hash": "4552329938751326480"
+        },
+        {
+          "file": "packages/northwind-api/src/app.module.ts",
+          "hash": "11673476679848632172"
+        },
+        {
+          "file": "packages/northwind-api/src/app.service.ts",
+          "hash": "16892833931858030153"
+        },
+        {
+          "file": "packages/northwind-api/src/main.ts",
+          "hash": "7253326461340265321"
+        },
+        {
+          "file": "packages/northwind-api/test/app.e2e-spec.ts",
+          "hash": "15142680097789702029"
+        },
+        {
+          "file": "packages/northwind-api/test/jest-e2e.json",
+          "hash": "7570273541430074424"
+        },
+        {
+          "file": "packages/northwind-api/tsconfig.build.json",
+          "hash": "276845246908739715"
+        },
+        {
+          "file": "packages/northwind-api/tsconfig.json",
+          "hash": "1876265833229380624"
         }
       ],
       "e2e": [
