@@ -44,13 +44,13 @@ Type this command: `sudo apt install postgresql postgresql-contrib` </br>
 Once installed, you'll primarily utilize these three commands for working with PostgreSQL:
 
 - `sudo service postgresql start` to initiate the database, it will prompt you for the WSL root key.
-- `sudo service postgresql statu` to know the status of the database.
+- `sudo service postgresql status` to know the status of the database.
 - `sudo service postgresql stop` to stop the database
 
 
 Upon PostgreSQL installation, an admin user is automatically generated, requiring a password for database access. To set the password, follow these steps:
 
-- Use `sudo passwd postrgress`
+- Use `sudo passwd postgres`
 - When prompted in the terminal, provide your system password.
 - In conclusion, restart the terminal by closing it and then reopening it.
 
