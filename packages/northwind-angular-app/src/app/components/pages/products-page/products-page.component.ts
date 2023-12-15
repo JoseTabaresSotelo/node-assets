@@ -33,6 +33,7 @@ export class ProductsPageComponent implements OnInit {
 
   getProducts() {
     this.productService.getAll().subscribe((response) => {
+      debugger;
       this.products = response.Data;
       this.dataLoaded = true;
     });
