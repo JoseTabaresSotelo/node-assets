@@ -39,7 +39,7 @@ export class TerritoryFormPageComponent implements OnInit {
   getTerritoryById(id: number) {
     this.territoryService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.territory = response.Data;
+      this.territory = response.data;
       this.createTerritoryEditForm();
     });
   }

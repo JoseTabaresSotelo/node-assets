@@ -39,7 +39,7 @@ export class EmployeeFormPageComponent implements OnInit {
   getEmployeeById(id: number) {
     this.employeeService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.employee = response.Data;
+      this.employee = response.data;
       this.createEmployeeEditForm();
     });
   }

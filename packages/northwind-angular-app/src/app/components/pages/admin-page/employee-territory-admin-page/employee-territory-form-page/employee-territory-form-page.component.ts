@@ -39,7 +39,7 @@ export class EmployeeTerritoryFormPageComponent implements OnInit {
   getEmployeeTerritoryById(id: number) {
     this.employeeTerritoryService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.employeeTerritory = response.Data;
+      this.employeeTerritory = response.data;
       this.createEmployeeTerritoryEditForm();
     });
   }

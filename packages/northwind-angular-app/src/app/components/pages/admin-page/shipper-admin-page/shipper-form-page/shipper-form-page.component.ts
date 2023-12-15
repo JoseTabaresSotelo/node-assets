@@ -39,7 +39,7 @@ export class ShipperFormPageComponent implements OnInit {
   getShipperById(id: number) {
     this.shipperService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.shipper = response.Data;
+      this.shipper = response.data;
       this.createShipperEditForm();
     });
   }

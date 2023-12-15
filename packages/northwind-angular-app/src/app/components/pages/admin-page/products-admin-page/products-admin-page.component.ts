@@ -21,7 +21,7 @@ export class ProductsAdminPageComponent implements OnInit {
 
   getProducts() {
     this.productService.getAll().subscribe((response) => {
-      this.products = response.Data;
+      this.products = response.data;
     });
   }
 

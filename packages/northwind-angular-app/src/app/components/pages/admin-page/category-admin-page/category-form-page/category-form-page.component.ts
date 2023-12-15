@@ -39,7 +39,7 @@ export class CategoryFormPageComponent implements OnInit {
   getCategoryById(id: number) {
     this.categoryService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.category = response.Data;
+      this.category = response.data;
       this.createCategoryEditForm();
     });
   }

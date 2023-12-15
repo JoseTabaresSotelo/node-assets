@@ -39,7 +39,7 @@ export class OrderDetailFormPageComponent implements OnInit {
   getOrderDetailById(id: number) {
     this.orderDetailService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.orderDetail = response.Data;
+      this.orderDetail = response.data;
       this.createOrderDetailEditForm();
     });
   }

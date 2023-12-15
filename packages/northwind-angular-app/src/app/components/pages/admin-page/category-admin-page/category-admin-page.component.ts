@@ -24,7 +24,7 @@ export class CategoryAdminPageComponent implements OnInit {
 
   getCategories() {
     this.categoryService.getAll().subscribe((response) => {
-      this.categories = response.Data;
+      this.categories = response.data;
     });
   }
 

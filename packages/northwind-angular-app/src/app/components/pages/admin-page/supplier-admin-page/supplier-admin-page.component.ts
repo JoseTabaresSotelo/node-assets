@@ -24,7 +24,7 @@ export class SupplierAdminPageComponent implements OnInit {
 
   getSuppliers() {
     this.supplierService.getAll().subscribe((response) => {
-      this.suppliers = response.Data;
+      this.suppliers = response.data;
     });
   }
 

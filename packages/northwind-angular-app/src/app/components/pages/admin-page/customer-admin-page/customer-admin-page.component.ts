@@ -24,7 +24,7 @@ export class CustomerAdminPageComponent implements OnInit {
 
   getCustomers() {
     this.customerService.getAll().subscribe((response) => {
-      this.customers = response.Data;
+      this.customers = response.data;
     });
   }
 

@@ -44,7 +44,7 @@ export class ProductFormPageComponent implements OnInit {
   getProductById(id: number) {
     this.productService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.product = response.Data;
+      this.product = response.data;
       this.createProductEditForm();
     });
   }

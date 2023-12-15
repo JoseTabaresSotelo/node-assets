@@ -24,7 +24,7 @@ export class EmployeeAdminPageComponent implements OnInit {
 
   getEmployees() {
     this.employeeService.getAll().subscribe((response) => {
-      this.employees = response.Data;
+      this.employees = response.data;
     });
   }
 

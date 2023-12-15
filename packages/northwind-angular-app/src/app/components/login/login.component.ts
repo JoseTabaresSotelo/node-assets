@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(loginModel).subscribe(
       (response) => {
         if (response.Message) this.toastrService.success(response.Message);
-        this.localStorageService.set('tokenModel', response.Data.accessToken);
-        this.authService.setUserToken(response.Data);
+        this.localStorageService.set('tokenModel', response.data.accessToken);
+        this.authService.setUserToken(response.data);
         this.router.navigateByUrl('');
       },
       (errorResponse) => {

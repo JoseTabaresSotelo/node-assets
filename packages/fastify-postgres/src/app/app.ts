@@ -23,7 +23,7 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
       err = e;
     }
 
-    const newPayload = { Data: data };
+    const newPayload = { data: data };
     done(err, newPayload);
   });
   // Place here your custom code!

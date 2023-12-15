@@ -39,7 +39,7 @@ export class SupplierFormPageComponent implements OnInit {
   getSupplierById(id: number) {
     this.supplierService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.supplier = response.Data;
+      this.supplier = response.data;
       this.createSupplierEditForm();
     });
   }

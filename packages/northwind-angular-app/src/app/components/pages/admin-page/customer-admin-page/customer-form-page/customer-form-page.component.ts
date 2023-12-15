@@ -39,7 +39,7 @@ export class CustomerFormPageComponent implements OnInit {
   getCustomerById(id: number) {
     this.customerService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.customer = response.Data;
+      this.customer = response.data;
       this.createCustomerEditForm();
     });
   }

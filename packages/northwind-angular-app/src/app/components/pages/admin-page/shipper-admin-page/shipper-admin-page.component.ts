@@ -21,7 +21,7 @@ export class ShipperAdminPageComponent implements OnInit {
 
   getShippers() {
     this.shipperService.getAll().subscribe((response) => {
-      this.shippers = response.Data;
+      this.shippers = response.data;
     });
   }
 

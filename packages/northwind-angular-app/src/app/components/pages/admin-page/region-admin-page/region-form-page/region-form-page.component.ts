@@ -39,7 +39,7 @@ export class RegionFormPageComponent implements OnInit {
   getRegionById(id: number) {
     this.regionService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.region = response.Data;
+      this.region = response.data;
       this.createRegionEditForm();
     });
   }

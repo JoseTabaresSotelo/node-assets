@@ -21,7 +21,7 @@ export class RegionAdminPageComponent implements OnInit {
 
   getRegions() {
     this.regionService.getAll().subscribe((response) => {
-      this.regions = response.Data;
+      this.regions = response.data;
     });
   }
 

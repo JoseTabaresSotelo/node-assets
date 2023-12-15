@@ -24,7 +24,7 @@ export class EmployeeTerritoryAdminPageComponent implements OnInit {
 
   getEmployeeTerritories() {
     this.employeeTerritoryService.getAll().subscribe((response) => {
-      this.employeeTerritories = response.Data;
+      this.employeeTerritories = response.data;
     });
   }
 

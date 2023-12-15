@@ -24,7 +24,7 @@ export class TerritoryAdminPageComponent implements OnInit {
 
   getTerritories() {
     this.territoryService.getAll().subscribe((response) => {
-      this.territories = response.Data;
+      this.territories = response.data;
     });
   }
 

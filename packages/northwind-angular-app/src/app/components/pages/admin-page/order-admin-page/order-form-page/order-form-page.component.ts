@@ -39,7 +39,7 @@ export class OrderFormPageComponent implements OnInit {
   getOrderById(id: number) {
     this.orderService.getById(id).subscribe((response) => {
       if (!response.Success) return;
-      this.order = response.Data;
+      this.order = response.data;
       this.createOrderEditForm();
     });
   }

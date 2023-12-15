@@ -21,7 +21,7 @@ export class OrderAdminPageComponent implements OnInit {
 
   getOrders() {
     this.orderService.getAll().subscribe((response) => {
-      this.orders = response.Data;
+      this.orders = response.data;
     });
   }
 
