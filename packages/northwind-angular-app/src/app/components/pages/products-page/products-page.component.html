@@ -41,12 +41,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let product of products | filter: filterText:'ProductName'">
-          <td>{{ product.ProductID }}</td>
-          <td>{{ product.ProductName | uppercase }}</td>
-          <td>{{ product.CategoryID }}</td>
-          <td>{{ product.UnitPrice | currency }}</td>
-          <td>{{ product.UnitPrice | vatAdded: 10 | currency }}</td>
-          <td>{{ product.UnitsInStock }}</td>
+          <td>{{ product.productID }}</td>
+          <td>{{ product.productName | uppercase }}</td>
+          <td>{{ product.categoryID }}</td>
+          <td>{{ product.unitPrice | currency }}</td>
+          <td>{{ product.unitPrice | vatAdded: 10 | currency }}</td>
+          <td>{{ product.unitsInStock }}</td>
           <td>
             <button (click)="addToCart(product)" class="btn btn-success">
               Add to Card

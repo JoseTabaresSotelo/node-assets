@@ -51,15 +51,15 @@ export class ProductFormPageComponent implements OnInit {
 
   createProductEditForm() {
     this.productForm = this.formBuilder.group({
-      ProductName: [this.product?.ProductName, Validators.required],
-      SupplierID: [this.product?.SupplierID, Validators.required],
-      CategoryID: [this.product?.CategoryID, Validators.required],
-      QuantityPerUnit: [this.product?.QuantityPerUnit, Validators.required],
-      UnitPrice: [this.product?.UnitPrice, Validators.required],
-      UnitsInStock: [this.product?.UnitsInStock, Validators.required],
-      UnitsOnOrder: [this.product?.UnitsOnOrder, Validators.required],
-      ReorderLevel: [this.product?.ReorderLevel, Validators.required],
-      Discontinued: [this.product?.Discontinued, Validators.required],
+      ProductName: [this.product?.productName, Validators.required],
+      SupplierID: [this.product?.supplierID, Validators.required],
+      CategoryID: [this.product?.categoryID, Validators.required],
+      QuantityPerUnit: [this.product?.quantityPerUnit, Validators.required],
+      UnitPrice: [this.product?.unitPrice, Validators.required],
+      UnitsInStock: [this.product?.unitsInStock, Validators.required],
+      UnitsOnOrder: [this.product?.unitsOnOrder, Validators.required],
+      ReorderLevel: [this.product?.reorderLevel, Validators.required],
+      Discontinued: [this.product?.discontinued, Validators.required],
     });
   }
 

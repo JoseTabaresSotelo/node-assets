@@ -39,14 +39,14 @@ export class ProductService {
 
   edit(product: Product): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${product.ProductID}`,
+      `${this.apiControllerUrl}/${product.productID}`,
       product
     );
   }
 
   delete(product: Product): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${product.ProductID}`
+      `${this.apiControllerUrl}/${product.productID}`
     );
   }
 }
