@@ -1,23 +1,34 @@
 import { runQuery } from '@api/db/utils';
+import { client } from '../../plugins/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const getAllEmployees = 'SELECT * FROM public.employees ORDER BY employee_id ASC';
 const getEmployeeById = 'SELECT * from public.employees WHERE employee_id = $1';
 
-const employees = async (fastify: FastifyInstance) => {
-  fastify.get('/employees', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllEmployees);
-    return rows;
+export const employees = async (fastify: FastifyInstance) => {
+
+  /**
+   * Get all employees
+   */
+  fastify.get('/employees', (req, res) => {
+    client.query(getAllEmployees, (errors, result) => {
+      if(errors) res.status(500).send({message: errors})
+      res.status(200).send(result.rows);
+    })
   });
 
+  /**
+   * Get an employees by id
+   */
   fastify.get(
     '/employees/:id',
-    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+     (request: FastifyRequest<{ Params: { id: string } }>, res) => {
       const { id } = request.params;
-      const { rows } = await runQuery(fastify.pg, getEmployeeById, [id]);
-      return rows;
+      client.query(getEmployeeById, [id], (errors, result) => {
+        if(errors) res.status(500).send({message: errors})
+        res.status(200).send(result.rows);
+      })
     }
   );
 };
 
-export default employees;

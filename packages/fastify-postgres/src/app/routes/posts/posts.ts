@@ -1,5 +1,9 @@
-import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { client } from '../../plugins/db';
+import { FastifyInstance, FastifyRequest } from 'fastify';
+
+  /**
+   * Esta tabla no existe
+   */
 
 const getAllPosts = 'SELECT * from posts_sample';
 const getPostById = 'SELECT * from posts_sample WHERE id = $1';
@@ -8,18 +12,22 @@ VALUES ($1, $2, (
   SELECT id FROM users_sample WHERE email = $3 
 )) RETURNING * ;`;
 
-const posts = async (fastify: FastifyInstance) => {
-  fastify.get('/posts', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllPosts);
-    return rows;
+export const posts = async (fastify: FastifyInstance) => {
+  fastify.get('/posts', (req, res) => {
+    client.query(getAllPosts, (errors, result) => {
+      if(errors) res.status(500).send({message: errors})
+      res.status(200).send(result)
+    })
   });
 
   fastify.get(
     '/posts/:id',
-    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+     (request: FastifyRequest<{ Params: { id: string } }>, res) => {
       const { id } = request.params;
-      const { rows } = await runQuery(fastify.pg, getPostById, [id]);
-      return rows;
+      client.query(getPostById, [id], (errors, result) => {
+        if(errors) res.status(500).send({message: errors})
+        res.status(200).send(result.rows)
+      })
     }
   );
 
@@ -28,17 +36,18 @@ const posts = async (fastify: FastifyInstance) => {
     async (
       request: FastifyRequest<{
         Body: { title: string; content: string; author_email: string };
-      }>
+      }>, res
     ) => {
       const { title, content, author_email } = request.body;
-      const { rows } = await runQuery(fastify.pg, createPostWithUserEmail, [
+      client.query(createPostWithUserEmail, [
         title,
         content,
         author_email,
-      ]);
-      return rows;
+      ], (errors, result) => {
+        if(errors) res.status(500).send({message: errors})
+        res.status(200).send(result.rows)
+      })
     }
   );
 };
 
-export default posts;

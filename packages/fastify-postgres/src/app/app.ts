@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyInstance} from 'fastify';
 import AutoLoad from '@fastify/autoload';
 
 /* eslint-disable-next-line */
@@ -22,8 +22,6 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
   // define your routes in one of these
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
-    dirNameRoutePrefix: false,
-    ignorePattern: /.spec.(t|j)s/,
-    options: { prefix: '/api' },
+    options: { ...opts },
   });
 }

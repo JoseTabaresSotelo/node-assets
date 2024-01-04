@@ -1,4 +1,5 @@
 import { runQuery } from '@api/db/utils';
+import { client } from '../../plugins/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const ordersQuery = `
@@ -34,18 +35,22 @@ const createOrder = `INSERT INTO orders (
         ship_country
     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING * ;`;
 
-const orders = async (fastify: FastifyInstance) => {
-  fastify.get('/orders', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllOrders);
-    return rows;
+export const orders = async (fastify: FastifyInstance) => {
+  fastify.get('/orders', (req, res) => {
+    client.query(getAllOrders, (errors, result) => {
+      if(errors) res.status(500).send({message: errors})
+      res.status(200).send(result.rows)
+    })
   });
 
   fastify.get(
     '/orders/:id',
-    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+     (request: FastifyRequest<{ Params: { id: string } }>, res) => {
       const { id } = request.params;
-      const { rows } = await runQuery(fastify.pg, getOrdersById, [id]);
-      return rows;
+      client.query(getOrdersById, [id], (errors, result) => {
+        if(errors) res.status(500).send({message: errors})
+        res.status(200).send(result.rows)
+      })
     }
   );
 
@@ -69,7 +74,7 @@ const orders = async (fastify: FastifyInstance) => {
           ship_postal_code: string;
           ship_country: string;
         };
-      }>
+      }>, res
     ) => {
       const {
         order_id,
@@ -87,7 +92,7 @@ const orders = async (fastify: FastifyInstance) => {
         ship_postal_code,
         ship_country,
       } = request.body;
-      const { rows } = await runQuery(fastify.pg, createOrder, [
+      client.query(createOrder, [
         order_id,
         customer_id,
         employee_id,
@@ -102,11 +107,11 @@ const orders = async (fastify: FastifyInstance) => {
         ship_region,
         ship_postal_code,
         ship_country,
-      ]);
-
-      return rows;
+      ], (errors, result) => {
+        if(errors) res.status(500).send({message: errors})
+        res.status(200).send(result.rows)
+      })
     }
   );
 };
 
-export default orders;

@@ -1,23 +1,31 @@
-import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { client } from '../../plugins/db';
 
 const getAllCategories = 'SELECT * FROM public.categories ORDER BY category_id ASC';
 const getCategoryById = 'SELECT * from public.categories WHERE category_id = $1';
 
-const categories = async (fastify: FastifyInstance) => {
-  fastify.get('/categories', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllCategories);
-    return rows;
+
+export const categories = async (fastify: FastifyInstance) => {
+  /**
+   * Get all categories
+   */
+  fastify.get('/categories', (req, res) => {
+     client.query(getAllCategories, (errors, results) =>{
+      if(errors) res.status(500).send({message: errors})
+      res.status(200).send(results.rows)
+    })
   });
 
-  fastify.get(
-    '/categories/:id',
-    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+  /**
+   * Get a categorie by id
+   */
+  fastify.get('/categories/:id', (request: FastifyRequest<{ Params: { id: string } }>, res) => {
       const { id } = request.params;
-      const { rows } = await runQuery(fastify.pg, getCategoryById, [id]);
-      return rows;
+      client.query(getCategoryById, [id], (errors, results) =>{
+        if(errors) res.status(500).send({message: errors})
+        res.status(200).send(results.rows)
+      })
+
     }
   );
 };
-
-export default categories;

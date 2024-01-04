@@ -1,7 +1,7 @@
 import Fastify, { FastifyInstance } from 'fastify';
 import { app } from './app';
 
-xdescribe('GET /', () => {
+describe('GET /', () => {
   let server: FastifyInstance;
 
   beforeEach(() => {

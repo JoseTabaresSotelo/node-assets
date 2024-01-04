@@ -1,4 +1,4 @@
-import { runQuery } from '@api/db/utils';
+import { client } from '../../plugins/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const territoriesQuery = `
@@ -11,20 +11,22 @@ const territoriesQuery = `
 const getAllTerritories = `${territoriesQuery} ORDER BY t.territory_id ASC`;
 const getTerritoryById = `${territoriesQuery} WHERE territory_id = $1`;
 
-const territories = async (fastify: FastifyInstance) => {
-  fastify.get('/territories', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllTerritories);
-    return rows;
+export const territories = async (fastify: FastifyInstance) => {
+  fastify.get('/territories',  (req, res) => {
+    client.query(getAllTerritories, (errors, result) => {
+      if(errors) res.status(500).send({messageError: errors})
+      res.status(200).send(result.rows);
+    })
   });
 
   fastify.get(
     '/territories/:id',
-    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+     (request: FastifyRequest<{ Params: { id: string } }>, res) => {
       const { id } = request.params;
-      const { rows } = await runQuery(fastify.pg, getTerritoryById, [id]);
-      return rows;
+      client.query(getTerritoryById, [id], (errors, result) => {
+        if(errors) res.status(500).send({messageError: errors})
+        res.status(200).send(result.rows);
+      })
     }
   );
 };
-
-export default territories;
