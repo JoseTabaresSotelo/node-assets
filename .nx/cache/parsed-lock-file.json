@@ -2808,6 +2808,15 @@
         "hash": "sha512-aZAXGYo6m22Fk1zZzEUKBvut/CIIQe/BapEORnxiD5Qr0kPHqqI69NtEMCme74h+at72sPhbkb4ZrLd1W3KRLA=="
       }
     },
+    "npm:@fastify/helmet": {
+      "type": "npm",
+      "name": "npm:@fastify/helmet",
+      "data": {
+        "version": "11.1.1",
+        "packageName": "@fastify/helmet",
+        "hash": "sha512-pjJxjk6SLEimITWadtYIXt6wBMfFC1I6OQyH/jYVCqSAn36sgAIFjeNiibHtifjCd+e25442pObis3Rjtame6A=="
+      }
+    },
     "npm:@fastify/postgres": {
       "type": "npm",
       "name": "npm:@fastify/postgres",
@@ -7981,6 +7990,15 @@
         "version": "3.0.0",
         "packageName": "hdr-histogram-percentiles-obj",
         "hash": "sha512-7kIufnBqdsBGcSZLPJwqHT3yhk1QTsSlFsVD3kx5ixH/AlgBs9yM1q6DPhXZ8f8gtdqgh7N7/5btRLpQsS2gHw=="
+      }
+    },
+    "npm:helmet": {
+      "type": "npm",
+      "name": "npm:helmet",
+      "data": {
+        "version": "7.1.0",
+        "packageName": "helmet",
+        "hash": "sha512-g+HZqgfbpXdCkme/Cd/mZkV0aV3BZZZSugecH03kl38m/Kmdx8jKjBikpDj2cr+Iynv4KpYEviojNdTJActJAg=="
       }
     },
     "npm:help-me": {
@@ -16357,6 +16375,16 @@
     {
       "source": "npm:@fastify/fast-json-stringify-compiler",
       "target": "npm:fast-json-stringify",
+      "type": "static"
+    },
+    {
+      "source": "npm:@fastify/helmet",
+      "target": "npm:fastify-plugin",
+      "type": "static"
+    },
+    {
+      "source": "npm:@fastify/helmet",
+      "target": "npm:helmet",
       "type": "static"
     },
     {
