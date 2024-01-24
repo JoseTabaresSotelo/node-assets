@@ -1,5 +1,5 @@
 import CartItem from '../models/cartItem';
-import CartItems from '../models/cartItems';
+import cartItems from '../models/cartItems';
 import { Injectable } from '@angular/core';
 import Product from '../models/product';
 
@@ -10,17 +10,17 @@ export class CartService {
   constructor() {}
 
   list(): CartItem[] {
-    return CartItems;
+    return cartItems;
   }
 
   addToCart(product: Product) {
-    let item = CartItems.find((c) => c.product.productID === product.productID);
+    let item = cartItems.find((c) => c.product.productID === product.productID);
     if (item) ++item.quantity;
-    else CartItems.push(new CartItem(product));
+    else cartItems.push(new CartItem(product));
   }
 
   removeFromCart(product: Product) {
-    let item = CartItems.find((c) => c.product.productID === product.productID);
-    if (item) CartItems.splice(CartItems.indexOf(item), 1);
+    let item = cartItems.find((c) => c.product.productID === product.productID);
+    if (item) cartItems.splice(cartItems.indexOf(item), 1);
   }
 }
