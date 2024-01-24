@@ -29,7 +29,7 @@ export class CategoryComponent implements OnInit {
   }
 
   isActive(category?: Category): string {
-    return this.currentCategory?.CategoryID == category?.CategoryID
+    return this.currentCategory?.categoryId == category?.categoryId
       ? 'active'
       : '';
   }

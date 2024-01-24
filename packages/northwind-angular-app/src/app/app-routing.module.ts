@@ -32,7 +32,7 @@ import { TerritoryFormPageComponent } from './components/pages/admin-page/territ
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductsPageComponent },
   { path: 'products', component: ProductsPageComponent },
-  { path: 'products/category/:categoryID', component: ProductsPageComponent },
+  { path: 'products/category/:categoryId', component: ProductsPageComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'admin',
@@ -43,7 +43,7 @@ const routes: Routes = [
         path: 'categories',
         component: CategoryAdminPageComponent,
       },
-      ...['categories/add', 'categories/:categoryID'].map((path) => ({
+      ...['categories/add', 'categories/:categoryId'].map((path) => ({
         path,
         component: CategoryFormPageComponent,
       })),

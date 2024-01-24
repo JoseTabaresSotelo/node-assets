@@ -53,7 +53,7 @@ export class ProductFormPageComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       ProductName: [this.product?.productName, Validators.required],
       SupplierID: [this.product?.supplierID, Validators.required],
-      CategoryID: [this.product?.categoryID, Validators.required],
+      CategoryID: [this.product?.categoryId, Validators.required],
       QuantityPerUnit: [this.product?.quantityPerUnit, Validators.required],
       UnitPrice: [this.product?.unitPrice, Validators.required],
       UnitsInStock: [this.product?.unitsInStock, Validators.required],

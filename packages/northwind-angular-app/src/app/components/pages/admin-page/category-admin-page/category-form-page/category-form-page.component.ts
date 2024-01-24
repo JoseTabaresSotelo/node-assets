@@ -30,8 +30,8 @@ export class CategoryFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['categoryID']) {
-        this.getCategoryById(params['categoryID']);
+      if (params['categoryId']) {
+        this.getCategoryById(params['categoryId']);
       }
     });
   }
@@ -46,8 +46,8 @@ export class CategoryFormPageComponent implements OnInit {
 
   createCategoryEditForm() {
     this.categoryForm = this.formBuilder.group({
-      CategoryName: [this.category?.CategoryName, Validators.required],
-      Description: [this.category?.Description, Validators.required],
+      CategoryName: [this.category?.categoryName, Validators.required],
+      Description: [this.category?.description, Validators.required],
     });
   }
 

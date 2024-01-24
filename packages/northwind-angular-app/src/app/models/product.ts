@@ -2,7 +2,7 @@ export default interface Product {
   productID: number;
   productName: string;
   supplierID: number;
-  categoryID: number;
+  categoryId: number;
   quantityPerUnit: string;
   unitPrice: number;
   unitsInStock: number;

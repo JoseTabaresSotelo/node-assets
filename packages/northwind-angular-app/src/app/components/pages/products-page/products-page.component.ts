@@ -25,8 +25,8 @@ export class ProductsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['categoryID'])
-        this.getProductsByCategory(params['categoryID']);
+      if (params['categoryId'])
+        this.getProductsByCategory(params['categoryId']);
       else this.getProducts();
     });
   }
@@ -38,8 +38,8 @@ export class ProductsPageComponent implements OnInit {
     });
   }
 
-  getProductsByCategory(categoryID: number) {
-    this.productService.getByCategory(categoryID).subscribe((response) => {
+  getProductsByCategory(categoryId: number) {
+    this.productService.getByCategory(categoryId).subscribe((response) => {
       this.products = response.data;
       this.dataLoaded = true;
     });

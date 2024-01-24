@@ -27,9 +27,9 @@ export class ProductService {
     );
   }
 
-  getByCategory(categoryID: number): Observable<ListResponseModel<Product>> {
+  getByCategory(categoryId: number): Observable<ListResponseModel<Product>> {
     return this.httpClient.get<ListResponseModel<Product>>(
-      `${this.apiControllerUrl}/?categoryID=${categoryID}`
+      `${this.apiControllerUrl}/?categoryId=${categoryId}`
     );
   }
 
