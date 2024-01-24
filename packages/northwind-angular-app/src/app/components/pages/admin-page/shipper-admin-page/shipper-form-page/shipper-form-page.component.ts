@@ -46,15 +46,15 @@ export class ShipperFormPageComponent implements OnInit {
 
   createShipperEditForm() {
     this.shipperForm = this.formBuilder.group({
-      CompanyName: [this.shipper?.CompanyName, Validators.required],
-      Phone: [this.shipper?.Phone, Validators.required],
+      companyName: [this.shipper?.companyName, Validators.required],
+      phone: [this.shipper?.Phone, Validators.required],
     });
   }
 
   createShipperAddForm() {
     this.shipperForm = this.formBuilder.group({
-      CompanyName: ['', Validators.required],
-      Phone: ['', Validators.required],
+      companyName: ['', Validators.required],
+      phone: ['', Validators.required],
     });
   }
 

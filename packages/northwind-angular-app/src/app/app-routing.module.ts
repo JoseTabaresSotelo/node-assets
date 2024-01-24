@@ -52,7 +52,7 @@ const routes: Routes = [
         path: 'customers',
         component: CustomerAdminPageComponent,
       },
-      ...['customers/add', 'customers/:customerID'].map((path) => ({
+      ...['customers/add', 'customers/:customerId'].map((path) => ({
         path,
         component: CustomerFormPageComponent,
       })),
