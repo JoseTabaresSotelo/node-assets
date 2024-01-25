@@ -31,9 +31,6 @@ const users = async (fastify: FastifyInstance) => {
     ) => {
       const { id } = request.params;
       const { rows } = await runQuery(fastify.pg, getUserId, [id]);
-      console.log(!!rows && rows.length > 0);
-      console.log(rows.length);
-      console.log(!!rows);
 
       if (rows.length === 0) {
         replay.status(404).send('User not found!');

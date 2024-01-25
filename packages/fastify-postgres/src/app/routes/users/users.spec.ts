@@ -15,22 +15,21 @@ describe('/users', () => {
     server = null;
   });
 
-  describe('GET /users returns status 200', () => {
-    it('should respond with users', async () => {
+  describe('GET /users', () => {
+    it('should returns status 200', async () => {
       const response = await server.inject({
         method: 'GET',
         url: '/api/users',
       });
 
-      console.log(response.json());
       expect(response.statusCode).toEqual(200);
       expect(response.json()).toBeDefined();
       expect(Array.isArray(response.json().data)).toEqual(true);
     });
   });
 
-  describe('POST /users returns status 500', () => {
-    it('should respond with users', async () => {
+  describe('POST /users ', () => {
+    it('should returns status 500', async () => {
       const response = await server.inject({
         method: 'POST',
         url: '/api/users',
@@ -40,7 +39,6 @@ describe('/users', () => {
         },
       });
 
-      console.log(response.json());
       expect(response.statusCode).toEqual(500);
       expect(response.json().code).toEqual('23505');
       expect(response.json().error).toEqual('Internal Server Error');
@@ -49,10 +47,8 @@ describe('/users', () => {
       );
       expect(response.json()).toBeDefined();
     });
-  });
 
-  describe('POST /users returns status 200', () => {
-    it('should respond with users', async () => {
+    it('should returns status 200', async () => {
       const username = faker.internet.userName();
       const email = faker.internet.email();
 
@@ -65,7 +61,6 @@ describe('/users', () => {
         },
       });
 
-      console.log(response.json());
       expect(response.statusCode).toEqual(200);
       expect(response.json()).toBeDefined();
       expect(response.json().data[0].id).toBeDefined();
@@ -76,14 +71,13 @@ describe('/users', () => {
     });
   });
 
-  xdescribe('GET /users/:id returns status 200', () => {
-    it('should respond with users', async () => {
+  describe('GET /users/:id', () => {
+    it('should returns status 200', async () => {
       const response = await server.inject({
-        method: 'POST',
+        method: 'GET',
         url: '/api/users/1',
       });
 
-      console.log(response.json());
       expect(response.statusCode).toEqual(200);
       expect(response.json()).toBeDefined();
       expect(response.json().data[0].id).toBeDefined();
@@ -91,6 +85,33 @@ describe('/users', () => {
       expect(response.json().data[0].email).toBeDefined();
       expect(response.json().data[0].createdAt).toBeDefined();
       expect(response.json().data[0].updatedAt).toBeDefined();
+    });
+
+    it('should returns status 404', async () => {
+      const response = await server.inject({
+        method: 'GET',
+        url: `/api/users/205`,
+      });
+
+      expect(response.statusCode).toEqual(404);
+      expect(response.statusMessage).toEqual('Not Found');
+      expect(response.payload).toEqual('User not found!');
+    });
+
+    it('should returns status 500', async () => {
+      const id = faker.number.int()
+      const response = await server.inject({
+        method: 'GET',
+        url: `/api/users/${id}`,
+      });
+
+      expect(response.statusCode).toEqual(500);
+      expect(response.json().code).toEqual('22003');
+      expect(response.json().error).toEqual('Internal Server Error');
+      expect(response.json().message).toEqual(
+        `value "${id}" is out of range for type integer`
+      );
+      expect(response.json()).toBeDefined();
     });
   });
 });
