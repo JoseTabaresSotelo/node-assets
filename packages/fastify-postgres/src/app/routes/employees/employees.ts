@@ -5,7 +5,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllEmployees = 'SELECT * FROM public.employees ORDER BY employee_id ASC';
 const getEmployeeById = 'SELECT * from public.employees WHERE employee_id = $1';
 
-export const employees = async (fastify: FastifyInstance) => {
+const employees = async (fastify: FastifyInstance) => {
 
   /**
    * Get all employees
@@ -32,3 +32,4 @@ export const employees = async (fastify: FastifyInstance) => {
   );
 };
 
+export default employees;

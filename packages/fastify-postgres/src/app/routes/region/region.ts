@@ -4,7 +4,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllRegions = 'SELECT * FROM public.region ORDER BY region_id ASC';
 const getRegionById = 'SELECT * from public.region WHERE region_id = $1';
 
-export const region = async (fastify: FastifyInstance) => {
+const region = async (fastify: FastifyInstance) => {
   fastify.get('/region', (req, res) => {
     client.query(getAllRegions, (errors, result) => {
       if(errors) res.status(500).send({messageError: errors})
@@ -24,3 +24,4 @@ export const region = async (fastify: FastifyInstance) => {
   );
 };
 
+export default region;

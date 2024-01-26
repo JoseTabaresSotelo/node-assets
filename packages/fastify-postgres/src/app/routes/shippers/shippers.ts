@@ -1,11 +1,10 @@
-import { runQuery } from '@api/db/utils';
 import { client } from '../../plugins/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const getAllShippers = 'SELECT * FROM public.shippers ORDER BY shipper_id ASC';
 const getShipperById = 'SELECT * FROM public.shippers WHERE shipper_id = $1';
 
-export const shippers = async (fastify: FastifyInstance) => {
+const shippers = async (fastify: FastifyInstance) => {
   fastify.get('/shippers', (req, res) => {
     client.query(getAllShippers, (errors, result) => {
       if(errors) res.status(500).send({messageError: errors})
@@ -25,3 +24,5 @@ export const shippers = async (fastify: FastifyInstance) => {
     }
   );
 };
+
+export default shippers;

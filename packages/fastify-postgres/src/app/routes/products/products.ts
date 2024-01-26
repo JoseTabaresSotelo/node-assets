@@ -16,7 +16,7 @@ const addUser = `INSERT INTO products (
         discontinued
     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;`;
 
-export const products = async (fastify: FastifyInstance) => {
+const products = async (fastify: FastifyInstance) => {
   fastify.get('/products', (req, res) => {
     client.query(getAllProducts, (errors, result) => {
       if(errors) res.status(500).send({mesageError: errors})
@@ -82,3 +82,4 @@ export const products = async (fastify: FastifyInstance) => {
   );
 };
 
+export default products;

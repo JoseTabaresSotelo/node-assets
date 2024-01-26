@@ -4,7 +4,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllStates = 'SELECT * FROM public.us_states ORDER BY state_name ASC';
 const getStateByCode = 'SELECT * FROM public.us_states WHERE state_abbr = $1';
 
-export const usStates = async (fastify: FastifyInstance) => {
+const usStates = async (fastify: FastifyInstance) => {
   fastify.get('/states', (req, res) => {
     client.query(getAllStates, (errors, result) => {
       if(errors) res.status(500).send({messageError: errors})
@@ -23,3 +23,5 @@ export const usStates = async (fastify: FastifyInstance) => {
     }
   );
 };
+
+export default usStates;

@@ -12,4 +12,6 @@ export default {
     '<rootDir>/src/**/__tests__/**/*.[jt]s?(x)',
     '<rootDir>/src/**/*(*.)@(spec|test).[jt]s?(x)',
   ],
+  setupFilesAfterEnv: ["<rootDir>/test/setup-tests.ts"],
+  testTimeout: 30000,
 };

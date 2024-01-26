@@ -4,10 +4,10 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllCustomers = 'SELECT * FROM public.customers ORDER BY customer_id ASC';
 const getCustomersById = 'SELECT * FROM public.customers WHERE customer_id = $1';
 
-export const customers = async (fastify: FastifyInstance) => {
+const customers = async (fastify: FastifyInstance) => {
 
   /**
-   * Get all customers
+   * Get all customers 
    */
   fastify.get('/customers', (req, res) => {
     client.query(getAllCustomers, (errors, result) => {
@@ -31,3 +31,4 @@ export const customers = async (fastify: FastifyInstance) => {
   );
 };
 
+export default customers

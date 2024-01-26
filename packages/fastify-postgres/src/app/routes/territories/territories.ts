@@ -11,7 +11,7 @@ const territoriesQuery = `
 const getAllTerritories = `${territoriesQuery} ORDER BY t.territory_id ASC`;
 const getTerritoryById = `${territoriesQuery} WHERE territory_id = $1`;
 
-export const territories = async (fastify: FastifyInstance) => {
+const territories = async (fastify: FastifyInstance) => {
   fastify.get('/territories',  (req, res) => {
     client.query(getAllTerritories, (errors, result) => {
       if(errors) res.status(500).send({messageError: errors})
@@ -30,3 +30,5 @@ export const territories = async (fastify: FastifyInstance) => {
     }
   );
 };
+
+export default territories;

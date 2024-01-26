@@ -4,7 +4,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllSuppliers = 'SELECT * FROM public.suppliers ORDER BY supplier_id ASC';
 const getSupplierById = 'SELECT * from public.suppliers WHERE supplier_id = $1';
 
-export const suppliers = async (fastify: FastifyInstance) => {
+const suppliers = async (fastify: FastifyInstance) => {
   fastify.get('/suppliers', (req, res) => {
     client.query(getAllSuppliers, (errors, result) => {
       if(errors) res.status(500).send({messageError: errors})
@@ -23,3 +23,5 @@ export const suppliers = async (fastify: FastifyInstance) => {
     }
   );
 };
+
+export default suppliers;

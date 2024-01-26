@@ -35,7 +35,7 @@ const createOrder = `INSERT INTO orders (
         ship_country
     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING * ;`;
 
-export const orders = async (fastify: FastifyInstance) => {
+const orders = async (fastify: FastifyInstance) => {
   fastify.get('/orders', (req, res) => {
     client.query(getAllOrders, (errors, result) => {
       if(errors) res.status(500).send({message: errors})
@@ -56,7 +56,7 @@ export const orders = async (fastify: FastifyInstance) => {
 
   fastify.post(
     '/orders',
-    async (
+    (
       request: FastifyRequest<{
         Body: {
           order_id: number;
@@ -107,11 +107,12 @@ export const orders = async (fastify: FastifyInstance) => {
         ship_region,
         ship_postal_code,
         ship_country,
-      ], (errors, result) => {
+      ], (errors) => {
         if(errors) res.status(500).send({message: errors})
-        res.status(200).send(result.rows)
+        res.status(200).send({message: "Order created"})
       })
     }
   );
 };
 
+export default orders;

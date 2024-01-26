@@ -6,7 +6,7 @@
     "start": "nx serve | pino-pretty",
     "db": "docker run --name fastify-postgres -e POSTGRES_PASSWORD=localpassword -p 5432:5432 -d postgres",
     "build": "nx build",
-    "test": "nx test"
+    "test": "jest --setupFiles dotenv/config"
   },
   "private": true,
   "dependencies": {
@@ -14,7 +14,9 @@
     "@fastify/autoload": "~5.7.1",
     "@fastify/postgres": "^5.2.2",
     "@fastify/sensible": "~5.2.0",
+    "@fastify/swagger": "^8.13.0",
     "axios": "^1.0.0",
+    "dotenv": "^16.3.1",
     "fastify": "~4.13.0",
     "fastify-plugin": "~4.5.0",
     "pg": "^8.11.3",
