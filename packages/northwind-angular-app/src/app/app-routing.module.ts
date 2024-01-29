@@ -108,7 +108,7 @@ const routes: Routes = [
         path: 'regions',
         component: RegionAdminPageComponent,
       },
-      ...['regions/add', 'regions/:regionID'].map((path) => ({
+      ...['regions/add', 'regions/:regionId'].map((path) => ({
         path,
         component: RegionFormPageComponent,
       })),
@@ -135,7 +135,7 @@ const routes: Routes = [
         path: 'territories',
         component: TerritoryAdminPageComponent,
       },
-      ...['territories/add', 'territories/:territoryID'].map((path) => ({
+      ...['territories/add', 'territories/:territoryId'].map((path) => ({
         path,
         component: TerritoryFormPageComponent,
       })),

@@ -33,14 +33,14 @@ export class RegionService {
 
   edit(region: Region): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${region.RegionID}`,
+      `${this.apiControllerUrl}/${region.regionId}`,
       region
     );
   }
 
   delete(region: Region): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${region.RegionID}`
+      `${this.apiControllerUrl}/${region.regionId}`
     );
   }
 }
