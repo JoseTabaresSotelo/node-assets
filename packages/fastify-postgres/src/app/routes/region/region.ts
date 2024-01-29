@@ -59,9 +59,9 @@ const region = async (fastify: FastifyInstance) => {
   fastify.delete(
     '/regions/:id',
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
-      const regionId = request.params.id;
+      const id = request.params.id;
 
-      const { rows } = await runQuery(fastify.pg, deleteRegion, [regionId]);
+      const { rows } = await runQuery(fastify.pg, deleteRegion, [id]);
       return rows;
     }
   );
