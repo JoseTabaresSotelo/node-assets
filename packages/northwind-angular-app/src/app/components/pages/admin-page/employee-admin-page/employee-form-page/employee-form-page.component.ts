@@ -38,7 +38,7 @@ export class EmployeeFormPageComponent implements OnInit {
 
   getEmployeeById(id: number) {
     this.employeeService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.employee = response.data;
       this.createEmployeeEditForm();
     });
@@ -95,8 +95,8 @@ export class EmployeeFormPageComponent implements OnInit {
     let employee: Employee = { ...this.employeeForm.value };
     this.employeeService.add(employee).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employees']);
       },
       (responseError) => {
@@ -121,7 +121,7 @@ export class EmployeeFormPageComponent implements OnInit {
     };
     this.employeeService.edit(employeeModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employees']);
       },
       (responseError) => {
@@ -143,7 +143,7 @@ export class EmployeeFormPageComponent implements OnInit {
     };
     this.employeeService.delete(employeeModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employees']);
       },
       (responseError) => {

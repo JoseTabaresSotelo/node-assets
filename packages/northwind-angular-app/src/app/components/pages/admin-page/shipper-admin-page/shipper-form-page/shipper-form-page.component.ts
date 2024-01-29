@@ -38,7 +38,7 @@ export class ShipperFormPageComponent implements OnInit {
 
   getShipperById(id: number) {
     this.shipperService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.shipper = response.data;
       this.createShipperEditForm();
     });
@@ -67,8 +67,8 @@ export class ShipperFormPageComponent implements OnInit {
     let shipper: Shipper = { ...this.shipperForm.value };
     this.shipperService.add(shipper).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'shippers']);
       },
       (responseError) => {
@@ -90,7 +90,7 @@ export class ShipperFormPageComponent implements OnInit {
     let shipperModule: Shipper = { ...this.shipper, ...this.shipperForm.value };
     this.shipperService.edit(shipperModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'shippers']);
       },
       (responseError) => {
@@ -109,7 +109,7 @@ export class ShipperFormPageComponent implements OnInit {
     let shipperModule: Shipper = { ...this.shipper, ...this.shipperForm.value };
     this.shipperService.delete(shipperModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'shippers']);
       },
       (responseError) => {

@@ -34,7 +34,7 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
       err = e;
     }
 
-    const newPayload = { data: data };
+    const newPayload = { data: data, success: true,  message: 'successfully'};
     done(err, newPayload);
   });
 

@@ -38,7 +38,7 @@ export class SupplierFormPageComponent implements OnInit {
 
   getSupplierById(id: number) {
     this.supplierService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.supplier = response.data;
       this.createSupplierEditForm();
     });
@@ -83,8 +83,8 @@ export class SupplierFormPageComponent implements OnInit {
     let supplier: Supplier = { ...this.supplierForm.value };
     this.supplierService.add(supplier).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'suppliers']);
       },
       (responseError) => {
@@ -109,7 +109,7 @@ export class SupplierFormPageComponent implements OnInit {
     };
     this.supplierService.edit(supplierModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'suppliers']);
       },
       (responseError) => {
@@ -131,7 +131,7 @@ export class SupplierFormPageComponent implements OnInit {
     };
     this.supplierService.delete(supplierModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'suppliers']);
       },
       (responseError) => {

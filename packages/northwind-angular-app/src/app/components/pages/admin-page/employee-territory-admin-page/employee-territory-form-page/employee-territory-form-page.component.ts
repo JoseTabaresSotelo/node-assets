@@ -38,7 +38,7 @@ export class EmployeeTerritoryFormPageComponent implements OnInit {
 
   getEmployeeTerritoryById(id: number) {
     this.employeeTerritoryService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.employeeTerritory = response.data;
       this.createEmployeeTerritoryEditForm();
     });
@@ -69,8 +69,8 @@ export class EmployeeTerritoryFormPageComponent implements OnInit {
     };
     this.employeeTerritoryService.add(employeeTerritory).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employeesterritories']);
       },
       (responseError) => {
@@ -95,7 +95,7 @@ export class EmployeeTerritoryFormPageComponent implements OnInit {
     };
     this.employeeTerritoryService.edit(employeeTerritoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employeesterritories']);
       },
       (responseError) => {
@@ -117,7 +117,7 @@ export class EmployeeTerritoryFormPageComponent implements OnInit {
     };
     this.employeeTerritoryService.delete(employeeTerritoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employeesterritories']);
       },
       (responseError) => {

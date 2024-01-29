@@ -1,9 +1,11 @@
 import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
-const getAllRegions = 'SELECT * FROM public.region ORDER BY region_id ASC';
-const getRegionById = 'SELECT * from public.region WHERE region_id = $1';
-const addRegion = 'INSERT INTO public.region(region_description) VALUES ($1)';
+const getAllRegions = 'SELECT * FROM public.region ORDER BY region_id ASC;';
+const getRegionById = 'SELECT * from public.region WHERE region_id = $1;';
+const addRegion = 'INSERT INTO public.region(region_description) VALUES ($1);';
+const updateRegion = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`
+const deleteRegion = `DELETE FROM public.region WHERE region_id = $1;`;
 
 const region = async (fastify: FastifyInstance) => {
   fastify.get('/regions', async () => {
@@ -16,18 +18,51 @@ const region = async (fastify: FastifyInstance) => {
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
       const { id } = request.params;
       const { rows } = await runQuery(fastify.pg, getRegionById, [id]);
-      return rows;
+      const [row] = rows;
+
+      return row;
     }
   );
 
   fastify.post(
     '/regions',
     async (
-      request: FastifyRequest<{ Body: { regionDescription: string; } }>
+      request: FastifyRequest<{ Body: { regionDescription: string } }>
     ) => {
       const { regionDescription } = request.body;
 
-      const { rows } = await runQuery(fastify.pg, addRegion, [regionDescription]);
+      const { rows } = await runQuery(fastify.pg, addRegion, [
+        regionDescription,
+      ]);
+      return rows;
+    }
+  );
+
+  fastify.put(
+    '/regions/:id',
+    async (
+      request: FastifyRequest<{
+        Body: { regionDescription: string; regionId: string };
+      }>
+    ) => {
+      const { regionDescription, regionId } = request.body;
+
+      const { rows } = await runQuery(fastify.pg, updateRegion, [
+        regionId,
+        regionDescription,
+      ]);
+
+      return rows;
+    }
+  );
+
+  fastify.delete(
+    '/regions/:id',
+    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+      const regionId = request.id;
+
+      const { rows } = await runQuery(fastify.pg, deleteRegion, [regionId]);
+      console.log(rows, '===>');
       return rows;
     }
   );

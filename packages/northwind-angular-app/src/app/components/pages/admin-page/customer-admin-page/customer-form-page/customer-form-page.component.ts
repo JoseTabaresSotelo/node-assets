@@ -38,7 +38,7 @@ export class CustomerFormPageComponent implements OnInit {
 
   getCustomerById(id: number) {
     this.customerService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.customer = response.data;
       this.createCustomerEditForm();
     });
@@ -85,8 +85,8 @@ export class CustomerFormPageComponent implements OnInit {
     let customer: Customer = { ...this.customerForm.value };
     this.customerService.add(customer).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'customers']);
       },
       (responseError) => {
@@ -113,7 +113,7 @@ export class CustomerFormPageComponent implements OnInit {
       .edit(customerModule, this.customer?.CustomerID)
       .subscribe(
         (response) => {
-          this.toastrService.success(response.Message);
+          this.toastrService.success(response.message);
           this.router.navigate(['admin', 'customers']);
         },
         (responseError) => {
@@ -132,7 +132,7 @@ export class CustomerFormPageComponent implements OnInit {
 
     this.customerService.delete(this.customer).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'customers']);
       },
       (responseError) => {

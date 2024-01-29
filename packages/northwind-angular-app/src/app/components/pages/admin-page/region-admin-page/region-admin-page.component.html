@@ -22,11 +22,20 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let region of regions | filter: filterText:'regionDescription'"
-        (click)="editRegion(region)"
+        *ngFor="
+          let region of regions | filter : filterText : 'regionDescription'
+        "
       >
         <td>{{ region.regionId }}</td>
         <td>{{ region.regionDescription }}</td>
+        <td>
+          <button
+            class="btn btn-success text-white"
+            (click)="editRegion(region)"
+          >
+            Edit
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

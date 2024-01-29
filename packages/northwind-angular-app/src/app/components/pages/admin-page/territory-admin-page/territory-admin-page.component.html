@@ -26,7 +26,6 @@
         *ngFor="let territory of territories | filter: filterText:'CompanyName'"
         (click)="editTerritory(territory)"
       >
-        <pre>{{ territory | json}}</pre>
         <td>{{ territory.territoryId }}</td>
         <td>{{ territory.territoryDescription }}</td>
         <td>{{ territory.regionDescription }}</td>

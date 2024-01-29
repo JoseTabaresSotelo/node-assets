@@ -38,7 +38,7 @@ export class CategoryFormPageComponent implements OnInit {
 
   getCategoryById(id: number) {
     this.categoryService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.category = response.data;
       this.createCategoryEditForm();
     });
@@ -67,8 +67,8 @@ export class CategoryFormPageComponent implements OnInit {
     let category: Category = { ...this.categoryForm.value };
     this.categoryService.add(category).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'categories']);
       },
       (responseError) => {
@@ -93,7 +93,7 @@ export class CategoryFormPageComponent implements OnInit {
     };
     this.categoryService.edit(categoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'categories']);
       },
       (responseError) => {
@@ -115,7 +115,7 @@ export class CategoryFormPageComponent implements OnInit {
     };
     this.categoryService.delete(categoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'categories']);
       },
       (responseError) => {
