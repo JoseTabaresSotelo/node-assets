@@ -56,6 +56,7 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
   * define your routes in routes folder otherwise the routes are not in scope
   *  @see https://fastify.dev/docs/latest/Reference/Routes/
   */
+
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
     dirNameRoutePrefix: false,

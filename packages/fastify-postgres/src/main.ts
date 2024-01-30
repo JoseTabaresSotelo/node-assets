@@ -1,3 +1,4 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import Fastify from 'fastify';
 import { app } from './app/app';
 import cors from '@fastify/cors';

@@ -2,6 +2,7 @@ import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const getAllProducts = 'SELECT * from products';
+const getProductById = 'SELECT * from products where product_id = $1';
 const addUser = `INSERT INTO products (
         product_id,
         product_name,
@@ -20,6 +21,16 @@ const users = async (fastify: FastifyInstance) => {
     const { rows } = await runQuery(fastify.pg, getAllProducts);
     return rows;
   });
+
+
+  fastify.get(
+    '/products/:id',
+    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+      const { id } = request.params;
+      const { rows } = await runQuery(fastify.pg, getProductById, [id]);
+      return rows;
+    }
+  );
 
   fastify.post(
     '/products',
@@ -67,6 +78,12 @@ const users = async (fastify: FastifyInstance) => {
       return rows;
     }
   );
+
+
 };
+
+
+
+
 
 export default users;

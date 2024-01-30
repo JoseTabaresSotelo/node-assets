@@ -7,8 +7,11 @@
   },
   "include": [
     "jest.config.ts",
-    "src/**/*.test.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+    "node_modules",
+    "**/mocks/*.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.spec.tsx",
+    "**/*.test.tsx"
+   ],
 }
