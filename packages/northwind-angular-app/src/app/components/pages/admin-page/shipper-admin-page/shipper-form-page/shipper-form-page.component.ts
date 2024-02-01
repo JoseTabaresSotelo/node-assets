@@ -30,8 +30,8 @@ export class ShipperFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['shipperID']) {
-        this.getShipperById(params['shipperID']);
+      if (params['shipperId']) {
+        this.getShipperById(params['shipperId']);
       }
     });
   }
@@ -47,7 +47,7 @@ export class ShipperFormPageComponent implements OnInit {
   createShipperEditForm() {
     this.shipperForm = this.formBuilder.group({
       companyName: [this.shipper?.companyName, Validators.required],
-      phone: [this.shipper?.Phone, Validators.required],
+      phone: [this.shipper?.phone, Validators.required],
     });
   }
 

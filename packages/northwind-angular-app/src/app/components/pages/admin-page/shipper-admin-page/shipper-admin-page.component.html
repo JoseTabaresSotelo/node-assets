@@ -23,12 +23,12 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let shipper of shippers | filter: filterText:'CompanyName'"
+        *ngFor="let shipper of shippers | filter: filterText:'companyName'"
         (click)="editShipper(shipper)"
       >
-        <td>{{ shipper.ShipperID }}</td>
-        <td>{{ shipper.CompanyName }}</td>
-        <td>{{ shipper.Phone }}</td>
+        <td>{{ shipper.shipperId }}</td>
+        <td>{{ shipper.companyName }}</td>
+        <td>{{ shipper.phone }}</td>
       </tr>
     </tbody>
   </table>

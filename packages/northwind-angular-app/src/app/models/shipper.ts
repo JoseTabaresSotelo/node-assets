@@ -1,5 +1,5 @@
 export default interface Shipper {
-  ShipperID: number;
+  shipperId: number;
   companyName: string;
-  Phone: string;
+  phone: string;
 }
