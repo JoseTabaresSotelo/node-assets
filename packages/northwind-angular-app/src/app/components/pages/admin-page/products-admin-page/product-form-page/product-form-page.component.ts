@@ -52,7 +52,7 @@ export class ProductFormPageComponent implements OnInit {
   createProductEditForm() {
     this.productForm = this.formBuilder.group({
       oroductName: [this.product?.productName, Validators.required],
-      supplierId: [this.product?.supplierID, Validators.required],
+      supplierId: [this.product?.supplierId, Validators.required],
       categoryId: [this.product?.categoryId, Validators.required],
       quantityPerUnit: [this.product?.quantityPerUnit, Validators.required],
       unitPrice: [this.product?.unitPrice, Validators.required],

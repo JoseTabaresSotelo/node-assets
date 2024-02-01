@@ -29,6 +29,6 @@ export class SupplierAdminPageComponent implements OnInit {
   }
 
   editSupplier(supplier: Supplier) {
-    this.router.navigate(['admin', 'suppliers', supplier.SupplierID]);
+    this.router.navigate(['admin', 'suppliers', supplier.supplierId]);
   }
 }

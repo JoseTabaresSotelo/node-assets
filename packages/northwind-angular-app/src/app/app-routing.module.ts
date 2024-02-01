@@ -61,7 +61,7 @@ const routes: Routes = [
         path: 'employees',
         component: EmployeeAdminPageComponent,
       },
-      ...['employees/add', 'employees/:employeeID'].map((path) => ({
+      ...['employees/add', 'employees/:employeeId'].map((path) => ({
         path,
         component: EmployeeFormPageComponent,
       })),
@@ -70,7 +70,7 @@ const routes: Routes = [
         path: 'employeesterritories',
         component: EmployeeTerritoryAdminPageComponent,
       },
-      ...['employeesterritories/add', 'employeesterritories/:employeeID'].map(
+      ...['employeesterritories/add', 'employeesterritories/:employeeId'].map(
         (path) => ({
           path,
           component: EmployeeTerritoryFormPageComponent,
@@ -81,7 +81,7 @@ const routes: Routes = [
         path: 'orders',
         component: OrderAdminPageComponent,
       },
-      ...['orders/add', 'orders/:orderID'].map((path) => ({
+      ...['orders/add', 'orders/:orderId'].map((path) => ({
         path,
         component: OrderFormPageComponent,
       })),
@@ -90,7 +90,7 @@ const routes: Routes = [
         path: 'orderdetails',
         component: OrderDetailAdminPageComponent,
       },
-      ...['orderdetails/add', 'orderdetails/:orderID'].map((path) => ({
+      ...['orderdetails/add', 'orderdetails/:orderId'].map((path) => ({
         path,
         component: OrderDetailFormPageComponent,
       })),
@@ -99,7 +99,7 @@ const routes: Routes = [
         path: 'products',
         component: ProductsAdminPageComponent,
       },
-      ...['products/add', 'products/:productID'].map((path) => ({
+      ...['products/add', 'products/:productId'].map((path) => ({
         path,
         component: ProductFormPageComponent,
       })),
@@ -108,7 +108,7 @@ const routes: Routes = [
         path: 'regions',
         component: RegionAdminPageComponent,
       },
-      ...['regions/add', 'regions/:regionID'].map((path) => ({
+      ...['regions/add', 'regions/:regionId'].map((path) => ({
         path,
         component: RegionFormPageComponent,
       })),
@@ -117,7 +117,7 @@ const routes: Routes = [
         path: 'shippers',
         component: ShipperAdminPageComponent,
       },
-      ...['shippers/add', 'shippers/:shipperID'].map((path) => ({
+      ...['shippers/add', 'shippers/:shipperId'].map((path) => ({
         path,
         component: ShipperFormPageComponent,
       })),
@@ -126,7 +126,7 @@ const routes: Routes = [
         path: 'suppliers',
         component: SupplierAdminPageComponent,
       },
-      ...['suppliers/add', 'suppliers/:supplierID'].map((path) => ({
+      ...['suppliers/add', 'suppliers/:supplierId'].map((path) => ({
         path,
         component: SupplierFormPageComponent,
       })),
@@ -135,7 +135,7 @@ const routes: Routes = [
         path: 'territories',
         component: TerritoryAdminPageComponent,
       },
-      ...['territories/add', 'territories/:territoryID'].map((path) => ({
+      ...['territories/add', 'territories/:territoryId'].map((path) => ({
         path,
         component: TerritoryFormPageComponent,
       })),
