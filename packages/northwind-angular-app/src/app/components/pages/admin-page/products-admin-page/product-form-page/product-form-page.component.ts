@@ -43,7 +43,7 @@ export class ProductFormPageComponent implements OnInit {
 
   getProductById(id: number) {
     this.productService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.product = response.data;
       this.createProductEditForm();
     });
@@ -86,8 +86,8 @@ export class ProductFormPageComponent implements OnInit {
     let product: Product = { ...this.productForm.value };
     this.productService.add(product).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'products']);
       },
       (responseError) => {
@@ -109,7 +109,7 @@ export class ProductFormPageComponent implements OnInit {
     let productModule: Product = { ...this.product, ...this.productForm.value };
     this.productService.edit(productModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'products']);
       },
       (responseError) => {
@@ -128,7 +128,7 @@ export class ProductFormPageComponent implements OnInit {
     let productModule: Product = { ...this.product, ...this.productForm.value };
     this.productService.delete(productModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'products']);
       },
       (responseError) => {

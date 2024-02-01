@@ -38,7 +38,7 @@ export class RegionFormPageComponent implements OnInit {
 
   getRegionById(id: number) {
     this.regionService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.region = response.data;
       this.createRegionEditForm();
     });
@@ -65,8 +65,8 @@ export class RegionFormPageComponent implements OnInit {
     let region: Region = { ...this.regionForm.value };
     this.regionService.add(region).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'regions']);
       },
       (responseError) => {
@@ -88,7 +88,7 @@ export class RegionFormPageComponent implements OnInit {
     let regionModule: Region = { ...this.region, ...this.regionForm.value };
     this.regionService.edit(regionModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'regions']);
       },
       (responseError) => {
@@ -107,7 +107,7 @@ export class RegionFormPageComponent implements OnInit {
     let regionModule: Region = { ...this.region, ...this.regionForm.value };
     this.regionService.delete(regionModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'regions']);
       },
       (responseError) => {

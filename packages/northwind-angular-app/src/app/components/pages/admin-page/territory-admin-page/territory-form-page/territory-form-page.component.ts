@@ -38,7 +38,7 @@ export class TerritoryFormPageComponent implements OnInit {
 
   getTerritoryById(id: number) {
     this.territoryService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.territory = response.data;
       this.createTerritoryEditForm();
     });
@@ -75,8 +75,8 @@ export class TerritoryFormPageComponent implements OnInit {
     let territory: Territory = { ...this.territoryForm.value };
     this.territoryService.add(territory).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'territorys']);
       },
       (responseError) => {
@@ -101,7 +101,7 @@ export class TerritoryFormPageComponent implements OnInit {
     };
     this.territoryService.edit(territoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'territories']);
       },
       (responseError) => {
@@ -123,7 +123,7 @@ export class TerritoryFormPageComponent implements OnInit {
     };
     this.territoryService.delete(territoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'territories']);
       },
       (responseError) => {

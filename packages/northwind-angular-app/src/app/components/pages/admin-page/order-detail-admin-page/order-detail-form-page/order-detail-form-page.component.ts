@@ -38,7 +38,7 @@ export class OrderDetailFormPageComponent implements OnInit {
 
   getOrderDetailById(id: number) {
     this.orderDetailService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.orderDetail = response.data;
       this.createOrderDetailEditForm();
     });
@@ -73,8 +73,8 @@ export class OrderDetailFormPageComponent implements OnInit {
     let orderDetail: OrderDetail = { ...this.orderDetailForm.value };
     this.orderDetailService.add(orderDetail).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orderDetails']);
       },
       (responseError) => {
@@ -99,7 +99,7 @@ export class OrderDetailFormPageComponent implements OnInit {
     };
     this.orderDetailService.edit(orderDetailModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orderDetails']);
       },
       (responseError) => {
@@ -121,7 +121,7 @@ export class OrderDetailFormPageComponent implements OnInit {
     };
     this.orderDetailService.delete(orderDetailModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orderDetails']);
       },
       (responseError) => {
