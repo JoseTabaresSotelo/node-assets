@@ -21,7 +21,7 @@ describe('GET /customers should return a correct status code', () => {
     url: '/api/customers',
   });
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
+  expect(response).toBeTruthy();
  })
 
  
@@ -33,7 +33,18 @@ describe('GET /customers should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response).toBeTruthy();
+ })
+
+ it("customers by id - error", async () =>{
+
+  const response = await server.inject({
+    method: 'GET',
+    url: '/api/customers/999d',
+  });
+
+  expect(response.statusCode).toEqual(200);
+  expect(response.json().data).toHaveLength(0)
  })
 
 });

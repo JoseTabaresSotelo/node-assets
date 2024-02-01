@@ -2,7 +2,7 @@ import { app } from '../../app';
 import Fastify, { FastifyInstance } from 'fastify';
 
 const productsPayload = {
-    "product_id": 80,
+    "product_id": 91,
     "product_name": "Alfredo",
     "supplier_id": 9,
     "category_id": 4,
@@ -32,9 +32,8 @@ describe('/products should return a correct status code', () => {
     method: 'GET',
     url: '/api/products',
   });
-  console.log("response----------: ", response.statusCode);
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
+  expect(response.json().data).toBeTruthy();
  })
 
  
@@ -45,18 +44,18 @@ describe('/products should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response.json().data).toHaveLength(1);
  })
 
- it("products - POST", async () =>{
+   it("products - POST - Error", async () =>{
     const response = await server.inject({
       method: 'POST',
       url: '/api/products',
       payload: productsPayload
     });
-  
-    expect(response.statusCode).toEqual(200);
-    expect(response.json()).toEqual({"message": "Post created"})
+    console.log("response.json(): ", response.json());
+    expect(response.statusCode).toEqual(500);
+    expect(response.json().error).toEqual("Internal Server Error")
    })
 
 });

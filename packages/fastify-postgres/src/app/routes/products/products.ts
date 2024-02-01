@@ -1,5 +1,5 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 const getAllProducts = 'SELECT * from products';
 const getProductById = 'SELECT * from products where product_id = $1';
@@ -74,8 +74,7 @@ const users = async (fastify: FastifyInstance) => {
         reorder_level,
         discontinued,
       ]);
-
-      return rows;
+      return rows
     }
   );
 

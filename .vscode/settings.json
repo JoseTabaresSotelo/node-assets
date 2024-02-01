@@ -3,5 +3,7 @@
         "activityBar.background": "#5B0638",
         "titleBar.activeBackground": "#80094F",
         "titleBar.activeForeground": "#FFFBFD"
-    }
+    },
+    "jest.jestCommandLine": "\"c:\\Users\\alfredo.rivas\\Documents\\node\\assests\\node-assets\\node_modules\\.bin\\jest.cmd\"",
+    "jest.rootPath": "c:\\Users\\alfredo.rivas\\Documents\\node\\assests\\node-assets"
 }

@@ -20,7 +20,7 @@ describe('GET /suppliers should return a correct status code', () => {
     url: '/api/suppliers',
   });
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
+  expect(response.json().data).toBeTruthy();
  })
 
  
@@ -31,7 +31,17 @@ describe('GET /suppliers should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response.json().data).toHaveLength(1);
+ })
+
+ it("suppliers by id - error", async () =>{
+  const response = await server.inject({
+    method: 'GET',
+    url: '/api/suppliers/1000',
+  });
+
+  expect(response.statusCode).toEqual(200);
+  expect(response.json().data).toHaveLength(0);
  })
 
 });

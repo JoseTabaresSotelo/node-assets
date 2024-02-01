@@ -20,7 +20,7 @@ describe('GET /shippers should return a correct status code', () => {
     url: '/api/shippers',
   });
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
+  expect(response.json().data).toBeTruthy();
  })
 
  
@@ -31,7 +31,7 @@ describe('GET /shippers should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response.json().data).toHaveLength(1);
  })
 
 });

@@ -17,10 +17,10 @@ describe('GET /territories should return a correct status code', () => {
  it("territories", async () =>{
   const response = await server.inject({
     method: 'GET',
-    url: '/api/territories',
+    url: '/api/territories/',
   });
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
+  expect(response.json().data).toBeTruthy();
  })
 
  
@@ -31,7 +31,17 @@ describe('GET /territories should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response.json().data).toHaveLength(1);
+ })
+
+ it("territories by id - error", async () =>{
+  const response = await server.inject({
+    method: 'GET',
+    url: '/api/territories/01730000',
+  });
+
+  expect(response.statusCode).toEqual(200);
+  expect(response.json().data).toHaveLength(0);
  })
 
 });

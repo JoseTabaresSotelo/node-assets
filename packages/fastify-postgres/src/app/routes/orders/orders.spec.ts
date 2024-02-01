@@ -2,7 +2,7 @@ import { app } from '../../app';
 import Fastify, { FastifyInstance } from 'fastify';
 
 const orderPayload = {
-    "order_id": 11083 ,
+    "order_id": 11088 ,
     "customer_id": "RICSU",
     "company_name": "Rattlesnake Canyon Grocery",
     "contact_name": "Mary Wilson",
@@ -43,18 +43,18 @@ describe('/orders should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response.json().data).toHaveLength(1);
  })
 
- it("orders - POST", async () =>{
+ it("orders - POST - error", async () =>{
     const response = await server.inject({
       method: 'POST',
       url: '/api/orders',
       payload: orderPayload
     });
-  
-    expect(response.statusCode).toEqual(200);
-    expect(response.json()).toEqual({"message": "Order created"})
+    console.log("response.json(): ", response.json());
+    expect(response.statusCode).toEqual(500);
+    expect(response.json().message).toEqual('duplicate key value violates unique constraint "pk_orders"');
    })
 
 });

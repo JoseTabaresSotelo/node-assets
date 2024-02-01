@@ -1,5 +1,5 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 const ordersQuery = `
     SELECT 
@@ -37,7 +37,8 @@ const createOrder = `INSERT INTO orders (
 const orders = async (fastify: FastifyInstance) => {
   fastify.get('/orders', async () => {
     const { rows } = await runQuery(fastify.pg, getAllOrders);
-    return rows;
+    return rows
+    
   });
 
   fastify.get(
@@ -45,7 +46,7 @@ const orders = async (fastify: FastifyInstance) => {
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
       const { id } = request.params;
       const { rows } = await runQuery(fastify.pg, getOrdersById, [id]);
-      return rows;
+     return rows
     }
   );
 
@@ -103,8 +104,8 @@ const orders = async (fastify: FastifyInstance) => {
         ship_postal_code,
         ship_country,
       ]);
-
-      return rows;
+     return rows
+    
     }
   );
 };

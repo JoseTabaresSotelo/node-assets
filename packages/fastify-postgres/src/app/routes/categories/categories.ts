@@ -1,5 +1,5 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 
 /**
@@ -24,7 +24,7 @@ const getCategoryById = 'SELECT * from public.categories WHERE category_id = $1'
 
 const categories = async (fastify: FastifyInstance) => {
   fastify.get('/categories', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllCategories);
+    const { rows } = await runQuery(fastify.pg, getAllCategories); 
     return rows;
   });
 

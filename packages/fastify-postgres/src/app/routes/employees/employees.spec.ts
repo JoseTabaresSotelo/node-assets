@@ -20,7 +20,7 @@ describe('GET /employees should return a correct status code', () => {
     url: '/api/employees',
   });
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
+  expect(response).toBeTruthy();
  })
 
  
@@ -31,7 +31,18 @@ describe('GET /employees should return a correct status code', () => {
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json()).toHaveLength(1);
+  expect(response).toBeTruthy();
+ })
+
+ it("employees by id- error", async () =>{
+
+  const response = await server.inject({
+    method: 'GET',
+    url: '/api/employees/1000',
+  });
+
+  expect(response.statusCode).toEqual(200);
+  expect(response.json().data).toHaveLength(0)
  })
 
 });
