@@ -30,8 +30,8 @@ export class RegionFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['regionID']) {
-        this.getRegionById(params['regionID']);
+      if (params['regionId']) {
+        this.getRegionById(params['regionId']);
       }
     });
   }
@@ -46,13 +46,13 @@ export class RegionFormPageComponent implements OnInit {
 
   createRegionEditForm() {
     this.regionForm = this.formBuilder.group({
-      RegionDescription: [this.region?.RegionDescription, Validators.required],
+      regionDescription: [this.region?.regionDescription, Validators.required],
     });
   }
 
   createRegionAddForm() {
     this.regionForm = this.formBuilder.group({
-      RegionDescription: ['', Validators.required],
+      regionDescription: ['', Validators.required],
     });
   }
 
