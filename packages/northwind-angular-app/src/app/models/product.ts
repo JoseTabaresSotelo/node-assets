@@ -1,5 +1,5 @@
 export default interface Product {
-  productID: number;
+  productId: number;
   productName: string;
   supplierID: number;
   categoryId: number;

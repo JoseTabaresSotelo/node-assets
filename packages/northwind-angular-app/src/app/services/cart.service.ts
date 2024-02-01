@@ -14,13 +14,13 @@ export class CartService {
   }
 
   addToCart(product: Product) {
-    let item = cartItems.find((c) => c.product.productID === product.productID);
+    let item = cartItems.find((c) => c.product.productId === product.productId);
     if (item) ++item.quantity;
     else cartItems.push(new CartItem(product));
   }
 
   removeFromCart(product: Product) {
-    let item = cartItems.find((c) => c.product.productID === product.productID);
+    let item = cartItems.find((c) => c.product.productId === product.productId);
     if (item) cartItems.splice(cartItems.indexOf(item), 1);
   }
 }

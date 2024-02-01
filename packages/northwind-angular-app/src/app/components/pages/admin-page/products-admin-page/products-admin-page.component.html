@@ -30,24 +30,24 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let product of products | filter: filterText:'ProductName'"
+        *ngFor="let product of products | filter : filterText : 'productName'"
         (click)="editProduct(product)"
       >
-        <td>{{ product.ProductID }}</td>
-        <td>{{ product.ProductName | uppercase }}</td>
-        <td>{{ product.CategoryID }}</td>
-        <td>{{ product.SupplierID }}</td>
-        <td>{{ product.QuantityPerUnit }}</td>
-        <td>{{ product.UnitPrice | currency }}</td>
-        <td>{{ product.UnitsInStock }}</td>
-        <td>{{ product.UnitsOnOrder }}</td>
-        <td>{{ product.ReorderLevel }}</td>
+        <td>{{ product.productId }}</td>
+        <td>{{ product.productName | uppercase }}</td>
+        <td>{{ product.categoryID }}</td>
+        <td>{{ product.supplierId }}</td>
+        <td>{{ product.quantityPerUnit }}</td>
+        <td>{{ product.unitPrice | currency }}</td>
+        <td>{{ product.unitsInStock }}</td>
+        <td>{{ product.unitsOnOrder }}</td>
+        <td>{{ product.reorderLevel }}</td>
         <td>
           <input
             type="checkbox"
             class="form-check-input"
             disabled
-            [checked]="product.Discontinued"
+            [checked]="product.discontinued === 1"
           />
         </td>
       </tr>
