@@ -37,26 +37,26 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let employee of employees | filter: filterText:'FirstName'"
+        *ngFor="let employee of employees | filter: filterText:'firstName'"
         (click)="editEmployee(employee)"
       >
-        <td>{{ employee.EmployeeID }}</td>
-        <td>{{ employee.FirstName }}</td>
-        <td>{{ employee.LastName }}</td>
-        <td>{{ employee.Title }}</td>
-        <td>{{ employee.TitleOfCourtesy }}</td>
-        <td>{{ employee.BirthDate }}</td>
-        <td>{{ employee.HireDate }}</td>
-        <td>{{ employee.Address }}</td>
-        <td>{{ employee.City }}</td>
-        <td>{{ employee.Region }}</td>
-        <td>{{ employee.PostalCode }}</td>
-        <td>{{ employee.Country }}</td>
-        <td>{{ employee.HomePhone }}</td>
-        <td>{{ employee.Extension }}</td>
-        <td>{{ employee.Notes }}</td>
-        <td>{{ employee.ReportsTo }}</td>
-        <td>{{ employee.Salary }}</td>
+        <td>{{ employee.employeeId }}</td>
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.title }}</td>
+        <td>{{ employee.titleOfCourtesy }}</td>
+        <td>{{ employee.birthDate }}</td>
+        <td>{{ employee.hireDate }}</td>
+        <td>{{ employee.address }}</td>
+        <td>{{ employee.city }}</td>
+        <td>{{ employee.region }}</td>
+        <td>{{ employee.postalCode }}</td>
+        <td>{{ employee.country }}</td>
+        <td>{{ employee.homePhone }}</td>
+        <td>{{ employee.extension }}</td>
+        <td>{{ employee.notes }}</td>
+        <td>{{ employee.reportsTo }}</td>
+        <td>{{ employee.salary }}</td>
       </tr>
     </tbody>
   </table>
