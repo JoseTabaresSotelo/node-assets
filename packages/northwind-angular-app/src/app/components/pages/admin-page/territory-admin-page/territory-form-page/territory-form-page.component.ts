@@ -30,8 +30,8 @@ export class TerritoryFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['territoryID']) {
-        this.getTerritoryById(params['territoryID']);
+      if (params['territoryId']) {
+        this.getTerritoryById(params['territoryId']);
       }
     });
   }
@@ -46,23 +46,23 @@ export class TerritoryFormPageComponent implements OnInit {
 
   createTerritoryEditForm() {
     this.territoryForm = this.formBuilder.group({
-      TerritoryID: [this.territory?.TerritoryID, Validators.required],
-      TerritoryDescription: [
-        this.territory?.TerritoryDescription,
+      territoryId: [this.territory?.territoryId, Validators.required],
+      territoryDescription: [
+        this.territory?.territoryDescription,
         Validators.required,
       ],
-      RegionID: [this.territory?.RegionID, Validators.required],
+      regionId: [this.territory?.regionId, Validators.required],
     });
   }
 
   createTerritoryAddForm() {
     this.territoryForm = this.formBuilder.group({
-      TerritoryID: [this.territory?.TerritoryID, Validators.required],
-      TerritoryDescription: [
-        this.territory?.TerritoryDescription,
+      territoryId: [this.territory?.territoryId, Validators.required],
+      territoryDescription: [
+        this.territory?.territoryDescription,
         Validators.required,
       ],
-      RegionID: [this.territory?.RegionID, Validators.required],
+      regionId: [this.territory?.regionId, Validators.required],
     });
   }
 

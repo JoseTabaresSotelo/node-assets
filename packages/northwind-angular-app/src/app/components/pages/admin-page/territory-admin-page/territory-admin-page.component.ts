@@ -29,6 +29,6 @@ export class TerritoryAdminPageComponent implements OnInit {
   }
 
   editTerritory(territory: Territory) {
-    this.router.navigate(['admin', 'territories', territory.TerritoryID]);
+    this.router.navigate(['admin', 'territories', territory.territoryId]);
   }
 }
