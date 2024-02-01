@@ -30,8 +30,8 @@ export class OrderFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['orderID']) {
-        this.getOrderById(params['orderID']);
+      if (params['orderId']) {
+        this.getOrderById(params['orderId']);
       }
     });
   }

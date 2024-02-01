@@ -30,8 +30,8 @@ export class OrderDetailFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['OrderID']) {
-        this.getOrderDetailById(params['OrderID']);
+      if (params['orderId']) {
+        this.getOrderDetailById(params['orderId']);
       }
     });
   }
@@ -46,21 +46,21 @@ export class OrderDetailFormPageComponent implements OnInit {
 
   createOrderDetailEditForm() {
     this.orderDetailForm = this.formBuilder.group({
-      OrderID: [this.orderDetail?.OrderID, Validators.required],
-      ProductID: [this.orderDetail?.ProductID, Validators.required],
-      UnitPrice: [this.orderDetail?.UnitPrice, Validators.required],
-      Quantity: [this.orderDetail?.Quantity, Validators.required],
-      Discount: [this.orderDetail?.Discount, Validators.required],
+      orderId: [this.orderDetail?.orderId, Validators.required],
+      productId: [this.orderDetail?.productId, Validators.required],
+      unitPrice: [this.orderDetail?.unitPrice, Validators.required],
+      quantity: [this.orderDetail?.quantity, Validators.required],
+      discount: [this.orderDetail?.discount, Validators.required],
     });
   }
 
   createOrderDetailAddForm() {
     this.orderDetailForm = this.formBuilder.group({
-      OrderID: ['', Validators.required],
-      ProductID: ['', Validators.required],
-      UnitPrice: ['', Validators.required],
-      Quantity: ['', Validators.required],
-      Discount: ['', Validators.required],
+      orderId: ['', Validators.required],
+      productId: ['', Validators.required],
+      unitPrice: ['', Validators.required],
+      quantity: ['', Validators.required],
+      discount: ['', Validators.required],
     });
   }
 
