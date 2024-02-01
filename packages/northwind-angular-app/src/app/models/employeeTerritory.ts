@@ -1,4 +1,4 @@
 export default interface EmployeeTerritory {
-  EmployeeID: number;
-  TerritoryID: string;
+  employeeId: number;
+  territoryId: string;
 }
