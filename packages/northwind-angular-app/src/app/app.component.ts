@@ -18,10 +18,10 @@ export class AppComponent {
   }
 
   authRefresh() {
-    this.authService.refresh().subscribe((response) => {
-      if (!response.success) return;
+    // this.authService.refresh().subscribe((response) => {
+    //   if (!response.success) return;
 
-      this.authService.loggedIn(response.data);
-    });
+    //   this.authService.loggedIn(response.data);
+    // });
   }
 }

@@ -1,4 +1,4 @@
 export default interface Region {
-  regionId: number;
+  regionId?: number;
   regionDescription: string;
 }
