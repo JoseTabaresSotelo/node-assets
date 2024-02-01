@@ -46,15 +46,15 @@ export class CategoryFormPageComponent implements OnInit {
 
   createCategoryEditForm() {
     this.categoryForm = this.formBuilder.group({
-      CategoryName: [this.category?.categoryName, Validators.required],
-      Description: [this.category?.description, Validators.required],
+      categoryName: [this.category?.categoryName, Validators.required],
+      description: [this.category?.description, Validators.required],
     });
   }
 
   createCategoryAddForm() {
     this.categoryForm = this.formBuilder.group({
-      CategoryName: ['', Validators.required],
-      Description: ['', Validators.required],
+      categoryName: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 
