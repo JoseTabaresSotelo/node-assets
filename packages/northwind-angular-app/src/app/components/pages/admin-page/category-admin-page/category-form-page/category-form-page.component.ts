@@ -30,15 +30,15 @@ export class CategoryFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['categoryID']) {
-        this.getCategoryById(params['categoryID']);
+      if (params['categoryId']) {
+        this.getCategoryById(params['categoryId']);
       }
     });
   }
 
   getCategoryById(id: number) {
     this.categoryService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.category = response.data;
       this.createCategoryEditForm();
     });
@@ -46,15 +46,15 @@ export class CategoryFormPageComponent implements OnInit {
 
   createCategoryEditForm() {
     this.categoryForm = this.formBuilder.group({
-      CategoryName: [this.category?.CategoryName, Validators.required],
-      Description: [this.category?.Description, Validators.required],
+      categoryName: [this.category?.categoryName, Validators.required],
+      description: [this.category?.description, Validators.required],
     });
   }
 
   createCategoryAddForm() {
     this.categoryForm = this.formBuilder.group({
-      CategoryName: ['', Validators.required],
-      Description: ['', Validators.required],
+      categoryName: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 
@@ -67,8 +67,8 @@ export class CategoryFormPageComponent implements OnInit {
     let category: Category = { ...this.categoryForm.value };
     this.categoryService.add(category).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'categories']);
       },
       (responseError) => {
@@ -93,7 +93,7 @@ export class CategoryFormPageComponent implements OnInit {
     };
     this.categoryService.edit(categoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'categories']);
       },
       (responseError) => {
@@ -115,7 +115,7 @@ export class CategoryFormPageComponent implements OnInit {
     };
     this.categoryService.delete(categoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'categories']);
       },
       (responseError) => {

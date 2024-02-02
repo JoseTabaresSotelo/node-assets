@@ -29,6 +29,6 @@ export class EmployeeAdminPageComponent implements OnInit {
   }
 
   editEmployee(employee: Employee) {
-    this.router.navigate(['admin', 'employees', employee.EmployeeID]);
+    this.router.navigate(['admin', 'employees', employee.employeeId]);
   }
 }

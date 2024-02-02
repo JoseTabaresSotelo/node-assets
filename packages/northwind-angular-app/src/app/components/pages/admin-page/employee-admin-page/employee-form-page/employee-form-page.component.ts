@@ -38,7 +38,7 @@ export class EmployeeFormPageComponent implements OnInit {
 
   getEmployeeById(id: number) {
     this.employeeService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.employee = response.data;
       this.createEmployeeEditForm();
     });
@@ -46,43 +46,43 @@ export class EmployeeFormPageComponent implements OnInit {
 
   createEmployeeEditForm() {
     this.employeeForm = this.formBuilder.group({
-      FirstName: [this.employee?.FirstName, Validators.required],
-      LastName: [this.employee?.LastName, Validators.required],
-      Title: [this.employee?.Title, Validators.required],
-      TitleOfCourtesy: [this.employee?.TitleOfCourtesy, Validators.required],
-      BirthDate: [this.employee?.BirthDate, Validators.required],
-      HireDate: [this.employee?.HireDate, Validators.required],
-      Address: [this.employee?.Address, Validators.required],
-      City: [this.employee?.City, Validators.required],
-      Region: [this.employee?.Region, Validators.required],
-      PostalCode: [this.employee?.PostalCode, Validators.required],
-      Country: [this.employee?.Country, Validators.required],
-      HomePhone: [this.employee?.HomePhone, Validators.required],
-      Extension: [this.employee?.Extension, Validators.required],
-      Notes: [this.employee?.Notes, Validators.required],
-      ReportsTo: [this.employee?.ReportsTo, Validators.required],
-      Salary: [this.employee?.Salary, Validators.required],
+      firstName: [this.employee?.firstName, Validators.required],
+      lastName: [this.employee?.lastName, Validators.required],
+      title: [this.employee?.title, Validators.required],
+      titleOfCourtesy: [this.employee?.titleOfCourtesy, Validators.required],
+      birthDate: [this.employee?.birthDate, Validators.required],
+      hireDate: [this.employee?.hireDate, Validators.required],
+      address: [this.employee?.address, Validators.required],
+      city: [this.employee?.city, Validators.required],
+      region: [this.employee?.region, Validators.required],
+      postalCode: [this.employee?.postalCode, Validators.required],
+      country: [this.employee?.country, Validators.required],
+      homePhone: [this.employee?.homePhone, Validators.required],
+      extension: [this.employee?.extension, Validators.required],
+      notes: [this.employee?.notes, Validators.required],
+      reportsTo: [this.employee?.reportsTo, Validators.required],
+      salary: [this.employee?.salary, Validators.required],
     });
   }
 
   createEmployeeAddForm() {
     this.employeeForm = this.formBuilder.group({
-      FirstName: ['', Validators.required],
-      LastName: ['', Validators.required],
-      Title: ['', Validators.required],
-      TitleOfCourtesy: ['', Validators.required],
-      BirthDate: ['', Validators.required],
-      HireDate: ['', Validators.required],
-      Address: ['', Validators.required],
-      City: ['', Validators.required],
-      Region: ['', Validators.required],
-      PostalCode: ['', Validators.required],
-      Country: ['', Validators.required],
-      HomePhone: ['', Validators.required],
-      Extension: ['', Validators.required],
-      Notes: ['', Validators.required],
-      ReportsTo: ['', Validators.required],
-      Salary: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      title: ['', Validators.required],
+      titleOfCourtesy: ['', Validators.required],
+      birthDate: ['', Validators.required],
+      hireDate: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      region: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      country: ['', Validators.required],
+      homePhone: ['', Validators.required],
+      extension: ['', Validators.required],
+      notes: ['', Validators.required],
+      reportsTo: ['', Validators.required],
+      salary: ['', Validators.required],
     });
   }
 
@@ -95,8 +95,8 @@ export class EmployeeFormPageComponent implements OnInit {
     let employee: Employee = { ...this.employeeForm.value };
     this.employeeService.add(employee).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employees']);
       },
       (responseError) => {
@@ -121,7 +121,7 @@ export class EmployeeFormPageComponent implements OnInit {
     };
     this.employeeService.edit(employeeModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employees']);
       },
       (responseError) => {
@@ -143,7 +143,7 @@ export class EmployeeFormPageComponent implements OnInit {
     };
     this.employeeService.delete(employeeModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'employees']);
       },
       (responseError) => {

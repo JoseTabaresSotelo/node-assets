@@ -36,14 +36,14 @@ export class EmployeeTerritoryService {
 
   edit(employeeTerritory: EmployeeTerritory): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${employeeTerritory.EmployeeID}`,
+      `${this.apiControllerUrl}/${employeeTerritory.employeeId}`,
       employeeTerritory
     );
   }
 
   delete(employeeTerritory: EmployeeTerritory): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${employeeTerritory.EmployeeID}`
+      `${this.apiControllerUrl}/${employeeTerritory.employeeId}`
     );
   }
 }

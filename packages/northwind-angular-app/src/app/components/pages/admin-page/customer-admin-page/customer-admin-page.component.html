@@ -34,17 +34,17 @@
         *ngFor="let customer of customers | filter: filterText:'CompanyName'"
         (click)="editCustomer(customer)"
       >
-        <td>{{ customer.CustomerID }}</td>
-        <td>{{ customer.CompanyName }}</td>
-        <td>{{ customer.ContactName }}</td>
-        <td>{{ customer.ContactTitle }}</td>
-        <td>{{ customer.Address }}</td>
-        <td>{{ customer.City }}</td>
-        <td>{{ customer.Region }}</td>
-        <td>{{ customer.PostalCode }}</td>
-        <td>{{ customer.Country }}</td>
-        <td>{{ customer.Phone }}</td>
-        <td>{{ customer.Fax }}</td>
+        <td>{{ customer.customerId }}</td>
+        <td>{{ customer.companyName }}</td>
+        <td>{{ customer.contactName }}</td>
+        <td>{{ customer.contactTitle }}</td>
+        <td>{{ customer.address }}</td>
+        <td>{{ customer.city }}</td>
+        <td>{{ customer.region }}</td>
+        <td>{{ customer.postalCode }}</td>
+        <td>{{ customer.country }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.fax }}</td>
       </tr>
     </tbody>
   </table>

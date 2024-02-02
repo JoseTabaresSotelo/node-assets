@@ -33,14 +33,14 @@ export class CategoryService {
 
   edit(category: Category): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${category.CategoryID}`,
+      `${this.apiControllerUrl}/${category.categoryId}`,
       category
     );
   }
 
   delete(category: Category): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${category.CategoryID}`
+      `${this.apiControllerUrl}/${category.categoryId}`
     );
   }
 }

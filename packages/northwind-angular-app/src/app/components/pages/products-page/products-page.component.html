@@ -40,10 +40,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products | filter: filterText:'ProductName'">
-          <td>{{ product.productID }}</td>
+        <tr *ngFor="let product of products | filter: filterText:'productName'">
+          <td>{{ product.productId }}</td>
           <td>{{ product.productName | uppercase }}</td>
-          <td>{{ product.categoryID }}</td>
+          <td>{{ product.categoryId }}</td>
           <td>{{ product.unitPrice | currency }}</td>
           <td>{{ product.unitPrice | vatAdded: 10 | currency }}</td>
           <td>{{ product.unitsInStock }}</td>

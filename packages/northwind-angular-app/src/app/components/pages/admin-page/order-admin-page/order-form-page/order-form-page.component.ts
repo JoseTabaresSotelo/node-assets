@@ -30,15 +30,15 @@ export class OrderFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['orderID']) {
-        this.getOrderById(params['orderID']);
+      if (params['orderId']) {
+        this.getOrderById(params['orderId']);
       }
     });
   }
 
   getOrderById(id: number) {
     this.orderService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.order = response.data;
       this.createOrderEditForm();
     });
@@ -46,37 +46,37 @@ export class OrderFormPageComponent implements OnInit {
 
   createOrderEditForm() {
     this.orderForm = this.formBuilder.group({
-      CustomerID: [this.order?.CustomerID, Validators.required],
-      EmployeeID: [this.order?.EmployeeID, Validators.required],
-      CategOrderDateoryID: [this.order?.OrderDate, Validators.required],
-      RequiredDate: [this.order?.RequiredDate, Validators.required],
-      UniShippedDatetPrice: [this.order?.ShippedDate, Validators.required],
-      ShipVia: [this.order?.ShipVia, Validators.required],
-      Freight: [this.order?.Freight, Validators.required],
-      ShipName: [this.order?.ShipName, Validators.required],
-      ShipAddress: [this.order?.ShipAddress, Validators.required],
-      ShipCity: [this.order?.ShipCity, Validators.required],
-      ShipRegion: [this.order?.ShipRegion, Validators.required],
-      ShipPostalCode: [this.order?.ShipPostalCode, Validators.required],
-      ShipCountry: [this.order?.ShipCountry, Validators.required],
+      customerId: [this.order?.customerId, Validators.required],
+      employeeId: [this.order?.employeeId, Validators.required],
+      categOrderDateoryId: [this.order?.orderDate, Validators.required],
+      requiredDate: [this.order?.requiredDate, Validators.required],
+      uniShippedDatetPrice: [this.order?.shippedDate, Validators.required],
+      shipVia: [this.order?.shipVia, Validators.required],
+      freight: [this.order?.freight, Validators.required],
+      shipName: [this.order?.shipName, Validators.required],
+      shipAddress: [this.order?.shipAddress, Validators.required],
+      shipCity: [this.order?.shipCity, Validators.required],
+      shipRegion: [this.order?.shipRegion, Validators.required],
+      shipPostalCode: [this.order?.shipPostalCode, Validators.required],
+      shipCountry: [this.order?.shipCountry, Validators.required],
     });
   }
 
   createOrderAddForm() {
     this.orderForm = this.formBuilder.group({
-      CustomerID: ['', Validators.required],
-      EmployeeID: ['', Validators.required],
-      CategOrderDateoryID: ['', Validators.required],
-      RequiredDate: ['', Validators.required],
-      UniShippedDatetPrice: ['', Validators.required],
-      ShipVia: ['', Validators.required],
-      Freight: ['', Validators.required],
-      ShipName: ['', Validators.required],
-      ShipAddress: ['', Validators.required],
-      ShipCity: ['', Validators.required],
-      ShipRegion: ['', Validators.required],
-      ShipPostalCode: ['', Validators.required],
-      ShipCountry: ['', Validators.required],
+      customerId: ['', Validators.required],
+      employeeId: ['', Validators.required],
+      categOrderDateoryId: ['', Validators.required],
+      requiredDate: ['', Validators.required],
+      uniShippedDatetPrice: ['', Validators.required],
+      shipVia: ['', Validators.required],
+      freight: ['', Validators.required],
+      shipName: ['', Validators.required],
+      shipAddress: ['', Validators.required],
+      shipCity: ['', Validators.required],
+      shipRegion: ['', Validators.required],
+      shipPostalCode: ['', Validators.required],
+      shipCountry: ['', Validators.required],
     });
   }
 
@@ -89,8 +89,8 @@ export class OrderFormPageComponent implements OnInit {
     let order: Order = { ...this.orderForm.value };
     this.orderService.add(order).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orders']);
       },
       (responseError) => {
@@ -112,7 +112,7 @@ export class OrderFormPageComponent implements OnInit {
     let orderModule: Order = { ...this.order, ...this.orderForm.value };
     this.orderService.edit(orderModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orders']);
       },
       (responseError) => {
@@ -131,7 +131,7 @@ export class OrderFormPageComponent implements OnInit {
     let orderModule: Order = { ...this.order, ...this.orderForm.value };
     this.orderService.delete(orderModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orders']);
       },
       (responseError) => {

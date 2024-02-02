@@ -30,15 +30,15 @@ export class ShipperFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['shipperID']) {
-        this.getShipperById(params['shipperID']);
+      if (params['shipperId']) {
+        this.getShipperById(params['shipperId']);
       }
     });
   }
 
   getShipperById(id: number) {
     this.shipperService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.shipper = response.data;
       this.createShipperEditForm();
     });
@@ -46,15 +46,15 @@ export class ShipperFormPageComponent implements OnInit {
 
   createShipperEditForm() {
     this.shipperForm = this.formBuilder.group({
-      CompanyName: [this.shipper?.CompanyName, Validators.required],
-      Phone: [this.shipper?.Phone, Validators.required],
+      companyName: [this.shipper?.companyName, Validators.required],
+      phone: [this.shipper?.phone, Validators.required],
     });
   }
 
   createShipperAddForm() {
     this.shipperForm = this.formBuilder.group({
-      CompanyName: ['', Validators.required],
-      Phone: ['', Validators.required],
+      companyName: ['', Validators.required],
+      phone: ['', Validators.required],
     });
   }
 
@@ -67,8 +67,8 @@ export class ShipperFormPageComponent implements OnInit {
     let shipper: Shipper = { ...this.shipperForm.value };
     this.shipperService.add(shipper).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'shippers']);
       },
       (responseError) => {
@@ -90,7 +90,7 @@ export class ShipperFormPageComponent implements OnInit {
     let shipperModule: Shipper = { ...this.shipper, ...this.shipperForm.value };
     this.shipperService.edit(shipperModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'shippers']);
       },
       (responseError) => {
@@ -109,7 +109,7 @@ export class ShipperFormPageComponent implements OnInit {
     let shipperModule: Shipper = { ...this.shipper, ...this.shipperForm.value };
     this.shipperService.delete(shipperModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'shippers']);
       },
       (responseError) => {

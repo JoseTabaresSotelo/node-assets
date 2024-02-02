@@ -30,15 +30,15 @@ export class OrderDetailFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['OrderID']) {
-        this.getOrderDetailById(params['OrderID']);
+      if (params['orderId']) {
+        this.getOrderDetailById(params['orderId']);
       }
     });
   }
 
   getOrderDetailById(id: number) {
     this.orderDetailService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.orderDetail = response.data;
       this.createOrderDetailEditForm();
     });
@@ -46,21 +46,21 @@ export class OrderDetailFormPageComponent implements OnInit {
 
   createOrderDetailEditForm() {
     this.orderDetailForm = this.formBuilder.group({
-      OrderID: [this.orderDetail?.OrderID, Validators.required],
-      ProductID: [this.orderDetail?.ProductID, Validators.required],
-      UnitPrice: [this.orderDetail?.UnitPrice, Validators.required],
-      Quantity: [this.orderDetail?.Quantity, Validators.required],
-      Discount: [this.orderDetail?.Discount, Validators.required],
+      orderId: [this.orderDetail?.orderId, Validators.required],
+      productId: [this.orderDetail?.productId, Validators.required],
+      unitPrice: [this.orderDetail?.unitPrice, Validators.required],
+      quantity: [this.orderDetail?.quantity, Validators.required],
+      discount: [this.orderDetail?.discount, Validators.required],
     });
   }
 
   createOrderDetailAddForm() {
     this.orderDetailForm = this.formBuilder.group({
-      OrderID: ['', Validators.required],
-      ProductID: ['', Validators.required],
-      UnitPrice: ['', Validators.required],
-      Quantity: ['', Validators.required],
-      Discount: ['', Validators.required],
+      orderId: ['', Validators.required],
+      productId: ['', Validators.required],
+      unitPrice: ['', Validators.required],
+      quantity: ['', Validators.required],
+      discount: ['', Validators.required],
     });
   }
 
@@ -73,8 +73,8 @@ export class OrderDetailFormPageComponent implements OnInit {
     let orderDetail: OrderDetail = { ...this.orderDetailForm.value };
     this.orderDetailService.add(orderDetail).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orderDetails']);
       },
       (responseError) => {
@@ -99,7 +99,7 @@ export class OrderDetailFormPageComponent implements OnInit {
     };
     this.orderDetailService.edit(orderDetailModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orderDetails']);
       },
       (responseError) => {
@@ -121,7 +121,7 @@ export class OrderDetailFormPageComponent implements OnInit {
     };
     this.orderDetailService.delete(orderDetailModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'orderDetails']);
       },
       (responseError) => {

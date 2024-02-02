@@ -30,15 +30,15 @@ export class TerritoryFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['territoryID']) {
-        this.getTerritoryById(params['territoryID']);
+      if (params['territoryId']) {
+        this.getTerritoryById(params['territoryId']);
       }
     });
   }
 
   getTerritoryById(id: number) {
     this.territoryService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.territory = response.data;
       this.createTerritoryEditForm();
     });
@@ -46,23 +46,23 @@ export class TerritoryFormPageComponent implements OnInit {
 
   createTerritoryEditForm() {
     this.territoryForm = this.formBuilder.group({
-      TerritoryID: [this.territory?.TerritoryID, Validators.required],
-      TerritoryDescription: [
-        this.territory?.TerritoryDescription,
+      territoryId: [this.territory?.territoryId, Validators.required],
+      territoryDescription: [
+        this.territory?.territoryDescription,
         Validators.required,
       ],
-      RegionID: [this.territory?.RegionID, Validators.required],
+      regionId: [this.territory?.regionId, Validators.required],
     });
   }
 
   createTerritoryAddForm() {
     this.territoryForm = this.formBuilder.group({
-      TerritoryID: [this.territory?.TerritoryID, Validators.required],
-      TerritoryDescription: [
-        this.territory?.TerritoryDescription,
+      territoryId: [this.territory?.territoryId, Validators.required],
+      territoryDescription: [
+        this.territory?.territoryDescription,
         Validators.required,
       ],
-      RegionID: [this.territory?.RegionID, Validators.required],
+      regionId: [this.territory?.regionId, Validators.required],
     });
   }
 
@@ -75,8 +75,8 @@ export class TerritoryFormPageComponent implements OnInit {
     let territory: Territory = { ...this.territoryForm.value };
     this.territoryService.add(territory).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'territorys']);
       },
       (responseError) => {
@@ -101,7 +101,7 @@ export class TerritoryFormPageComponent implements OnInit {
     };
     this.territoryService.edit(territoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'territories']);
       },
       (responseError) => {
@@ -123,7 +123,7 @@ export class TerritoryFormPageComponent implements OnInit {
     };
     this.territoryService.delete(territoryModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'territories']);
       },
       (responseError) => {

@@ -26,6 +26,6 @@ export class OrderAdminPageComponent implements OnInit {
   }
 
   editOrder(order: Order) {
-    this.router.navigate(['admin', 'orders', order.OrderID]);
+    this.router.navigate(['admin', 'orders', order.orderId]);
   }
 }

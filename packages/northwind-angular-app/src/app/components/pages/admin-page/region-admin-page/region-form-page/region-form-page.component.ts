@@ -30,29 +30,31 @@ export class RegionFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['regionID']) {
-        this.getRegionById(params['regionID']);
+      if (params['regionId']) {
+        this.getRegionById(params['regionId']);
       }
     });
   }
 
   getRegionById(id: number) {
     this.regionService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+       debugger;
+      if (!response.success) return;
       this.region = response.data;
       this.createRegionEditForm();
     });
   }
 
   createRegionEditForm() {
+    console.log('----------->', this.region?.regionDescription)
     this.regionForm = this.formBuilder.group({
-      RegionDescription: [this.region?.RegionDescription, Validators.required],
+      regionDescription: [this.region?.regionDescription, Validators.required],
     });
   }
 
   createRegionAddForm() {
     this.regionForm = this.formBuilder.group({
-      RegionDescription: ['', Validators.required],
+      regionDescription: ['', Validators.required],
     });
   }
 
@@ -63,10 +65,12 @@ export class RegionFormPageComponent implements OnInit {
     }
 
     let region: Region = { ...this.regionForm.value };
+
+    debugger;
     this.regionService.add(region).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'regions']);
       },
       (responseError) => {
@@ -86,9 +90,11 @@ export class RegionFormPageComponent implements OnInit {
     }
 
     let regionModule: Region = { ...this.region, ...this.regionForm.value };
+    debugger;
     this.regionService.edit(regionModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        debugger;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'regions']);
       },
       (responseError) => {
@@ -107,7 +113,7 @@ export class RegionFormPageComponent implements OnInit {
     let regionModule: Region = { ...this.region, ...this.regionForm.value };
     this.regionService.delete(regionModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'regions']);
       },
       (responseError) => {

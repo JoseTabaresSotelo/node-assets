@@ -36,14 +36,14 @@ export class TerritoryService {
 
   edit(territory: Territory): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${territory.TerritoryID}`,
+      `${this.apiControllerUrl}/${territory.territoryId}`,
       territory
     );
   }
 
   delete(territory: Territory): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${territory.TerritoryID}`
+      `${this.apiControllerUrl}/${territory.territoryId}`
     );
   }
 }

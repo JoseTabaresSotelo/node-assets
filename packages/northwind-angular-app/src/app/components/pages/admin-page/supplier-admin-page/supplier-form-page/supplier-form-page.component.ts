@@ -30,15 +30,15 @@ export class SupplierFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['supplierID']) {
-        this.getSupplierById(params['supplierID']);
+      if (params['supplierId']) {
+        this.getSupplierById(params['supplierId']);
       }
     });
   }
 
   getSupplierById(id: number) {
     this.supplierService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.supplier = response.data;
       this.createSupplierEditForm();
     });
@@ -46,31 +46,31 @@ export class SupplierFormPageComponent implements OnInit {
 
   createSupplierEditForm() {
     this.supplierForm = this.formBuilder.group({
-      CompanyName: [this.supplier?.CompanyName, Validators.required],
-      ContactName: [this.supplier?.ContactName, Validators.required],
-      ContactTitle: [this.supplier?.ContactTitle, Validators.required],
-      QuanAddresstityPerUnit: [this.supplier?.Address, Validators.required],
-      City: [this.supplier?.City, Validators.required],
-      Region: [this.supplier?.Region, Validators.required],
-      PostalCode: [this.supplier?.PostalCode, Validators.required],
-      Phone: [this.supplier?.Phone, Validators.required],
-      Fax: [this.supplier?.Fax, Validators.required],
-      HomePage: [this.supplier?.HomePage, Validators.required],
+      companyName: [this.supplier?.companyName, Validators.required],
+      contactName: [this.supplier?.contactName, Validators.required],
+      contactTitle: [this.supplier?.contactTitle, Validators.required],
+      quanAddresstityPerUnit: [this.supplier?.address, Validators.required],
+      city: [this.supplier?.city, Validators.required],
+      region: [this.supplier?.region, Validators.required],
+      postalCode: [this.supplier?.postalCode, Validators.required],
+      phone: [this.supplier?.phone, Validators.required],
+      fax: [this.supplier?.fax, Validators.required],
+      homePage: [this.supplier?.homePage, Validators.required],
     });
   }
 
   createSupplierAddForm() {
     this.supplierForm = this.formBuilder.group({
-      CompanyName: ['', Validators.required],
-      ContactName: ['', Validators.required],
-      ContactTitle: ['', Validators.required],
-      QuanAddresstityPerUnit: ['', Validators.required],
-      City: ['', Validators.required],
-      Region: ['', Validators.required],
-      PostalCode: ['', Validators.required],
-      Phone: ['', Validators.required],
-      Fax: ['', Validators.required],
-      HomePage: ['', Validators.required],
+      companyName: ['', Validators.required],
+      contactName: ['', Validators.required],
+      contactTitle: ['', Validators.required],
+      quanAddresstityPerUnit: ['', Validators.required],
+      city: ['', Validators.required],
+      region: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      phone: ['', Validators.required],
+      fax: ['', Validators.required],
+      homePage: ['', Validators.required],
     });
   }
 
@@ -83,8 +83,8 @@ export class SupplierFormPageComponent implements OnInit {
     let supplier: Supplier = { ...this.supplierForm.value };
     this.supplierService.add(supplier).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'suppliers']);
       },
       (responseError) => {
@@ -109,7 +109,7 @@ export class SupplierFormPageComponent implements OnInit {
     };
     this.supplierService.edit(supplierModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'suppliers']);
       },
       (responseError) => {
@@ -131,7 +131,7 @@ export class SupplierFormPageComponent implements OnInit {
     };
     this.supplierService.delete(supplierModule).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'suppliers']);
       },
       (responseError) => {

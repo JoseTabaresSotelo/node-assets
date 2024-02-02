@@ -26,6 +26,6 @@ export class RegionAdminPageComponent implements OnInit {
   }
 
   editRegion(region: Region) {
-    this.router.navigate(['admin', 'regions', region.RegionID]);
+    this.router.navigate(['admin', 'regions', region.regionId]);
   }
 }

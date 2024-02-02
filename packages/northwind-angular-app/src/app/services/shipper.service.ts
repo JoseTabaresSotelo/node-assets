@@ -33,14 +33,14 @@ export class ShipperService {
 
   edit(shipper: Shipper): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${shipper.ShipperID}`,
+      `${this.apiControllerUrl}/${shipper.shipperId}`,
       shipper
     );
   }
 
   delete(shipper: Shipper): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${shipper.ShipperID}`
+      `${this.apiControllerUrl}/${shipper.shipperId}`
     );
   }
 }

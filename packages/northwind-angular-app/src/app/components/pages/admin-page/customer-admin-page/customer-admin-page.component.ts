@@ -29,6 +29,6 @@ export class CustomerAdminPageComponent implements OnInit {
   }
 
   editCustomer(customer: Customer) {
-    this.router.navigate(['admin', 'customers', customer.CustomerID]);
+    this.router.navigate(['admin', 'customers', customer.customerId]);
   }
 }

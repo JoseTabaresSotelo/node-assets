@@ -23,12 +23,12 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let territory of territories | filter: filterText:'CompanyName'"
+        *ngFor="let territory of territories | filter: filterText:'companyName'"
         (click)="editTerritory(territory)"
       >
-        <td>{{ territory.TerritoryID }}</td>
-        <td>{{ territory.TerritoryDescription }}</td>
-        <td>{{ territory.RegionID }}</td>
+        <td>{{ territory.territoryId }}</td>
+        <td>{{ territory.territoryDescription }}</td>
+        <td>{{ territory.regionDescription }}</td>
       </tr>
     </tbody>
   </table>

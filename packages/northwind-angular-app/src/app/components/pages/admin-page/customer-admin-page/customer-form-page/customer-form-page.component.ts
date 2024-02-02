@@ -30,15 +30,15 @@ export class CustomerFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['customerID']) {
-        this.getCustomerById(params['customerID']);
+      if (params['customerId']) {
+        this.getCustomerById(params['customerId']);
       }
     });
   }
 
   getCustomerById(id: number) {
     this.customerService.getById(id).subscribe((response) => {
-      if (!response.Success) return;
+      if (!response.success) return;
       this.customer = response.data;
       this.createCustomerEditForm();
     });
@@ -46,33 +46,33 @@ export class CustomerFormPageComponent implements OnInit {
 
   createCustomerEditForm() {
     this.customerForm = this.formBuilder.group({
-      CustomerID: [this.customer?.CustomerID, Validators.required],
-      CompanyName: [this.customer?.CompanyName, Validators.required],
-      ContactName: [this.customer?.ContactName, Validators.required],
-      ContactTitle: [this.customer?.ContactTitle, Validators.required],
-      Address: [this.customer?.Address, Validators.required],
-      City: [this.customer?.City, Validators.required],
-      Region: [this.customer?.Region, Validators.required],
-      PostalCode: [this.customer?.PostalCode, Validators.required],
-      Country: [this.customer?.Country, Validators.required],
-      Phone: [this.customer?.Phone, Validators.required],
-      Fax: [this.customer?.Fax, Validators.required],
+      customerId: [this.customer?.customerId, Validators.required],
+      companyName: [this.customer?.companyName, Validators.required],
+      contactName: [this.customer?.contactName, Validators.required],
+      contactTitle: [this.customer?.contactTitle, Validators.required],
+      address: [this.customer?.address, Validators.required],
+      city: [this.customer?.city, Validators.required],
+      region: [this.customer?.region, Validators.required],
+      postalCode: [this.customer?.postalCode, Validators.required],
+      country: [this.customer?.country, Validators.required],
+      phone: [this.customer?.phone, Validators.required],
+      fax: [this.customer?.fax, Validators.required],
     });
   }
 
   createCustomerAddForm() {
     this.customerForm = this.formBuilder.group({
-      CustomerID: ['', Validators.required],
-      CompanyName: ['', Validators.required],
-      ContactName: ['', Validators.required],
-      ContactTitle: ['', Validators.required],
-      Address: ['', Validators.required],
-      City: ['', Validators.required],
-      Region: ['', Validators.required],
-      PostalCode: ['', Validators.required],
-      Country: ['', Validators.required],
-      Phone: ['', Validators.required],
-      Fax: ['', Validators.required],
+      customerId: ['', Validators.required],
+      companyName: ['', Validators.required],
+      contactName: ['', Validators.required],
+      contactTitle: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      region: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      country: ['', Validators.required],
+      phone: ['', Validators.required],
+      fax: ['', Validators.required],
     });
   }
 
@@ -85,8 +85,8 @@ export class CustomerFormPageComponent implements OnInit {
     let customer: Customer = { ...this.customerForm.value };
     this.customerService.add(customer).subscribe(
       (response) => {
-        if (!response.Success) return;
-        this.toastrService.success(response.Message);
+        if (!response.success) return;
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'customers']);
       },
       (responseError) => {
@@ -110,10 +110,10 @@ export class CustomerFormPageComponent implements OnInit {
       ...this.customerForm.value,
     };
     this.customerService
-      .edit(customerModule, this.customer?.CustomerID)
+      .edit(customerModule, this.customer?.customerId)
       .subscribe(
         (response) => {
-          this.toastrService.success(response.Message);
+          this.toastrService.success(response.message);
           this.router.navigate(['admin', 'customers']);
         },
         (responseError) => {
@@ -132,7 +132,7 @@ export class CustomerFormPageComponent implements OnInit {
 
     this.customerService.delete(this.customer).subscribe(
       (response) => {
-        this.toastrService.success(response.Message);
+        this.toastrService.success(response.message);
         this.router.navigate(['admin', 'customers']);
       },
       (responseError) => {

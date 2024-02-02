@@ -1,5 +1,5 @@
 import CartItem from './cartItem';
 
-const CartItems: CartItem[] = [];
+const cartItems: CartItem[] = [];
 
-export default CartItems;
+export default cartItems;

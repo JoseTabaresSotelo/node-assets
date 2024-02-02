@@ -28,7 +28,7 @@ export class AdminGuard implements CanActivate {
     | UrlTree {
     return this.authService.userToken$.pipe(
       map((userToken) => {
-        return !!userToken && userToken.UserRoles.includes('admin');
+        return !!userToken && userToken.userRoles.includes('admin');
       })
     );
   }
