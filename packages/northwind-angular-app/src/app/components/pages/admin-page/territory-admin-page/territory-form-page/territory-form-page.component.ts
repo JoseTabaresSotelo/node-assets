@@ -46,23 +46,23 @@ export class TerritoryFormPageComponent implements OnInit {
 
   createTerritoryEditForm() {
     this.territoryForm = this.formBuilder.group({
-      TerritoryID: [this.territory?.territoryId, Validators.required],
-      TerritoryDescription: [
+      territoryId: [this.territory?.territoryId, Validators.required],
+      territoryDescription: [
         this.territory?.territoryDescription,
         Validators.required,
       ],
-      RegionID: [this.territory?.regionId, Validators.required],
+      regionId: [this.territory?.regionId, Validators.required],
     });
   }
 
   createTerritoryAddForm() {
     this.territoryForm = this.formBuilder.group({
-      TerritoryID: [this.territory?.territoryId, Validators.required],
-      TerritoryDescription: [
+      territoryId: [this.territory?.territoryId, Validators.required],
+      territoryDescription: [
         this.territory?.territoryDescription,
         Validators.required,
       ],
-      RegionID: [this.territory?.regionId, Validators.required],
+      regionId: [this.territory?.regionId, Validators.required],
     });
   }
 

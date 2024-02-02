@@ -26,9 +26,9 @@
         *ngFor="let category of categories | filter: filterText:'CategoryName'"
         (click)="editCategory(category)"
       >
-        <td>{{ category.CategoryID }}</td>
-        <td>{{ category.CategoryName }}</td>
-        <td>{{ category.Description }}</td>
+        <td>{{ category.categoryId }}</td>
+        <td>{{ category.categoryName }}</td>
+        <td>{{ category.description }}</td>
       </tr>
     </tbody>
   </table>

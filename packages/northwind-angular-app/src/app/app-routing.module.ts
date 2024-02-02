@@ -32,7 +32,7 @@ import { TerritoryFormPageComponent } from './components/pages/admin-page/territ
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductsPageComponent },
   { path: 'products', component: ProductsPageComponent },
-  { path: 'products/category/:categoryID', component: ProductsPageComponent },
+  { path: 'products/category/:categoryId', component: ProductsPageComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'admin',
@@ -43,7 +43,7 @@ const routes: Routes = [
         path: 'categories',
         component: CategoryAdminPageComponent,
       },
-      ...['categories/add', 'categories/:categoryID'].map((path) => ({
+      ...['categories/add', 'categories/:categoryId'].map((path) => ({
         path,
         component: CategoryFormPageComponent,
       })),
@@ -52,7 +52,7 @@ const routes: Routes = [
         path: 'customers',
         component: CustomerAdminPageComponent,
       },
-      ...['customers/add', 'customers/:customerID'].map((path) => ({
+      ...['customers/add', 'customers/:customerId'].map((path) => ({
         path,
         component: CustomerFormPageComponent,
       })),
@@ -61,7 +61,7 @@ const routes: Routes = [
         path: 'employees',
         component: EmployeeAdminPageComponent,
       },
-      ...['employees/add', 'employees/:employeeID'].map((path) => ({
+      ...['employees/add', 'employees/:employeeId'].map((path) => ({
         path,
         component: EmployeeFormPageComponent,
       })),
@@ -70,7 +70,7 @@ const routes: Routes = [
         path: 'employeesterritories',
         component: EmployeeTerritoryAdminPageComponent,
       },
-      ...['employeesterritories/add', 'employeesterritories/:employeeID'].map(
+      ...['employeesterritories/add', 'employeesterritories/:employeeId'].map(
         (path) => ({
           path,
           component: EmployeeTerritoryFormPageComponent,
@@ -81,7 +81,7 @@ const routes: Routes = [
         path: 'orders',
         component: OrderAdminPageComponent,
       },
-      ...['orders/add', 'orders/:orderID'].map((path) => ({
+      ...['orders/add', 'orders/:orderId'].map((path) => ({
         path,
         component: OrderFormPageComponent,
       })),
@@ -90,7 +90,7 @@ const routes: Routes = [
         path: 'orderdetails',
         component: OrderDetailAdminPageComponent,
       },
-      ...['orderdetails/add', 'orderdetails/:orderID'].map((path) => ({
+      ...['orderdetails/add', 'orderdetails/:orderId'].map((path) => ({
         path,
         component: OrderDetailFormPageComponent,
       })),
@@ -99,7 +99,7 @@ const routes: Routes = [
         path: 'products',
         component: ProductsAdminPageComponent,
       },
-      ...['products/add', 'products/:productID'].map((path) => ({
+      ...['products/add', 'products/:productId'].map((path) => ({
         path,
         component: ProductFormPageComponent,
       })),
@@ -117,7 +117,7 @@ const routes: Routes = [
         path: 'shippers',
         component: ShipperAdminPageComponent,
       },
-      ...['shippers/add', 'shippers/:shipperID'].map((path) => ({
+      ...['shippers/add', 'shippers/:shipperId'].map((path) => ({
         path,
         component: ShipperFormPageComponent,
       })),
@@ -126,7 +126,7 @@ const routes: Routes = [
         path: 'suppliers',
         component: SupplierAdminPageComponent,
       },
-      ...['suppliers/add', 'suppliers/:supplierID'].map((path) => ({
+      ...['suppliers/add', 'suppliers/:supplierId'].map((path) => ({
         path,
         component: SupplierFormPageComponent,
       })),

@@ -1,13 +1,13 @@
 export default interface Customer {
-  CustomerID: string;
-  CompanyName: string;
-  ContactName: string;
-  ContactTitle: string;
-  Address: string;
-  City: string;
-  Region: string;
-  PostalCode: string;
-  Country: string;
-  Phone: string;
-  Fax: string;
+  customerId: string;
+  companyName: string;
+  contactName: string;
+  contactTitle: string;
+  address: string;
+  city: string;
+  region: string;
+  postalCode: string;
+  country: string;
+  phone: string;
+  fax: string;
 }

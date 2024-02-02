@@ -24,12 +24,12 @@
       <tr
         *ngFor="
           let employeeTerritory of employeeTerritories
-            | filter: filterText:'EmployeeID'
+            | filter: filterText:'employeeId'
         "
         (click)="editEmployeeTerritory(employeeTerritory)"
       >
-        <td>{{ employeeTerritory.EmployeeID }}</td>
-        <td>{{ employeeTerritory.TerritoryID }}</td>
+        <td>{{ employeeTerritory.employeeId }}</td>
+        <td>{{ employeeTerritory.territoryId }}</td>
       </tr>
     </tbody>
   </table>

@@ -36,14 +36,14 @@ export class OrderDetailService {
 
   edit(orderDetail: OrderDetail): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${orderDetail.OrderID}`,
+      `${this.apiControllerUrl}/${orderDetail.orderId}`,
       orderDetail
     );
   }
 
   delete(orderDetail: OrderDetail): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${orderDetail.OrderID}`
+      `${this.apiControllerUrl}/${orderDetail.orderId}`
     );
   }
 }

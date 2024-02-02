@@ -33,14 +33,14 @@ export class EmployeeService {
 
   edit(employee: Employee): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${employee.EmployeeID}`,
+      `${this.apiControllerUrl}/${employee.employeeId}`,
       employee
     );
   }
 
   delete(employee: Employee): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${employee.EmployeeID}`
+      `${this.apiControllerUrl}/${employee.employeeId}`
     );
   }
 }

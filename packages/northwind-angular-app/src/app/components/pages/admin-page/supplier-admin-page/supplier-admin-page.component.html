@@ -32,21 +32,21 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let supplier of suppliers | filter: filterText:'CompanyName'"
+        *ngFor="let supplier of suppliers | filter: filterText:'companyName'"
         (click)="editSupplier(supplier)"
       >
-        <td>{{ supplier.SupplierID }}</td>
-        <td>{{ supplier.CompanyName }}</td>
-        <td>{{ supplier.ContactName }}</td>
-        <td>{{ supplier.ContactTitle }}</td>
-        <td>{{ supplier.Address }}</td>
-        <td>{{ supplier.City }}</td>
-        <td>{{ supplier.Region }}</td>
-        <td>{{ supplier.PostalCode }}</td>
-        <td>{{ supplier.Country }}</td>
-        <td>{{ supplier.Phone }}</td>
-        <td>{{ supplier.Fax }}</td>
-        <td>{{ supplier.HomePage }}</td>
+        <td>{{ supplier.supplierId }}</td>
+        <td>{{ supplier.companyName }}</td>
+        <td>{{ supplier.contactName }}</td>
+        <td>{{ supplier.contactTitle }}</td>
+        <td>{{ supplier.address }}</td>
+        <td>{{ supplier.city }}</td>
+        <td>{{ supplier.region }}</td>
+        <td>{{ supplier.postalCode }}</td>
+        <td>{{ supplier.country }}</td>
+        <td>{{ supplier.phone }}</td>
+        <td>{{ supplier.fax }}</td>
+        <td>{{ supplier.homePage }}</td>
       </tr>
     </tbody>
   </table>

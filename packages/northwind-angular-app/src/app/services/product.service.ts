@@ -27,9 +27,9 @@ export class ProductService {
     );
   }
 
-  getByCategory(categoryID: number): Observable<ListResponseModel<Product>> {
+  getByCategory(categoryId: number): Observable<ListResponseModel<Product>> {
     return this.httpClient.get<ListResponseModel<Product>>(
-      `${this.apiControllerUrl}/?categoryID=${categoryID}`
+      `${this.apiControllerUrl}/?categoryId=${categoryId}`
     );
   }
 
@@ -39,14 +39,14 @@ export class ProductService {
 
   edit(product: Product): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${product.productID}`,
+      `${this.apiControllerUrl}/${product.productId}`,
       product
     );
   }
 
   delete(product: Product): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${product.productID}`
+      `${this.apiControllerUrl}/${product.productId}`
     );
   }
 }

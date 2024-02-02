@@ -10,8 +10,8 @@
     *ngFor="let category of categories"
     class="list-group-item {{ isActive(category) }}"
     (click)="setCurrentCategory(category)"
-    routerLink="/products/category/{{ category.CategoryID }}"
+    routerLink="/products/category/{{ category.categoryId }}"
   >
-    {{ category.CategoryName }}
+    {{ category.categoryName }}
   </li>
 </ul>

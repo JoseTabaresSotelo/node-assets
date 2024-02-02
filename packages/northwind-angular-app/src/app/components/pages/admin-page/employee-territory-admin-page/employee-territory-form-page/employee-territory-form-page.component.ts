@@ -46,15 +46,15 @@ export class EmployeeTerritoryFormPageComponent implements OnInit {
 
   createEmployeeTerritoryEditForm() {
     this.employeeTerritoryForm = this.formBuilder.group({
-      EmployeeID: [this.employeeTerritory?.EmployeeID, Validators.required],
-      TerritoryID: [this.employeeTerritory?.TerritoryID, Validators.required],
+      employeeId: [this.employeeTerritory?.employeeId, Validators.required],
+      territoryId: [this.employeeTerritory?.territoryId, Validators.required],
     });
   }
 
   createEmployeeTerritoryAddForm() {
     this.employeeTerritoryForm = this.formBuilder.group({
-      EmployeeID: ['', Validators.required],
-      TerritoryID: ['', Validators.required],
+      employeeId: ['', Validators.required],
+      territoryId: ['', Validators.required],
     });
   }
 

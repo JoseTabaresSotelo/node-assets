@@ -1,19 +1,19 @@
 export default interface Employee {
-  EmployeeID: number;
-  FirstName: string;
-  LastName: string;
-  Title: string;
-  TitleOfCourtesy: string;
-  BirthDate: string;
-  HireDate: string;
-  Address: string;
-  City: string;
-  Region: string;
-  PostalCode: string;
-  Country: string;
-  HomePhone: string;
-  Extension: string;
-  Notes: string;
-  ReportsTo: number;
-  Salary: number;
+  employeeId: number;
+  firstName: string;
+  lastName: string;
+  title: string;
+  titleOfCourtesy: string;
+  birthDate: string;
+  hireDate: string;
+  address: string;
+  city: string;
+  region: string;
+  postalCode: string;
+  country: string;
+  homePhone: string;
+  extension: string;
+  notes: string;
+  reportsTo: number;
+  salary: number;
 }

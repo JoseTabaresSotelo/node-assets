@@ -29,6 +29,6 @@ export class CategoryAdminPageComponent implements OnInit {
   }
 
   editCategory(category: Category) {
-    this.router.navigate(['admin', 'categories', category.CategoryID]);
+    this.router.navigate(['admin', 'categories', category.categoryId]);
   }
 }

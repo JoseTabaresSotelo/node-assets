@@ -29,6 +29,6 @@ export class OrderDetailAdminPageComponent implements OnInit {
   }
 
   editOrderDetail(orderDetail: OrderDetail) {
-    this.router.navigate(['admin', 'orderdetails', orderDetail.OrderID]);
+    this.router.navigate(['admin', 'orderdetails', orderDetail.orderId]);
   }
 }

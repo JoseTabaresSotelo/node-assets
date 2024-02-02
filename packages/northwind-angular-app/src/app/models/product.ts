@@ -1,8 +1,8 @@
 export default interface Product {
-  productID: number;
+  productId: number;
   productName: string;
-  supplierID: number;
-  categoryID: number;
+  supplierId: number;
+  categoryId: number;
   quantityPerUnit: string;
   unitPrice: number;
   unitsInStock: number;

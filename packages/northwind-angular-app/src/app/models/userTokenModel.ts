@@ -2,7 +2,7 @@ import AccessTokenModel from './accessTokenModel';
 import User from './user';
 
 export default interface UserTokenModel {
-  User: User;
-  UserRoles: string[];
+  user: User;
+  userRoles: string[];
   accessToken: AccessTokenModel;
 }
