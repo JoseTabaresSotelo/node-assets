@@ -3,9 +3,9 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const getAllShippers = 'SELECT * FROM public.shippers ORDER BY shipper_id ASC';
 const getShipperById = 'SELECT * FROM public.shippers WHERE shipper_id = $1';
-const addShipper = 'INSERT INTO public.region(region_description) VALUES ($1);';
-const updateShipper = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteShipper = `DELETE FROM public.region WHERE region_id = $1;`;
+const addShipper = 'INSERT INTO public.shippers(company_name, phone) VALUES ($1, $2) RETURNING *;';
+const updateShipper = `UPDATE public.shippers SET (company_name, phone) = ($2, $3) WHERE shipper_id = $1 RETURNING *;`;
+const deleteShipper = `DELETE FROM public.shippers WHERE shipper_id = $1 RETURNING *;`;
 
 const shippers = async (fastify: FastifyInstance) => {
   fastify.get('/shippers', async () => {

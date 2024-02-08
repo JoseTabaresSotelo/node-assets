@@ -11,9 +11,9 @@ const territoriesQuery = `
 const getAllTerritories = `${territoriesQuery} ORDER BY t.territory_id ASC`;
 const getTerritoryById = `${territoriesQuery} WHERE territory_id = $1`;
 const addTerritory =
-  'INSERT INTO public.region(region_description) VALUES ($1);';
-const updateTerritory = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteTerritory = `DELETE FROM public.region WHERE region_id = $1;`;
+  'INSERT INTO public.region(region_description) VALUES ($1) RETURNING *;';
+const updateTerritory = `UPDATE public.region SET region_description = $2 WHERE region_id = $1 RETURNING *;`;
+const deleteTerritory = `DELETE FROM public.region WHERE region_id = $1 RETURNING *;`;
 
 const territories = async (fastify: FastifyInstance) => {
   fastify.get('/territories', async () => {

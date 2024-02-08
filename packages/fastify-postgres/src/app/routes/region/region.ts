@@ -3,9 +3,9 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const getAllRegions = 'SELECT * FROM public.region ORDER BY region_id ASC;';
 const getRegionById = 'SELECT * from public.region WHERE region_id = $1;';
-const addRegion = 'INSERT INTO public.region(region_description) VALUES ($1);';
-const updateRegion = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`
-const deleteRegion = `DELETE FROM public.region WHERE region_id = $1;`;
+const addRegion = 'INSERT INTO public.region(region_description) VALUES ($1) RETURNING *;';
+const updateRegion = `UPDATE public.region SET region_description = $2 WHERE region_id = $1 RETURNING *;`
+const deleteRegion = `DELETE FROM public.region WHERE region_id = $1 RETURNING *;`;
 
 const region = async (fastify: FastifyInstance) => {
   fastify.get('/regions', async () => {

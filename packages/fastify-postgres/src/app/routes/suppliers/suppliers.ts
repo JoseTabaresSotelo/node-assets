@@ -4,10 +4,33 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllSuppliers =
   'SELECT * FROM public.suppliers ORDER BY supplier_id ASC';
 const getSupplierById = 'SELECT * from public.suppliers WHERE supplier_id = $1';
-const addSupplier =
-  'INSERT INTO public.region(region_description) VALUES ($1);';
-const updateSupplier = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteSupplier = `DELETE FROM public.region WHERE region_id = $1;`;
+const addSupplier = `INSERT INTO public.suppliers(
+    company_name,
+    contact_name,
+    contact_title,
+    address,
+    city,
+    region,
+    postal_code,
+    country,
+    phone,
+    fax,
+    homepage
+) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *;`;
+const updateSupplier = `UPDATE public.suppliers SET (
+    company_name,
+    contact_name,
+    contact_title,
+    address,
+    city,
+    region,
+    postal_code,
+    country,
+    phone,
+    fax,
+    homepage
+) = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11); WHERE supplier_id = $12 RETURNING *;`;
+const deleteSupplier = `DELETE FROM public.suppliers WHERE supplier_id = $1 RETURNING *;`;
 
 const suppliers = async (fastify: FastifyInstance) => {
   fastify.get('/suppliers', async () => {
@@ -110,7 +133,6 @@ const suppliers = async (fastify: FastifyInstance) => {
       const id = request.params.id;
 
       const { rows } = await runQuery(fastify.pg, updateSupplier, [
-        id,
         company_name,
         contact_name,
         contact_title,
@@ -122,6 +144,7 @@ const suppliers = async (fastify: FastifyInstance) => {
         phone,
         fax,
         homepage,
+        id,
       ]);
 
       return rows;

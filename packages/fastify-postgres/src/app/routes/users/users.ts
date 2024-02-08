@@ -4,8 +4,8 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 const getAllUsers = 'SELECT * FROM users_sample;';
 const addUser = `INSERT INTO users_sample (username, email) VALUES ($1, $2) RETURNING *;`;
 const getUserId = `SELECT * FROM users_sample WHERE id=$1;`;
-const updateUser = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteUser = `DELETE FROM public.region WHERE region_id = $1;`;
+const updateUser = `UPDATE public.users_sample SET (username, email) = ($2, $3) WHERE id = $1 RETURNING *;`;
+const deleteUser = `DELETE FROM public.users_sample WHERE id = $1 RETURNING *;`;
 
 const users = async (fastify: FastifyInstance) => {
   fastify.get('/users', async () => {

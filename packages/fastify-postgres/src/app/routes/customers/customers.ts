@@ -5,10 +5,11 @@ const getAllCustomers =
   'SELECT * FROM public.customers ORDER BY customer_id ASC';
 const getCustomersById =
   'SELECT * FROM public.customers WHERE customer_id = $1';
-const addCustomer =
-  'INSERT INTO public.region(region_description) VALUES ($1);';
-const updateCustomer = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteCustomer = `DELETE FROM public.region WHERE region_id = $1;`;
+const addCustomer = `INSERT INTO public.customers(company_name, contact_name, contact_title, address, city, region, postal_code, country, phone, fax)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;`;
+const updateCustomer = `UPDATE public.customers SET (company_name, contact_name, contact_title, address, city, region, postal_code, country, phone, fax) 
+    = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) WHERE customer_id = $11 RETURNING *;`;
+const deleteCustomer = `DELETE FROM public.customers WHERE customer_id = $1 RETURNING *;`;
 
 const customers = async (fastify: FastifyInstance) => {
   fastify.get('/customers', async () => {
@@ -106,7 +107,6 @@ const customers = async (fastify: FastifyInstance) => {
       const id = request.params.id;
 
       const { rows } = await runQuery(fastify.pg, updateCustomer, [
-        id,
         company_name,
         contact_name,
         contact_title,
@@ -117,6 +117,7 @@ const customers = async (fastify: FastifyInstance) => {
         country,
         phone,
         fax,
+        id,
       ]);
 
       return rows;

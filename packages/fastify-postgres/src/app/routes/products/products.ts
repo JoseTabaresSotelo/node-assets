@@ -2,8 +2,7 @@ import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 
 const getAllProducts = 'SELECT * from products';
-const addUser = `INSERT INTO products (
-        product_id,
+const addProducts = `INSERT INTO products (
         product_name,
         supplier_id,
         category_id,
@@ -13,11 +12,21 @@ const addUser = `INSERT INTO products (
         units_on_order,
         reorder_level,
         discontinued
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;`;
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;`;
 const getProductsById =
   'SELECT * from public.categories WHERE Products_id = $1';
-const updateProduct = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteProduct = `DELETE FROM public.region WHERE region_id = $1;`;
+const updateProduct = `	UPDATE public.products SET(
+    product_name,
+    supplier_id,
+    category_id,
+    quantity_per_unit,
+    unit_price,
+    units_in_stock,
+    units_on_order,
+    reorder_level,
+    discontinued
+) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE product_id = $10 RETURNING *;`;
+const deleteProduct = `DELETE FROM public.products WHERE product_id = $1 RETURNING *;`;
 
 const users = async (fastify: FastifyInstance) => {
   fastify.get('/products', async () => {
@@ -30,7 +39,6 @@ const users = async (fastify: FastifyInstance) => {
     async (
       request: FastifyRequest<{
         Body: {
-          product_id: number;
           product_name: string;
           supplier_id: number;
           category_id: number;
@@ -44,7 +52,6 @@ const users = async (fastify: FastifyInstance) => {
       }>
     ) => {
       const {
-        product_id,
         product_name,
         supplier_id,
         category_id,
@@ -55,8 +62,7 @@ const users = async (fastify: FastifyInstance) => {
         reorder_level,
         discontinued,
       } = request.body;
-      const { rows } = await runQuery(fastify.pg, addUser, [
-        product_id,
+      const { rows } = await runQuery(fastify.pg, addProducts, [
         product_name,
         supplier_id,
         category_id,
@@ -115,7 +121,6 @@ const users = async (fastify: FastifyInstance) => {
       const id = request.params.id;
 
       const { rows } = await runQuery(fastify.pg, updateProduct, [
-        id,
         product_name,
         supplier_id,
         category_id,
@@ -125,6 +130,7 @@ const users = async (fastify: FastifyInstance) => {
         units_on_order,
         reorder_level,
         discontinued,
+        id,
       ]);
 
       return rows;

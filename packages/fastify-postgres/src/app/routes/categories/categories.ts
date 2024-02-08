@@ -14,9 +14,10 @@ const getAllCategories =
 const getCategoryById =
   'SELECT * from public.categories WHERE category_id = $1';
 const addCategory =
-  'INSERT INTO public.region(region_description) VALUES ($1);';
-const updateCategory = `UPDATE public.region SET region_description = $2 WHERE region_id = $1;`;
-const deleteCategory = `DELETE FROM public.region WHERE region_id = $1;`;
+  'INSERT INTO public.categories(category_name, description, picture) VALUES ($1, $2, $3) RETURNING *;';
+const updateCategory = `UPDATE public.categories SET 
+    (category_name, description, picture) = ($2, $3, $4) WHERE category_id = $1 RETURNING *;`;
+const deleteCategory = `DELETE FROM public.categories WHERE category_id = $1 RETURNING *;`;
 
 /**
  * Creating fastify routes
