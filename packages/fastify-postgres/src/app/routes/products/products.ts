@@ -3,11 +3,22 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 const getAllProducts = 'SELECT * from products';
 const getProductById = 'SELECT * from products where product_id = $1';
+const addUser = `INSERT INTO products (
+        product_id,
+        product_name,
+        supplier_id,
+        category_id,
+        quantity_per_unit,
+        unit_price,
+        units_in_stock,
+        units_on_order,
+        reorder_level,
+        discontinued
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;`;
 const updateProduct = `UPDATE products SET unitPrice = $2 WHERE product_id = $1;`;
 const deleteProduct = `DELETE FROM products WHERE product_id = $1;`;
 
 const users = async (fastify: FastifyInstance) => {
-  
   fastify.get('/products', async () => {
     const { rows } = await runQuery(fastify.pg, getAllProducts);
     return rows;
@@ -82,9 +93,5 @@ const users = async (fastify: FastifyInstance) => {
     }
   );
 };
-
-
-
-
 
 export default users;

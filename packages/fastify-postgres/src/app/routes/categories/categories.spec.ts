@@ -1,9 +1,8 @@
-import { app } from '../../app'
-import Fastify, { FastifyInstance } from 'fastify'
-
+import { app } from '../../app';
+import Fastify, { FastifyInstance } from 'fastify';
 
 describe('GET /api/categories should return a list of categories', () => {
-    let server: FastifyInstance;
+  let server: FastifyInstance;
 
   beforeEach(async () => {
     server = Fastify();
@@ -11,36 +10,36 @@ describe('GET /api/categories should return a list of categories', () => {
   });
 
   afterEach(async () => {
-    await server.close(); 
+    await server.close();
     server = null;
   });
 
-
- it("categories", async () =>{
-  const response = await server.inject({
-    method: 'GET',
-    url: '/api/categories',
+  it('categories', async () => {
+    const response = await server.inject({
+      method: 'GET',
+      url: '/api/categories',
+    });
+    expect(response.statusCode).toEqual(200);
+    expect(response.json()).toBeTruthy();
   });
-  expect(response.statusCode).toEqual(200);
-  expect(response.json()).toBeTruthy();
- })
- 
- it("categories by id", async () =>{
-  const response = await server.inject({
-    method: 'GET',
-    url: '/api/categories/6',
-  });
-  expect(response.statusCode).toEqual(200);
-  expect(response).toBeTruthy();
- })
 
- it(" categories by id - error", async () =>{
-  const response = await server.inject({
-    method: 'GET',
-    url: '/api/categories/999d',
+  it('categories by id', async () => {
+    const response = await server.inject({
+      method: 'GET',
+      url: '/api/categories/6',
+    });
+    expect(response.statusCode).toEqual(200);
+    expect(response).toBeTruthy();
   });
-  expect(response.statusCode).toEqual(500);
-  expect(response.json().message).toEqual('invalid input syntax for type smallint: "999d"')
- })
 
+  it(' categories by id - error', async () => {
+    const response = await server.inject({
+      method: 'GET',
+      url: '/api/categories/999d',
+    });
+    expect(response.statusCode).toEqual(500);
+    expect(response.json().message).toEqual(
+      'invalid input syntax for type smallint: "999d"'
+    );
+  });
 });

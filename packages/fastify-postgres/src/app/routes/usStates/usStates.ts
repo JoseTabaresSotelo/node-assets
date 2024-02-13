@@ -14,11 +14,11 @@ const usStates = async (fastify: FastifyInstance) => {
   });
 
   fastify.get(
-    '/states/:abbreviation',
-    async (request: FastifyRequest<{ Params: { abbreviation: string } }>) => {
-      const { abbreviation } = request.params;
+    '/states/:id',
+    async (request: FastifyRequest<{ Params: { id: string } }>) => {
+      const id = request.params.id;
       const { rows } = await runQuery(fastify.pg, getStateByCode, [
-        abbreviation,
+        id,
       ]);
       return rows;
     }

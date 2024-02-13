@@ -28,11 +28,9 @@ const deleteCategory = `DELETE FROM public.region WHERE region_id = $1;`;
 
 const categories = async (fastify: FastifyInstance) => {
   fastify.get('/categories', async () => {
-    const { rows } = await runQuery(fastify.pg, getAllCategories); 
+    const { rows } = await runQuery(fastify.pg, getAllCategories);
     return rows;
   });
-
-
 
   fastify.get(
     '/categories/:id',
@@ -65,13 +63,12 @@ const categories = async (fastify: FastifyInstance) => {
     '/categories/:id',
     async (
       request: FastifyRequest<{
-        Body: { categoryName: string; description: string; picture: string },
-        Params: { id: string }
+        Body: { categoryName: string; description: string; picture: string };
+        Params: { id: string };
       }>
     ) => {
       const { categoryName, description, picture } = request.body;
       const id = request.params.id;
-
 
       const { rows } = await runQuery(fastify.pg, updateCategory, [
         id,
