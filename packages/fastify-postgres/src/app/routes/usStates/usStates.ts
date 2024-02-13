@@ -17,9 +17,7 @@ const usStates = async (fastify: FastifyInstance) => {
     '/states/:id',
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
       const id = request.params.id;
-      const { rows } = await runQuery(fastify.pg, getStateByCode, [
-        id,
-      ]);
+      const { rows } = await runQuery(fastify.pg, getStateByCode, [id]);
       return rows;
     }
   );
