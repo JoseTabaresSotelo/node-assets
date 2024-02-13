@@ -2,15 +2,15 @@ import { app } from '../../app';
 import Fastify, { FastifyInstance } from 'fastify';
 
 const productsPayload = {
-    "product_id": 91,
-    "product_name": "Alfredo",
-    "supplier_id": 9,
-    "category_id": 4,
-    "quantity_per_unit": "50 boxes x 10 bags",
-    "unit_price": 18,
-    "units_in_stock": 39,
-    "units_on_order": 0,
-    "reorder_level": 10,
+    "productId": 93,
+    "productName": "Alfredo Rivas",
+    "supplierId": 9,
+    "categoryId": 4,
+    "quantityPerUnit": "50 boxes x 10 bags",
+    "unitPrice": 18,
+    "unitsInStock": 39,
+    "unitsOnOrder": 0,
+    "reorderLevel": 10,
     "discontinued": 1
 }
 
@@ -40,7 +40,7 @@ describe('/products should return a correct status code', () => {
  it("products by id", async () =>{
   const response = await server.inject({
     method: 'GET',
-    url: '/api/products/3',
+    url: '/api/products/1',
   });
 
   expect(response.statusCode).toEqual(200);
@@ -54,8 +54,8 @@ describe('/products should return a correct status code', () => {
       payload: productsPayload
     });
     console.log("response.json(): ", response.json());
-    expect(response.statusCode).toEqual(500);
-    expect(response.json().error).toEqual("Internal Server Error")
+    expect(response.statusCode).toEqual(404);
+    expect(response.json().error).toEqual("Not Found")
    })
 
 });

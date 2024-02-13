@@ -17,7 +17,7 @@ describe('GET /region should return a correct status code', () => {
  it("region", async () =>{
   const response = await server.inject({
     method: 'GET',
-    url: '/api/region',
+    url: '/api/regions',
   });
   expect(response.statusCode).toEqual(200);
   expect(response.json().data).toBeTruthy();
@@ -27,11 +27,11 @@ describe('GET /region should return a correct status code', () => {
  it("region by id", async () =>{
   const response = await server.inject({
     method: 'GET',
-    url: '/api/region/3',
+    url: '/api/regions/3',
   });
 
   expect(response.statusCode).toEqual(200);
-  expect(response.json().data).toHaveLength(1);
+  expect(response.json().data).toEqual({regionDescription: "Northern", regionId: 3});
  })
 
 });

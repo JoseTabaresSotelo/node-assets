@@ -1,5 +1,5 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyRequest } from 'fastify';
 
 /**
  * Using the fastify-postgres allows to use SQL Postgres queries, this ones are working on Postgres workbenches and consoles
@@ -31,6 +31,8 @@ const categories = async (fastify: FastifyInstance) => {
     const { rows } = await runQuery(fastify.pg, getAllCategories); 
     return rows;
   });
+
+
 
   fastify.get(
     '/categories/:id',

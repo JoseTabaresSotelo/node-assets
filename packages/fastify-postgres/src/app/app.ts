@@ -63,4 +63,6 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
     ignorePattern: /.spec.(t|j)s/,
     options: { prefix: '/api' },
   });
+
+  
 }
