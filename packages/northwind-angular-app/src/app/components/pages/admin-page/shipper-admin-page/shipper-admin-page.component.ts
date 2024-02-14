@@ -26,6 +26,6 @@ export class ShipperAdminPageComponent implements OnInit {
   }
 
   editShipper(shipper: Shipper) {
-    this.router.navigate(['admin', 'shippers', shipper.ShipperID]);
+    this.router.navigate(['admin', 'shippers', shipper.shipperId]);
   }
 }

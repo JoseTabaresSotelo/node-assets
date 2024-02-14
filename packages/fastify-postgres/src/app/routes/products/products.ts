@@ -13,7 +13,7 @@ const addProducts = `INSERT INTO products (
         reorder_level,
         discontinued
     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;`;
-const getProductsById =
+const getProductById =
   'SELECT * from public.categories WHERE Products_id = $1';
 const updateProduct = `	UPDATE public.products SET(
     product_name,
@@ -82,7 +82,7 @@ const users = async (fastify: FastifyInstance) => {
     '/products/:id',
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
       const { id } = request.params;
-      const { rows } = await runQuery(fastify.pg, getProductsById, [id]);
+      const { rows } = await runQuery(fastify.pg, getProductById, [id]);
 
       return rows;
     }

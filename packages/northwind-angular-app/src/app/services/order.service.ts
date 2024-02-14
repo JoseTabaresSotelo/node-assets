@@ -31,14 +31,14 @@ export class OrderService {
 
   edit(order: Order): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${order.OrderID}`,
+      `${this.apiControllerUrl}/${order.orderId}`,
       order
     );
   }
 
   delete(order: Order): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${order.OrderID}`
+      `${this.apiControllerUrl}/${order.orderId}`
     );
   }
 }

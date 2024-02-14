@@ -23,7 +23,7 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let territory of territories | filter: filterText:'CompanyName'"
+        *ngFor="let territory of territories | filter: filterText:'companyName'"
         (click)="editTerritory(territory)"
       >
         <td>{{ territory.territoryId }}</td>

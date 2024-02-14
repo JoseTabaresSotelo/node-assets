@@ -1,5 +1,5 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 const getAllCustomers =
   'SELECT * FROM public.customers ORDER BY customer_id ASC';

@@ -1,5 +1,5 @@
 export default interface AccessTokenModel {
-  Token: string;
-  Expiration: number;
-  CreatedAt: number;
+  token: string;
+  expiration: number;
+  createdAt: number;
 }

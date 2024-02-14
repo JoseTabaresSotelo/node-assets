@@ -35,8 +35,8 @@ export class ProductFormPageComponent implements OnInit {
 
   isEditPage() {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['productID']) {
-        this.getProductById(params['productID']);
+      if (params['productId']) {
+        this.getProductById(params['productId']);
       }
     });
   }
@@ -51,29 +51,29 @@ export class ProductFormPageComponent implements OnInit {
 
   createProductEditForm() {
     this.productForm = this.formBuilder.group({
-      ProductName: [this.product?.productName, Validators.required],
-      SupplierID: [this.product?.supplierID, Validators.required],
-      CategoryID: [this.product?.categoryID, Validators.required],
-      QuantityPerUnit: [this.product?.quantityPerUnit, Validators.required],
-      UnitPrice: [this.product?.unitPrice, Validators.required],
-      UnitsInStock: [this.product?.unitsInStock, Validators.required],
-      UnitsOnOrder: [this.product?.unitsOnOrder, Validators.required],
-      ReorderLevel: [this.product?.reorderLevel, Validators.required],
-      Discontinued: [this.product?.discontinued, Validators.required],
+      oroductName: [this.product?.productName, Validators.required],
+      supplierId: [this.product?.supplierId, Validators.required],
+      categoryId: [this.product?.categoryId, Validators.required],
+      quantityPerUnit: [this.product?.quantityPerUnit, Validators.required],
+      unitPrice: [this.product?.unitPrice, Validators.required],
+      unitsInStock: [this.product?.unitsInStock, Validators.required],
+      unitsOnOrder: [this.product?.unitsOnOrder, Validators.required],
+      reorderLevel: [this.product?.reorderLevel, Validators.required],
+      discontinued: [this.product?.discontinued, Validators.required],
     });
   }
 
   createProductAddForm() {
     this.productForm = this.formBuilder.group({
-      ProductName: ['', Validators.required],
-      SupplierID: ['', Validators.required],
-      CategoryID: ['', Validators.required],
-      QuantityPerUnit: ['', Validators.required],
-      UnitPrice: ['', Validators.required],
-      UnitsInStock: ['', Validators.required],
-      UnitsOnOrder: ['', Validators.required],
-      ReorderLevel: ['', Validators.required],
-      Discontinued: [false, Validators.required],
+      oroductName: ['', Validators.required],
+      supplierId: ['', Validators.required],
+      categoryId: ['', Validators.required],
+      quantityPerUnit: ['', Validators.required],
+      unitPrice: ['', Validators.required],
+      unitsInStock: ['', Validators.required],
+      unitsOnOrder: ['', Validators.required],
+      reorderLevel: ['', Validators.required],
+      discontinued: [false, Validators.required],
     });
   }
 

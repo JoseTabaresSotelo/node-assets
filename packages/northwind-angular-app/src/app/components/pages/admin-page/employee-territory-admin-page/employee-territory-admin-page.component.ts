@@ -32,7 +32,7 @@ export class EmployeeTerritoryAdminPageComponent implements OnInit {
     this.router.navigate([
       'admin',
       'employeeterritories',
-      employeeTerritories.EmployeeID,
+      employeeTerritories.employeeId,
     ]);
   }
 }

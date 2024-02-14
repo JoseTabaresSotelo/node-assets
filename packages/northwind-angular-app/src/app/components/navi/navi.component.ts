@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class NaviComponent implements OnInit {
   user: Observable<User | undefined> = this.authService.userToken$.pipe(
-    map((userToken) => userToken?.User)
+    map((userToken) => userToken?.user)
   );
 
   constructor(private authService: AuthService) {}

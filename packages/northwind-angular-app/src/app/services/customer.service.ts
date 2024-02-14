@@ -34,7 +34,7 @@ export class CustomerService {
   edit(customer: Customer, previousId: string = ''): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
       `${this.apiControllerUrl}/${
-        previousId ? previousId : customer.CustomerID
+        previousId ? previousId : customer.customerId
       }`,
       customer
     );
@@ -42,7 +42,7 @@ export class CustomerService {
 
   delete(customer: Customer): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${customer.CustomerID}`
+      `${this.apiControllerUrl}/${customer.customerId}`
     );
   }
 }

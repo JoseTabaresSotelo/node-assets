@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class RegionService {
-  apiControllerUrl = `${environment.apiUrl}/regions`;
+  apiControllerUrl = `${environment.apiUrl}/region`;
 
   constructor(private httpClient: HttpClient) {}
 

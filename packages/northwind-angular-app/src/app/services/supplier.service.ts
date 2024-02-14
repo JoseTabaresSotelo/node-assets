@@ -33,14 +33,14 @@ export class SupplierService {
 
   edit(supplier: Supplier): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(
-      `${this.apiControllerUrl}/${supplier.SupplierID}`,
+      `${this.apiControllerUrl}/${supplier.supplierId}`,
       supplier
     );
   }
 
   delete(supplier: Supplier): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(
-      `${this.apiControllerUrl}/${supplier.SupplierID}`
+      `${this.apiControllerUrl}/${supplier.supplierId}`
     );
   }
 }
