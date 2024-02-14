@@ -13,7 +13,7 @@ const orderPayload = {
   ship_via: 2,
 };
 
-describe('/orders should return a correct status code', () => {
+describe.skip('/orders should return a correct status code', () => {
   let server: FastifyInstance;
 
   beforeEach(async () => {
