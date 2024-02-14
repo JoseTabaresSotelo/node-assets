@@ -7,35 +7,13 @@
 	},
 	"item": [
 		{
-			"name": "reset",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/reset",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"reset"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "create post",
+			"name": "post create",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Title 1\", \r\n    \"content\": \"TESt\", \r\n    \"author_email\": \"jose@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Title\", \r\n    \"content\": \"Sample post\", \r\n    \"author_email\": \"diego@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,7 +39,40 @@
 			"response": []
 		},
 		{
-			"name": "get posts by id",
+			"name": "post put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Title\", \r\n    \"content\": \"Sample post\", \r\n    \"author_email\": \"diego@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/posts/20",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posts  get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -85,7 +96,31 @@
 			"response": []
 		},
 		{
-			"name": "get all posts",
+			"name": "posts delete by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/posts/29",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posts get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -108,13 +143,13 @@
 			"response": []
 		},
 		{
-			"name": "create user",
+			"name": "users create",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"diego\", \r\n    \"email\": \"diego@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"username\": \"test1\", \r\n    \"email\": \"test1@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -140,7 +175,40 @@
 			"response": []
 		},
 		{
-			"name": "get all users",
+			"name": "users put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test33\", \r\n    \"email\": \"test33@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/users/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -163,7 +231,120 @@
 			"response": []
 		},
 		{
-			"name": "get all categories",
+			"name": "users get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/users/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/users/52",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"categoryName\": \"test\",\r\n    \"description\": \"test description\",\r\n    \"picture\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"categoryName\": \"test update\",\r\n    \"description\": \"test description\",\r\n    \"picture\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/categories/11",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"categories",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -186,7 +367,7 @@
 			"response": []
 		},
 		{
-			"name": "get category by id",
+			"name": "categories get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -210,7 +391,72 @@
 			"response": []
 		},
 		{
-			"name": "get all customers",
+			"name": "customers post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company_name\": \"test2\",\r\n    \"contact_name\": \"test\",\r\n    \"contact_title\": \"test\",\r\n    \"address\": \"test\",\r\n    \"city\": \"test\",\r\n    \"region\": \"test\",\r\n    \"postal_code\": \"test\",\r\n    \"country\": \"test\",\r\n    \"phone\": \"test\",\r\n    \"fax\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customers put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company_name\": \"test\",\r\n    \"contact_name\": \"test\",\r\n    \"contact_title\": \"test\",\r\n    \"address\": \"test\",\r\n    \"city\": \"test\",\r\n    \"region\": \"test\",\r\n    \"postal_code\": \"test\",\r\n    \"country\": \"test\",\r\n    \"phone\": \"test\",\r\n    \"fax\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/customers/92",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"customers",
+						"92"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customers get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -233,7 +479,7 @@
 			"response": []
 		},
 		{
-			"name": "get customers by id",
+			"name": "customers get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -257,7 +503,96 @@
 			"response": []
 		},
 		{
-			"name": "get all employees",
+			"name": "customers delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/customers/95",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"customers",
+						"95"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employees post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lastName\": \"test\",\r\n    \"firstName\": \"test\",\r\n    \"title\": \"test\",\r\n    \"titleOfCourtesy\": \"test\",\r\n    \"birthDate\": \"01/01/2000\",\r\n    \"hireDate\": \"01/01/2024\",\r\n    \"address\": \"test\",\r\n    \"city\": \"test\",\r\n    \"region\": \"test\",\r\n    \"postalCode\": \"test\",\r\n    \"country\": \"test\",\r\n    \"homePhone\": \"test\",\r\n    \"extension\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/employees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employees put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lastName\": \"test2\",\r\n    \"firstName\": \"test\",\r\n    \"title\": \"test\",\r\n    \"titleOfCourtesy\": \"test\",\r\n    \"birthDate\": \"01/01/2000\",\r\n    \"hireDate\": \"01/01/2024\",\r\n    \"address\": \"test\",\r\n    \"city\": \"test\",\r\n    \"region\": \"test\",\r\n    \"postalCode\": \"test\",\r\n    \"country\": \"test\",\r\n    \"homePhone\": \"test\",\r\n    \"extension\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/employees/14",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employees get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -280,7 +615,7 @@
 			"response": []
 		},
 		{
-			"name": "get employee by id",
+			"name": "employees get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -304,7 +639,31 @@
 			"response": []
 		},
 		{
-			"name": "get all orders",
+			"name": "employees delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/employees/12",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -327,7 +686,7 @@
 			"response": []
 		},
 		{
-			"name": "get order by id",
+			"name": "orders get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -351,54 +710,7 @@
 			"response": []
 		},
 		{
-			"name": "get region by id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/api/region/1",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"region",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all regions",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/api/region",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"region"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get shippers by id",
+			"name": "shippers  get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -422,7 +734,7 @@
 			"response": []
 		},
 		{
-			"name": "get all shippers",
+			"name": "shippers get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -445,7 +757,7 @@
 			"response": []
 		},
 		{
-			"name": "get all suppliers",
+			"name": "suppliers get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -468,7 +780,7 @@
 			"response": []
 		},
 		{
-			"name": "get supplier by id",
+			"name": "suppliers get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -492,7 +804,7 @@
 			"response": []
 		},
 		{
-			"name": "get all territories",
+			"name": "territories get all",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -515,7 +827,7 @@
 			"response": []
 		},
 		{
-			"name": "get territory by id",
+			"name": "territories get by id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -533,53 +845,6 @@
 						"api",
 						"territories",
 						"01581"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get State by Abbreviation",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/api/states/TX",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"states",
-						"TX"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all states",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/api/states",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"states"
 					]
 				}
 			},
@@ -612,6 +877,294 @@
 					"path": [
 						"api",
 						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "state get by Abbreviation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/states/TX",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"states",
+						"TX"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "states get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/states",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"states"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "regions get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/regions/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"regions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "regions get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/regions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"regions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "regions orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"regionDescription\": \"South America\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/regions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"regions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "regions put",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:4200"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:4200/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "cross-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"regionId\":14,\"regionDescription\":\"TEST\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/regions/14",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"regions",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "regions delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:4200"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:4200/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "cross-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/regions/18",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"regions",
+						"18"
 					]
 				}
 			},

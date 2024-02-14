@@ -4,7 +4,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 const getAllEmployees =
   'SELECT * FROM public.employees ORDER BY employee_id ASC';
 const getEmployeeById = 'SELECT * from public.employees WHERE employee_id = $1';
-const addCategory = `INSERT INTO public.employees(
+const addEmployee = `INSERT INTO public.employees(
     last_name,
     first_name,
     title,
@@ -19,7 +19,7 @@ const addCategory = `INSERT INTO public.employees(
     home_phone,
     extension
 ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *;`;
-const updateCategory = `UPDATE public.employees SET (
+const updateEmployee = `UPDATE public.employees SET (
     last_name,
     first_name,
     title,
@@ -60,8 +60,8 @@ const employees = async (fastify: FastifyInstance) => {
           firstName: string;
           title: string;
           titleOfCourtesy: string;
-          birthDate: string;
-          hireDate: string;
+          birthDate: Date;
+          hireDate: Date;
           address: string;
           city: string;
           region: string;
@@ -88,7 +88,7 @@ const employees = async (fastify: FastifyInstance) => {
         extension,
       } = request.body;
 
-      const { rows } = await runQuery(fastify.pg, addCategory, [
+      const { rows } = await runQuery(fastify.pg, addEmployee, [
         lastName,
         firstName,
         title,
@@ -116,8 +116,8 @@ const employees = async (fastify: FastifyInstance) => {
           firstName: string;
           title: string;
           titleOfCourtesy: string;
-          birthDate: string;
-          hireDate: string;
+          birthDate: Date;
+          hireDate: Date;
           address: string;
           city: string;
           region: string;
@@ -146,7 +146,7 @@ const employees = async (fastify: FastifyInstance) => {
       } = request.body;
       const id = request.params.id;
 
-      const { rows } = await runQuery(fastify.pg, updateCategory, [
+      const { rows } = await runQuery(fastify.pg, updateEmployee, [
         lastName,
         firstName,
         title,

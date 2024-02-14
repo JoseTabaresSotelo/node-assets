@@ -7,8 +7,10 @@ const createPostWithUserEmail = `INSERT INTO posts_sample (title, content, user_
 VALUES ($1, $2, (
   SELECT id FROM users_sample WHERE email = $3 
 )) RETURNING * ;`;
-const updatePost = `UPDATE public.posts_sample SET(title, content, user_id) = ($2, $3, $4) WHERE id = $1 RETURNING *;`;
-const deletePost = `DELETE FROM public.posts WHERE id = $1 RETURNING *;`;
+const updatePost = `UPDATE public.posts_sample SET(title, content, user_id) = ($2, $3, (
+  SELECT id FROM users_sample WHERE email = $4 
+)) WHERE id = $1 RETURNING *;`;
+const deletePost = `DELETE FROM public.posts_sample WHERE id = $1 RETURNING *;`;
 
 const posts = async (fastify: FastifyInstance) => {
   fastify.get('/posts', async () => {
