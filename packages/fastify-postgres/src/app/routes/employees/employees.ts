@@ -1,7 +1,8 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
-const getAllEmployees = 'SELECT * FROM public.employees ORDER BY employee_id ASC';
+const getAllEmployees =
+  'SELECT * FROM public.employees ORDER BY employee_id ASC';
 const getEmployeeById = 'SELECT * from public.employees WHERE employee_id = $1';
 const addCategory =
   'INSERT INTO public.region(region_description) VALUES ($1);';
@@ -45,13 +46,12 @@ const employees = async (fastify: FastifyInstance) => {
     '/employees/:id',
     async (
       request: FastifyRequest<{
-        Body: { categoryName: string; description: string; picture: string },
-        Params: { id: string }
+        Body: { categoryName: string; description: string; picture: string };
+        Params: { id: string };
       }>
     ) => {
       const { categoryName, description, picture } = request.body;
       const id = request.params.id;
-
 
       const { rows } = await runQuery(fastify.pg, updateCategory, [
         id,

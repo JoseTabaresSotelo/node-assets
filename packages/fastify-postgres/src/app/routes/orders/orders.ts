@@ -1,5 +1,5 @@
 import { runQuery } from '@api/db/utils';
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 const ordersQuery = `
     SELECT 
@@ -103,7 +103,6 @@ const orders = async (fastify: FastifyInstance) => {
         ship_postal_code,
         ship_country,
       ]);
-
       return rows;
     }
   );

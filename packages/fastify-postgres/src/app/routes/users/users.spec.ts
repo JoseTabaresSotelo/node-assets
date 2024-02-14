@@ -1,6 +1,6 @@
+import { faker } from '@faker-js/faker';
 import { app } from '../../app';
 import Fastify, { FastifyInstance } from 'fastify';
-import { faker } from '@faker-js/faker';
 
 describe('/users', () => {
   let server: FastifyInstance;
@@ -99,7 +99,7 @@ describe('/users', () => {
     });
 
     it('should returns status 500', async () => {
-      const id = faker.number.int()
+      const id = faker.number.int();
       const response = await server.inject({
         method: 'GET',
         url: `/api/users/${id}`,
