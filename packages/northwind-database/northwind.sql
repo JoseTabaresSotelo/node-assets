@@ -3924,3 +3924,24 @@ ALTER TABLE ONLY employees
 -- PostgreSQL database dump complete
 --
 
+CREATE SEQUENCE region_sequence START 5;                               
+CREATE SEQUENCE category_sequence START 9;                          
+CREATE SEQUENCE us_states_sequence START 52;             
+CREATE SEQUENCE suppliers_sequence START 30;             
+CREATE SEQUENCE shippers_sequence START 7;             
+CREATE SEQUENCE products_sequence START 78;     
+CREATE SEQUENCE categories_sequence START 8;     
+CREATE SEQUENCE customer_sequence START 92;    
+CREATE SEQUENCE employees_sequence START 10;  
+CREATE SEQUENCE orders_sequence START 10346;  
+
+ALTER TABLE region ALTER COLUMN region_id SET DEFAULT nextval('region_sequence'::regclass);
+ALTER TABLE categories ALTER COLUMN category_id SET DEFAULT nextval('category_sequence'::regclass);
+ALTER TABLE us_states ALTER COLUMN state_id SET DEFAULT nextval('us_states_sequence'::regclass);
+ALTER TABLE suppliers ALTER COLUMN supplier_id SET DEFAULT nextval('suppliers_sequence'::regclass);
+ALTER TABLE shippers ALTER COLUMN shipper_id SET DEFAULT nextval('shippers_sequence'::regclass);
+ALTER TABLE products ALTER COLUMN product_id SET DEFAULT nextval('products_sequence'::regclass);
+ALTER TABLE categories ALTER COLUMN category_id SET DEFAULT nextval('categories_sequence'::regclass);
+ALTER TABLE customers ALTER COLUMN customer_id SET DEFAULT nextval('customer_sequence'::regclass);
+ALTER TABLE employees ALTER COLUMN employee_id SET DEFAULT nextval('employees_sequence'::regclass);
+ALTER TABLE orders ALTER COLUMN order_id SET DEFAULT nextval('orders_sequence'::regclass);
