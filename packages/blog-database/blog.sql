@@ -129,3 +129,22 @@ INSERT INTO post (post_id, post_title, post_description, image, category_fk_id, 
 	(4, 'Fourth Post', 'Fourth post description', NULL, 3, 2, 1, '2024-03-21 16:48:42', '2024-03-21 16:48:44'),
 	(5, 'Fifth Post', 'Fifth post description', NULL, 1, 1, 1, '2024-03-21 16:48:42', '2024-03-21 16:48:44');
 
+---
+--- query sample
+---
+
+SELECT 
+  post_id,
+  post_title,
+  post_description,
+  image,
+  category_name,
+  comment_content,
+  CONCAT(u.first_name, ' ', u.last_name) as user_name,
+  p.created_at,
+  p.updated_at
+FROM public.post AS p
+INNER JOIN public.category AS cat ON cat.category_id = p.category_fk_id
+INNER JOIN public.comment AS com ON com.comment_id = p.comment_fk_id 
+INNER JOIN public.user AS u ON u.user_id = p.user_fk_id
+LIMIT 100;
