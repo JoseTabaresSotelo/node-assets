@@ -1,23 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { Cat } from '../graphql.schema';
 
 @Injectable()
 export class CommentsService {
-  private readonly cats: Array<Cat & { ownerId?: number }> = [
-    { id: 1, name: 'Cat', age: 5, ownerId: 1 },
+  private readonly comments: Array<any & { ownerId?: number }> = [
+    { id: 1, content: 'Lorem ipsum', ownerId: 1 },
   ];
 
-  create(cat: Cat): Cat {
-    cat.id = this.cats.length + 1;
-    this.cats.push(cat);
-    return cat;
+  create(comment: any): any {
+    comment.id = this.comments.length + 1;
+    this.comments.push(comment);
+    return comment;
   }
 
-  findAll(): Cat[] {
-    return this.cats;
+  findAll(): any[] {
+    return this.comments;
   }
 
-  findOneById(id: number): Cat {
-    return this.cats.find(cat => cat.id === id);
+  findOneById(id: number): any {
+    return this.comments.find(cat => cat.id === id);
   }
 }

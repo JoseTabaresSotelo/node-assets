@@ -20,6 +20,7 @@ type Owner {
 
 type Cat {
   id: Int
+  idd: Int!
   name: String
   age: Int
   owner: Owner

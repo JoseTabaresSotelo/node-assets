@@ -18,23 +18,23 @@ export class CommentsResolver {
     return this.catsService.findAll();
   }
 
-  @Query('comment')
-  async findOneById(
-    @Args('id', ParseIntPipe)
-    id: number,
-  ): Promise<Cat> {
-    return this.catsService.findOneById(id);
-  }
+//   @Query('comment')
+//   async findOneById(
+//     @Args('id', ParseIntPipe)
+//     id: number,
+//   ): Promise<Cat> {
+//     return this.catsService.findOneById(id);
+//   }
 
-  @Mutation('createComments')
-  async create(@Args('createCatInput') args: CreateCommentDto): Promise<Cat> {
-    const createdCat = await this.catsService.create(args);
-    pubSub.publish('catCreated', { catCreated: createdCat });
-    return createdCat;
-  }
+//   @Mutation('createComments')
+//   async create(@Args('createCatInput') args: CreateCommentDto): Promise<Cat> {
+//     const createdCat = await this.catsService.create(args);
+//     pubSub.publish('catCreated', { catCreated: createdCat });
+//     return createdCat;
+//   }
 
-  @Subscription('commentCreated')
-  catCreated() {
-    return pubSub.asyncIterator('commentCreated');
-  }
+//   @Subscription('commentCreated')
+//   catCreated() {
+//     return pubSub.asyncIterator('commentCreated');
+//   }
 }

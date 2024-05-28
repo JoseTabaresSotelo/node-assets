@@ -6,8 +6,8 @@ import { OwnersService } from '../owners/owners.service';
 export class CatOwnerResolver {
   constructor(private readonly ownersService: OwnersService) {}
 
-  @ResolveField()
-  async owner(@Parent() cat: Cat & { ownerId: number }): Promise<Owner> {
-    return this.ownersService.findOneById(cat.ownerId);
-  }
+//   @ResolveField()
+//   async owner(@Parent() cat: Cat & { ownerId: number }): Promise<Owner> {
+//     return this.ownersService.findOneById(cat.ownerId);
+//   }
 }
