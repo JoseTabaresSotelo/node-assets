@@ -4,11 +4,11 @@ import { PubSub } from 'graphql-subscriptions';
 import { Cat } from '../graphql.schema';
 import { CommentsGuard } from './comments.guard';
 import { CommentsService } from './comments.service';
-import { CreateCatDto } from './dto/create-cat.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
 
 const pubSub = new PubSub();
 
-@Resolver('Cat')
+@Resolver('Comment')
 export class CommentsResolver {
   constructor(private readonly catsService: CommentsService) {}
 
@@ -26,15 +26,15 @@ export class CommentsResolver {
     return this.catsService.findOneById(id);
   }
 
-  @Mutation('createCat')
-  async create(@Args('createCatInput') args: CreateCatDto): Promise<Cat> {
+  @Mutation('createComments')
+  async create(@Args('createCatInput') args: CreateCommentDto): Promise<Cat> {
     const createdCat = await this.catsService.create(args);
     pubSub.publish('catCreated', { catCreated: createdCat });
     return createdCat;
   }
 
-  @Subscription('catCreated')
+  @Subscription('commentCreated')
   catCreated() {
-    return pubSub.asyncIterator('catCreated');
+    return pubSub.asyncIterator('commentCreated');
   }
 }
