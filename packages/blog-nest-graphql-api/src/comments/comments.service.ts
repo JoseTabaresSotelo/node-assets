@@ -1,22 +1,20 @@
-import { Injectable } from '@nestjs/common';
+import {Inject, Injectable} from "@nestjs/common";
+import {NEST_PGPROMISE_CONNECTION} from "nestjs-pgpromise";
+import {allCommentsQuery, findCommentByIdQuery} from "./comment.queries";
 
 @Injectable()
 export class CommentsService {
-  private readonly comments: Array<any & { ownerId?: number }> = [
-    { id: 1, content: 'Lorem ipsum', ownerId: 1 },
-  ];
+  constructor(@Inject(NEST_PGPROMISE_CONNECTION) private readonly pg: any) {}
 
-  create(comment: any): any {
-    comment.id = this.comments.length + 1;
-    this.comments.push(comment);
+  async create(comment: any) {
     return comment;
   }
 
-  findAll(): any[] {
-    return this.comments;
+  async findAll() {
+    return await this.pg.query(allCommentsQuery).then((rows) => rows);
   }
 
-  findOneById(id: number): any {
-    return this.comments.find(cat => cat.id === id);
+  async findOneById(id: number) {
+    return await this.pg.query(findCommentByIdQuery, [id]).then((rows) => rows[0]);
   }
 }

@@ -10,21 +10,21 @@ const pubSub = new PubSub();
 
 @Resolver('Comment')
 export class CommentsResolver {
-  constructor(private readonly catsService: CommentsService) {}
+  constructor(private readonly commentsService: CommentsService) {}
 
   @Query('comments')
   @UseGuards(CommentsGuard)
-  async getCats() {
-    return this.catsService.findAll();
+  async getComments() {
+    return this.commentsService.findAll();
   }
 
-//   @Query('comment')
-//   async findOneById(
-//     @Args('id', ParseIntPipe)
-//     id: number,
-//   ): Promise<Cat> {
-//     return this.catsService.findOneById(id);
-//   }
+  @Query('comment')
+  async findOneById(
+    @Args('id', ParseIntPipe)
+    id: number,
+  ): Promise<any> {
+    return this.commentsService.findOneById(id);
+  }
 
 //   @Mutation('createComments')
 //   async create(@Args('createCatInput') args: CreateCommentDto): Promise<Cat> {
