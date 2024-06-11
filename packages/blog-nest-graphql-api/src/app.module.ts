@@ -11,6 +11,7 @@ import { DbModule } from './db/db.module';
     CatsModule,
     CommentsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
+      // autoSchemaFile: true,
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
       transformSchema: schema => upperDirectiveTransformer(schema, 'upper'),

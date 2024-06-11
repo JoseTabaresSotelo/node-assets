@@ -11,10 +11,20 @@ export class CommentsService {
   }
 
   async findAll() {
-    return await this.pg.query(allCommentsQuery).then((rows) => rows);
+    return await this.pg
+      .query(allCommentsQuery)
+      .then((rows) =>
+        rows.map((row) => ({
+          id: row.comment_id,
+          content: row.comment_content,
+          ...row,
+        }))
+      );
   }
 
   async findOneById(id: number) {
-    return await this.pg.query(findCommentByIdQuery, [id]).then((rows) => rows[0]);
+    return await this.pg
+      .query(findCommentByIdQuery, [id])
+      .then((rows) => rows[0]);
   }
 }
