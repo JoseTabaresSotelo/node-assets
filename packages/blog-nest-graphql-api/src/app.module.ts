@@ -5,6 +5,7 @@ import { CatsModule } from './cats/cats.module';
 import { upperDirectiveTransformer } from './common/directives/upper-case.directive';
 import { CommentsModule } from './comments/comments.module';
 import { DbModule } from './db/db.module';
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 
 @Module({
   imports: [
@@ -13,9 +14,14 @@ import { DbModule } from './db/db.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       // autoSchemaFile: true,
       driver: ApolloDriver,
+      playground: false,
       typePaths: ['./**/*.graphql'],
       transformSchema: schema => upperDirectiveTransformer(schema, 'upper'),
       installSubscriptionHandlers: true,
+      // autoSchemaFile: join(process.cwd(), 'src/schema.gql')
+      plugins: [
+        ApolloServerPluginLandingPageLocalDefault()
+      ]
     }),
     DbModule,
   ],
