@@ -9,13 +9,12 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 
 @Module({
   imports: [
-    CatsModule,
     CommentsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
-      // autoSchemaFile: true,
+      autoSchemaFile: true,
       driver: ApolloDriver,
       playground: false,
-      typePaths: ['./**/*.graphql'],
+      // typePaths: ['./**/*.graphql'],
       transformSchema: schema => upperDirectiveTransformer(schema, 'upper'),
       installSubscriptionHandlers: true,
       // autoSchemaFile: join(process.cwd(), 'src/schema.gql')
