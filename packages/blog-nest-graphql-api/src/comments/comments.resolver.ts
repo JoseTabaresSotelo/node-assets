@@ -1,9 +1,10 @@
 import { ParseIntPipe, UseGuards } from '@nestjs/common';
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { CommentsGuard } from './comments.guard';
 import { CommentsService } from './comments.service';
 import { Comment } from './comments.model';
+import { NewCommentInput } from './comment.input';
 
 const pubSub = new PubSub();
 
@@ -25,55 +26,29 @@ export class CommentsResolver {
     return this.commentsService.findOneById(id);
   }
 
-//   @Mutation('createComments')
-//   async create(@Args('createCatInput') args: CreateCommentDto): Promise<Cat> {
-//     const createdCat = await this.catsService.create(args);
-//     pubSub.publish('catCreated', { catCreated: createdCat });
-//     return createdCat;
-//   }
+  @Mutation(returns => Comment)
+  async addComment(
+    @Args('newCommentData') newCommentData: NewCommentInput,
+  ): Promise<Comment> {
+    const comment = await this.commentsService.create(newCommentData);
+    pubSub.publish('commentAdded', { commentAdded: comment });
 
-//   @Subscription('commentCreated')
-//   catCreated() {
-//     return pubSub.asyncIterator('commentCreated');
-//   }
+    return comment;
+  }
+
+  @Mutation(returns => Comment)
+  async updateComment(
+    @Args('id', ParseIntPipe) id: number,
+    @Args('updateCommentData') newCommentData: NewCommentInput,
+  ): Promise<Comment> {
+    const comment = await this.commentsService.update(id, newCommentData);
+
+    return comment;
+  }
+
+  @Mutation(returns => Boolean)
+  async removeComment(@Args('id') id: number) {
+    return this.commentsService.remove(id);
+  }
 }
 
-
-
-// @Resolver(of => Recipe)
-// export class RecipesResolver {
-//   constructor(private readonly recipesService: RecipesService) {}
-
-//   @Query(returns => Recipe)
-//   async recipe(@Args('id') id: string): Promise<Recipe> {
-//     const recipe = await this.recipesService.findOneById(id);
-//     if (!recipe) {
-//       throw new NotFoundException(id);
-//     }
-//     return recipe;
-//   }
-
-//   @Query(returns => [Recipe])
-//   recipes(@Args() recipesArgs: RecipesArgs): Promise<Recipe[]> {
-//     return this.recipesService.findAll(recipesArgs);
-//   }
-
-//   @Mutation(returns => Recipe)
-//   async addRecipe(
-//     @Args('newRecipeData') newRecipeData: NewRecipeInput,
-//   ): Promise<Recipe> {
-//     const recipe = await this.recipesService.create(newRecipeData);
-//     pubSub.publish('recipeAdded', { recipeAdded: recipe });
-//     return recipe;
-//   }
-
-//   @Mutation(returns => Boolean)
-//   async removeRecipe(@Args('id') id: string) {
-//     return this.recipesService.remove(id);
-//   }
-
-//   @Subscription(returns => Recipe)
-//   recipeAdded() {
-//     return pubSub.asyncIterator('recipeAdded');
-//   }
-// }
