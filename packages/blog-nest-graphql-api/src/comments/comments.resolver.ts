@@ -19,7 +19,7 @@ export class CommentsResolver {
   }
 
   @Query(returns => Comment)
-  async findOneById(
+  async finCommentById(
     @Args('id', ParseIntPipe)
     id: number,
   ): Promise<any> {

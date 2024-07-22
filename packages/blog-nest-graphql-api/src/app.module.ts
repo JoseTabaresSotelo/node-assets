@@ -6,10 +6,12 @@ import { CommentsModule } from './comments/comments.module';
 import { DbModule } from './db/db.module';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { loggerMiddleware } from './common/middlewares/logger.middleware';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     CommentsModule,
+    UsersModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: 'schema.gql',
       driver: ApolloDriver,

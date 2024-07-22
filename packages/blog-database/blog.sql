@@ -69,9 +69,9 @@ CREATE TABLE IF NOT EXISTS categories (
 
 CREATE TABLE IF NOT EXISTS comments(
   comment_id SERIAL,
-  comment_author character varying(30) NOT NULL,
-  comment_content character varying(120) NOT NULL,
-  comment_status comment_status DEFAULT 'pending',
+  author character varying(30) NOT NULL,
+  content character varying(120) NOT NULL,
+  status comment_status DEFAULT 'pending',
   created_at date NOT NULL,
   updated_at date NOT NULL,
   PRIMARY KEY (comment_id)
@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS comments(
 
 CREATE TABLE IF NOT EXISTS "users"(
   user_id SERIAL,
+  user_name character varying(20) NOT NULL,
   first_name character varying(30) NOT NULL,
   last_name character varying(50) NOT NULL,
   email character varying(120) NOT NULL,
@@ -115,19 +116,19 @@ DELETE FROM posts;
 --- populate data tables
 ---
 
-INSERT INTO comments (comment_id, comment_author, comment_content, comment_status, created_at, updated_at) VALUES
+INSERT INTO comments (comment_id, author, content, status, created_at, updated_at) VALUES
 	(1, 'NUTS_NUGS', 'It is the best', 'open', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
 	(2, 'Zatara', 'I prefer board games', 'open', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
 	(3, 'Sid', 'it could be better', 'pending', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
 	(4, 'Key', 'It is no that bad', 'reject', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
 	(5, 'white', 'It is fun', 'close', '2024-03-21 16:30:40', '2024-03-21 16:30:41');
 
-INSERT INTO "users" (user_id, first_name, last_name, email, psw, user_status, created_at, updated_at) VALUES
-	(1, 'NUTS_NUGS', 'one', 'userone@test.com', 'psw1', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
-	(2, 'Zatara', 'two', 'usertwo@test.com', 'psw2', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
-	(3, 'NUTS_NUGS', 'one', 'userone@test.com', 'psw1', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
-	(4, 'Zatara', 'two', 'usertwo@test.com', 'psw2', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
-	(5, 'Key', 'four', 'userfour@test.com', 'psw4', 'inactive', '2024-03-21 16:44:38', '2024-03-21 16:44:40');
+INSERT INTO "users" (user_id, user_name, first_name, last_name, email, psw, user_status, created_at, updated_at) VALUES
+	(1, 'nug', 'Daniel', 'Gonzalez', 'userone@test.com', 'psw1', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
+	(2, 'porter', 'Jose', 'Medina', 'usertwo@test.com', 'psw2', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
+	(3, 'lux', 'Maria', 'Hummels', 'userone@test.com', 'psw1', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
+	(4, 'master', 'Joana', 'Venedetti', 'usertwo@test.com', 'psw2', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),
+	(5, 'vendatta', 'Diego', 'Cruz', 'userfour@test.com', 'psw4', 'inactive', '2024-03-21 16:44:38', '2024-03-21 16:44:40');
 
 INSERT INTO categories (category_id, category_name, category_description, category_status, created_at, updated_at) VALUES
 	(1, 'Shooter games', 'shooter games (or simply shooters)', 'public', '2024-03-21 16:20:25', '2024-03-21 16:20:26'),
@@ -154,8 +155,8 @@ SELECT
   image,
   category_name,
   category_status,
-  comment_content,
-  comment_status,
+  content,
+  status,
   CONCAT(u.first_name, ' ', u.last_name) as user_name,
   p.created_at,
   p.updated_at

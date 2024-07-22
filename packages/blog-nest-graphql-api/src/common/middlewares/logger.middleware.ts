@@ -5,7 +5,9 @@ export const loggerMiddleware: FieldMiddleware = async (
   next: NextFn,
 ) => {
   const value = await next();
-  
+  console.log('======================');
+  console.log(ctx.source);
   console.log(value);
+  console.log('======================');
   return value;
 };
