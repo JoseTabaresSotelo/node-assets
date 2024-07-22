@@ -1,13 +1,11 @@
 import { Directive, Field, ID, ObjectType, ResolveField } from '@nestjs/graphql';
 import { capitalizeMiddleware } from 'src/common/middlewares/capitalize.middleware';
+import { User } from 'src/users/users.model';
 
 @ObjectType({ description: 'comment' })
 export class Comment {
   @Field(type => ID)
   commentId: string;
-
-  @Field(type => String)
-  author?: string;
   
   @Directive('@upper')
   @Field({ nullable: true })
@@ -21,5 +19,11 @@ export class Comment {
 
   @Field({ nullable: true })
   updatedAt: Date;
+  
+  @Field(type => Number)
+  author?: number;
+
+  @Field((type) => User, { nullable: true })
+  user?: User;
 }
   

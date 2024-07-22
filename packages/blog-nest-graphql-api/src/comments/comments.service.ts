@@ -49,4 +49,22 @@ export class CommentsService {
       .query(findCommentByIdQuery, [id])
       .then(([row]) => camelize(row));
   }
+
+  findAllByAuthorId(userId: number): Comment[] {
+    this.pg
+      .query(findCommentByIdQuery, [userId])
+      .then((rows) => rows.map((row) => camelize(row)));
+    const comments = [
+      {
+        commentId: "2",
+        content: "I prefer board games",
+        author: 2,
+        createdAt: "2024-03-21T06:00:00.000Z",
+        status: "open",
+        updatedAt: "2024-03-21T06:00:00.000Z",
+      }
+    ] as any;
+
+    return comments;
+  }
 }

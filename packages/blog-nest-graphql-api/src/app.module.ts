@@ -11,7 +11,6 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     CommentsModule,
-    UsersModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: 'schema.gql',
       driver: ApolloDriver,

@@ -1,16 +1,20 @@
 import { ParseIntPipe, UseGuards } from '@nestjs/common';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { CommentsGuard } from './comments.guard';
 import { CommentsService } from './comments.service';
 import { Comment } from './comments.model';
 import { NewCommentInput } from './comment.input';
+import { User } from 'src/users/users.model';
+import { UsersService } from 'src/users/users.service';
 
 const pubSub = new PubSub();
 
 @Resolver(of => Comment)
 export class CommentsResolver {
-  constructor(private readonly commentsService: CommentsService) {}
+  constructor(
+    private readonly commentsService: CommentsService  
+  ) {}
 
   @Query(returns => [Comment])
   @UseGuards(CommentsGuard)
@@ -50,5 +54,19 @@ export class CommentsResolver {
   async removeComment(@Args('id') id: number) {
     return this.commentsService.remove(id);
   }
-}
 
+  @ResolveField((of) => User)
+  user(@Parent() comment: Comment) {
+  //  return { __typename: 'User', userId: comment.author };
+    return {
+      userId: "1",
+      userName: "nug",
+      firstName: "Daniel",
+      lastName: "Gonzalez",
+      email: "userone@test.com",
+      userStatus: "active",
+      createdAt: "2024-03-21T06:00:00.000Z",
+      updatedAt: "2024-03-21T06:00:00.000Z"
+    }
+  }
+}

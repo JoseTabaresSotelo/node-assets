@@ -6,8 +6,8 @@ export class NewCommentInput {
   @Field(type => Number)
   commentId: number;
 
-  @Field(type => String)
-  author?: string;
+  @Field(type => Number)
+  author?: number;
 
   @Field(type => String)
   content?: string;

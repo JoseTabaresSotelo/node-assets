@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS categories (
 
 CREATE TABLE IF NOT EXISTS comments(
   comment_id SERIAL,
-  author character varying(30) NOT NULL,
+  author int NOT NULL REFERENCES "users" (user_id),
   content character varying(120) NOT NULL,
   status comment_status DEFAULT 'pending',
   created_at date NOT NULL,
@@ -117,11 +117,11 @@ DELETE FROM posts;
 ---
 
 INSERT INTO comments (comment_id, author, content, status, created_at, updated_at) VALUES
-	(1, 'NUTS_NUGS', 'It is the best', 'open', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
-	(2, 'Zatara', 'I prefer board games', 'open', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
-	(3, 'Sid', 'it could be better', 'pending', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
-	(4, 'Key', 'It is no that bad', 'reject', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
-	(5, 'white', 'It is fun', 'close', '2024-03-21 16:30:40', '2024-03-21 16:30:41');
+	(1, 2, 'It is the best', 'open', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
+	(2, 4, 'I prefer board games', 'open', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
+	(3, 2, 'it could be better', 'pending', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
+	(4, 3, 'It is no that bad', 'reject', '2024-03-21 16:30:40', '2024-03-21 16:30:41'),
+	(5, 2, 'It is fun', 'close', '2024-03-21 16:30:40', '2024-03-21 16:30:41');
 
 INSERT INTO "users" (user_id, user_name, first_name, last_name, email, psw, user_status, created_at, updated_at) VALUES
 	(1, 'nug', 'Daniel', 'Gonzalez', 'userone@test.com', 'psw1', 'active', '2024-03-21 16:44:38', '2024-03-21 16:44:40'),

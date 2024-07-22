@@ -4,16 +4,23 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
+// HOST=127.0.0.1
+// NAME=blog
+// PORT=5432
+// USER=postgres
+// PASS=pass
+
+
 @Module({
   imports: [
     NestPgpromiseModule.register({
       isGlobal: true,
       connection: {
-        host: process.env.HOST,
-        port: Number(process.env.PORT),
-        database: process.env.DATABASE,
-        user: process.env.USER,
-        password: process.env.PASS,
+        host: '127.0.0.1',
+        port: 5432,
+        database: 'blog',
+        user: 'postgres',
+        password: 'pass',
       },
     }),
   ],

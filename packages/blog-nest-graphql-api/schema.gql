@@ -2,21 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-"""comment"""
-type Comment {
-  commentId: ID!
-  author: String!
-  content: String
-  status: String
-  createdAt: DateTime
-  updatedAt: DateTime
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 """user"""
 type User {
   userId: ID!
@@ -28,37 +13,39 @@ type User {
   userStatus: String!
   createdAt: DateTime
   updatedAt: DateTime
+  comments: [Comment]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""comment"""
+type Comment {
+  commentId: ID!
+  content: String
+  status: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  author: Float!
+  user: User
 }
 
 type Query {
   getComments: [Comment!]!
   findCommentById(id: Float!): Comment!
-  getUsers: [User!]!
-  findUserById(id: Float!): User!
 }
 
 type Mutation {
   addComment(newCommentData: NewCommentInput!): Comment!
   updateComment(id: Float!, updateCommentData: NewCommentInput!): Comment!
   removeComment(id: Float!): Comment!
-  addUser(newUserData: NewUserInput!): User!
-  updateUser(id: Float!, updateUserData: NewUserInput!): User!
-  removeUser(id: Float!): Boolean!
 }
 
 input NewCommentInput {
   commentId: Float!
-  author: String!
+  author: Float!
   content: String!
   status: String!
-}
-
-input NewUserInput {
-  userId: ID!
-  userName: String!
-  firstName: String!
-  lastName: String!
-  email: String!
-  psw: String!
-  userStatus: String!
 }
