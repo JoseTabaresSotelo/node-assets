@@ -8,7 +8,8 @@ type Comment {
   author: String!
   content: String
   status: String
-  creationAt: DateTime
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 """
@@ -31,7 +32,7 @@ type User {
 
 type Query {
   getComments: [Comment!]!
-  finCommentById(id: Float!): Comment!
+  findCommentById(id: Float!): Comment!
   getUsers: [User!]!
   findUserById(id: Float!): User!
 }
@@ -39,7 +40,7 @@ type Query {
 type Mutation {
   addComment(newCommentData: NewCommentInput!): Comment!
   updateComment(id: Float!, updateCommentData: NewCommentInput!): Comment!
-  removeComment(id: Float!): Boolean!
+  removeComment(id: Float!): Comment!
   addUser(newUserData: NewUserInput!): User!
   updateUser(id: Float!, updateUserData: NewUserInput!): User!
   removeUser(id: Float!): Boolean!
@@ -49,7 +50,7 @@ input NewCommentInput {
   commentId: Float!
   author: String!
   content: String!
-  status: Float!
+  status: String!
 }
 
 input NewUserInput {

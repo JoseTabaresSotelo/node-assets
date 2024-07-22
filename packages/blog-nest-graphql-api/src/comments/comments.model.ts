@@ -17,6 +17,9 @@ export class Comment {
   status?: string;
 
   @Field({ nullable: true })
-  creationAt: Date;
+  createdAt: Date;
+
+  @Field({ nullable: true })
+  updatedAt: Date;
 }
   

@@ -12,6 +12,6 @@ export class NewCommentInput {
   @Field(type => String)
   content?: string;
 
-  @Field(type => Number)
-  status: number;
+  @Field(type => String)
+  status: string;
 }

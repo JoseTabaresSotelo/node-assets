@@ -3,6 +3,7 @@ import { NEST_PGPROMISE_CONNECTION } from "nestjs-pgpromise";
 import {
   allCommentsQuery,
   createCommentQuery,
+  deleteCommentQuery,
   findCommentByIdQuery,
   updateCommentQuery,
 } from "./comment.queries";
@@ -32,7 +33,9 @@ export class CommentsService {
   }
 
   async remove(id: number) {
-    return id;
+    return await this.pg
+      .query(deleteCommentQuery, [id])
+      .then(([row]) => camelize(row));
   }
 
   async findAll() {

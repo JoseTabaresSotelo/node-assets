@@ -19,10 +19,10 @@ export class CommentsResolver {
   }
 
   @Query(returns => Comment)
-  async finCommentById(
+  async findCommentById(
     @Args('id', ParseIntPipe)
     id: number,
-  ): Promise<any> {
+  ): Promise<Comment> {
     return this.commentsService.findOneById(id);
   }
 
@@ -31,7 +31,7 @@ export class CommentsResolver {
     @Args('newCommentData') newCommentData: NewCommentInput,
   ): Promise<Comment> {
     const comment = await this.commentsService.create(newCommentData);
-    // pubSub.publish('commentAdded', { commentAdded: comment });
+    pubSub.publish('commentAdded', { commentAdded: comment });
 
     return comment;
   }
@@ -46,7 +46,7 @@ export class CommentsResolver {
     return comment;
   }
 
-  @Mutation(returns => Boolean)
+  @Mutation(returns => Comment)
   async removeComment(@Args('id') id: number) {
     return this.commentsService.remove(id);
   }
