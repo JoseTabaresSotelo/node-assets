@@ -13,7 +13,8 @@ const pubSub = new PubSub();
 @Resolver(of => Comment)
 export class CommentsResolver {
   constructor(
-    private readonly commentsService: CommentsService  
+    private readonly commentsService: CommentsService,
+    private readonly usersService: UsersService
   ) {}
 
   @Query(returns => [Comment])
@@ -56,17 +57,9 @@ export class CommentsResolver {
   }
 
   @ResolveField((of) => User)
-  user(@Parent() comment: Comment) {
-  //  return { __typename: 'User', userId: comment.author };
-    return {
-      userId: "1",
-      userName: "nug",
-      firstName: "Daniel",
-      lastName: "Gonzalez",
-      email: "userone@test.com",
-      userStatus: "active",
-      createdAt: "2024-03-21T06:00:00.000Z",
-      updatedAt: "2024-03-21T06:00:00.000Z"
-    }
+  async user(@Parent() comment: Comment) {
+    const { author } = comment;
+    
+    return await this.usersService.findOneById(author);
   }
 }

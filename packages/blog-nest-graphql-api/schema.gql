@@ -35,12 +35,17 @@ type Comment {
 type Query {
   getComments: [Comment!]!
   findCommentById(id: Float!): Comment!
+  getUsers: [User!]!
+  findUserById(id: Float!): User!
 }
 
 type Mutation {
   addComment(newCommentData: NewCommentInput!): Comment!
   updateComment(id: Float!, updateCommentData: NewCommentInput!): Comment!
   removeComment(id: Float!): Comment!
+  addUser(newUserData: NewUserInput!): User!
+  updateUser(id: Float!, updateUserData: NewUserInput!): User!
+  removeUser(id: Float!): Boolean!
 }
 
 input NewCommentInput {
@@ -48,4 +53,14 @@ input NewCommentInput {
   author: Float!
   content: String!
   status: String!
+}
+
+input NewUserInput {
+  userId: ID!
+  userName: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  psw: String!
+  userStatus: String!
 }

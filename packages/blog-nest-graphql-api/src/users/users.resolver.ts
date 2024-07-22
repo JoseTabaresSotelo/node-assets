@@ -56,10 +56,9 @@ export class UsersResolver {
   }
 
   @ResolveField((of) => [Comment])
-  comments(@Parent() user: User): Comment[] {
+  async comments(@Parent() user: User) {
     const { userId } = user;
-    const comments = this.commentsService.findAllByAuthorId(+userId);
 
-    return comments;
+    return await this.commentsService.findAllByAuthorId(+userId);
   }
 }

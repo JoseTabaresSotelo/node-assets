@@ -4,6 +4,7 @@ import {
   allCommentsQuery,
   createCommentQuery,
   deleteCommentQuery,
+  findAllCommentsByAuthorIdQuery,
   findCommentByIdQuery,
   updateCommentQuery,
 } from "./comment.queries";
@@ -50,21 +51,21 @@ export class CommentsService {
       .then(([row]) => camelize(row));
   }
 
-  findAllByAuthorId(userId: number): Comment[] {
-    this.pg
-      .query(findCommentByIdQuery, [userId])
+  async findAllByAuthorId(userId: number) {
+    return await this.pg
+      .query(findAllCommentsByAuthorIdQuery, [userId])
       .then((rows) => rows.map((row) => camelize(row)));
-    const comments = [
-      {
-        commentId: "2",
-        content: "I prefer board games",
-        author: 2,
-        createdAt: "2024-03-21T06:00:00.000Z",
-        status: "open",
-        updatedAt: "2024-03-21T06:00:00.000Z",
-      }
-    ] as any;
+    // const comments = [
+    //   {
+    //     commentId: "2",
+    //     content: "I prefer board games",
+    //     author: 2,
+    //     createdAt: "2024-03-21T06:00:00.000Z",
+    //     status: "open",
+    //     updatedAt: "2024-03-21T06:00:00.000Z",
+    //   }
+    // ] as any;
 
-    return comments;
+    // return comments;
   }
 }

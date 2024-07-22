@@ -7,10 +7,14 @@ import { DbModule } from './db/db.module';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { loggerMiddleware } from './common/middlewares/logger.middleware';
 import { UsersModule } from './users/users.module';
+import { CommentsService } from './comments/comments.service';
+import { CommentsResolver } from './comments/comments.resolver';
+import { UsersService } from './users/users.service';
+import { UsersResolver } from './users/users.resolver';
 
 @Module({
   imports: [
-    CommentsModule,
+    // CommentsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: 'schema.gql',
       driver: ApolloDriver,
@@ -27,6 +31,12 @@ import { UsersModule } from './users/users.module';
       },
     }),
     DbModule,
+  ],
+  providers: [
+    CommentsService, 
+    CommentsResolver, 
+    UsersService, 
+    UsersResolver
   ],
 })
 export class AppModule {}

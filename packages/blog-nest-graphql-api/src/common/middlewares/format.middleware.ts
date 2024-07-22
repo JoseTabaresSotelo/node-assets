@@ -5,12 +5,12 @@ export const loggerMiddleware: FieldMiddleware = async (
   next: NextFn,
 ) => {
   const value = await next();
-  console.log(ctx.args);
-  console.log(ctx.info);
-  console.log(ctx.context);
-  console.log(ctx.source);
-  console.log('==========>');
-  console.log(value);
+  // console.log(ctx.args);
+  // console.log(ctx.info);
+  // console.log(ctx.context);
+  // console.log(ctx.source);
+  // console.log('==========>');
+  // console.log(value);
   return value.toUpperCase();
 };
 

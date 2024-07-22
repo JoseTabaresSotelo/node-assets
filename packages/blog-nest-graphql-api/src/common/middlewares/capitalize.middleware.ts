@@ -7,7 +7,7 @@ export const capitalizeMiddleware: FieldMiddleware = async (
 ) => {
   const value = await next();
   
-  console.log('AUTHOR', _.capitalize(value));
+  // console.log('AUTHOR', _.capitalize(value));
 
   return value;
 };
