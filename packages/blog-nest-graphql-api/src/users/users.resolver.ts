@@ -31,7 +31,7 @@ export class UsersResolver {
     @Args("newUserData") newUserData: NewUserInput
   ): Promise<Comment> {
     const user = await this.usersService.create(newUserData);
-    pubSub.publish("userAdded", { userAdded: user });
+    // pubSub.publish("userAdded", { userAdded: user });
 
     return user;
   }

@@ -4,11 +4,11 @@
 
 """comment"""
 type Comment {
-  id: ID!
+  commentId: ID!
   author: String!
   content: String
   status: String
-  creationDate: DateTime
+  creationAt: DateTime
 }
 
 """
@@ -46,7 +46,7 @@ type Mutation {
 }
 
 input NewCommentInput {
-  id: Float!
+  commentId: Float!
   author: String!
   content: String!
   status: Float!

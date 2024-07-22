@@ -18,7 +18,7 @@ import { UsersModule } from './users/users.module';
       playground: false,
       // typePaths: ['./**/*.graphql'],
       transformSchema: schema => upperDirectiveTransformer(schema, 'upper'),
-      installSubscriptionHandlers: true,
+      installSubscriptionHandlers: false,
       // autoSchemaFile: join(process.cwd(), 'src/schema.gql')
       plugins: [
         ApolloServerPluginLandingPageLocalDefault()

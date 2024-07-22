@@ -4,7 +4,7 @@ import { capitalizeMiddleware } from 'src/common/middlewares/capitalize.middlewa
 @ObjectType({ description: 'comment' })
 export class Comment {
   @Field(type => ID)
-  id: string;
+  commentId: string;
 
   @Field(type => String)
   author?: string;
@@ -17,6 +17,6 @@ export class Comment {
   status?: string;
 
   @Field({ nullable: true })
-  creationDate: Date;
+  creationAt: Date;
 }
   

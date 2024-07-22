@@ -31,7 +31,7 @@ export class CommentsResolver {
     @Args('newCommentData') newCommentData: NewCommentInput,
   ): Promise<Comment> {
     const comment = await this.commentsService.create(newCommentData);
-    pubSub.publish('commentAdded', { commentAdded: comment });
+    // pubSub.publish('commentAdded', { commentAdded: comment });
 
     return comment;
   }
