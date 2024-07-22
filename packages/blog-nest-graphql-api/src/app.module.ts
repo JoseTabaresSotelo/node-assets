@@ -5,6 +5,7 @@ import { upperDirectiveTransformer } from './common/directives/upper-case.direct
 import { CommentsModule } from './comments/comments.module';
 import { DbModule } from './db/db.module';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { loggerMiddleware } from './common/middlewares/logger.middleware';
 
 @Module({
   imports: [
@@ -19,7 +20,10 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
       // autoSchemaFile: join(process.cwd(), 'src/schema.gql')
       plugins: [
         ApolloServerPluginLandingPageLocalDefault()
-      ]
+      ],
+      buildSchemaOptions: {
+        fieldMiddleware: [loggerMiddleware],
+      },
     }),
     DbModule,
   ],
