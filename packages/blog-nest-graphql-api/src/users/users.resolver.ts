@@ -28,22 +28,22 @@ export class UsersResolver {
 
   @Mutation((returns) => User)
   async addUser(
-    @Args("newCommentData") newCommentData: NewUserInput
+    @Args("newUserData") newUserData: NewUserInput
   ): Promise<Comment> {
-    const comment = await this.usersService.create(newCommentData);
-    pubSub.publish("commentAdded", { commentAdded: comment });
+    const user = await this.usersService.create(newUserData);
+    pubSub.publish("userAdded", { userAdded: user });
 
-    return comment;
+    return user;
   }
 
   @Mutation((returns) => User)
   async updateUser(
     @Args("id", ParseIntPipe) id: number,
-    @Args("updateCommentData") newCommentData: NewUserInput
-  ): Promise<Comment> {
-    const comment = await this.usersService.update(id, newCommentData);
+    @Args("updateUserData") newUserData: NewUserInput
+  ): Promise<User> {
+    const user = await this.usersService.update(id, newUserData);
 
-    return comment;
+    return user;
   }
 
   @Mutation((returns) => Boolean)

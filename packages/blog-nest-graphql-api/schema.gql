@@ -40,8 +40,8 @@ type Mutation {
   addComment(newCommentData: NewCommentInput!): Comment!
   updateComment(id: Float!, updateCommentData: NewCommentInput!): Comment!
   removeComment(id: Float!): Boolean!
-  addUser(newCommentData: NewUserInput!): User!
-  updateUser(id: Float!, updateCommentData: NewUserInput!): User!
+  addUser(newUserData: NewUserInput!): User!
+  updateUser(id: Float!, updateUserData: NewUserInput!): User!
   removeUser(id: Float!): Boolean!
 }
 
