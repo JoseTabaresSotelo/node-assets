@@ -3,9 +3,6 @@ import { IsOptional, Length, MaxLength } from 'class-validator';
 
 @InputType()
 export class NewUserInput {
-  @Field(type => ID)
-  userId: string;
-
   @Field(type => String)
   @MaxLength(20)
   userName: string;

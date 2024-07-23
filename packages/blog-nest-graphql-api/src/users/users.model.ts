@@ -5,7 +5,7 @@ import { Comment } from 'src/comments/comments.model';
 @ObjectType({ description: 'user' })
 export class User {
   @Field(type => ID)
-  userId: string;
+  userId: number;
 
   @Field(type => String)
   userName: string;

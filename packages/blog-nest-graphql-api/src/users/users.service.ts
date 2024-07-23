@@ -26,24 +26,25 @@ export class UsersService {
         email,
         psw,
         userStatus,
+        today
       ])
       .then(([row]) => ({ ...camelize(row) }));
   }
 
   async create(user: NewUserInput) {
-    const { userId, userName, firstName, lastName, email, psw, userStatus } =
+    const {userName, firstName, lastName, email, psw, userStatus } =
       user;
     const today = new Date();
 
     return await this.pg
       .query(createUserQuery, [
-        userId,
         userName,
         firstName,
         lastName,
         email,
         psw,
         userStatus,
+        today
       ])
       .then(([row]) => ({ ...camelize(row) }));
   }

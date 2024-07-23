@@ -5,7 +5,7 @@ import { User } from 'src/users/users.model';
 @ObjectType({ description: 'comment' })
 export class Comment {
   @Field(type => ID)
-  commentId: string;
+  commentId: number;
   
   @Directive('@upper')
   @Field({ nullable: true })
@@ -20,7 +20,7 @@ export class Comment {
   @Field({ nullable: true })
   updatedAt: Date;
   
-  @Field(type => Number)
+  @Field(type => ID)
   author?: number;
 
   @Field((type) => User, { nullable: true })

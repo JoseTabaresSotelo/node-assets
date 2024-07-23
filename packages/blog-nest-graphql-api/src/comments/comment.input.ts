@@ -1,15 +1,13 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { IsOptional, Length, MaxLength } from 'class-validator';
 
 @InputType()
 export class NewCommentInput {
-  @Field(type => Number)
-  commentId: number;
-
-  @Field(type => Number)
+  @Field(type => ID)
   author?: number;
 
   @Field(type => String)
+  @MaxLength(300)
   content?: string;
 
   @Field(type => String)

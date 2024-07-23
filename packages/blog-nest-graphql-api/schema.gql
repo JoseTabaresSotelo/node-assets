@@ -28,7 +28,7 @@ type Comment {
   status: String
   createdAt: DateTime
   updatedAt: DateTime
-  author: Float!
+  author: ID!
   user: User
 }
 
@@ -49,14 +49,12 @@ type Mutation {
 }
 
 input NewCommentInput {
-  commentId: Float!
-  author: Float!
+  author: ID!
   content: String!
   status: String!
 }
 
 input NewUserInput {
-  userId: ID!
   userName: String!
   firstName: String!
   lastName: String!

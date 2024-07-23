@@ -59,6 +59,6 @@ export class UsersResolver {
   async comments(@Parent() user: User) {
     const { userId } = user;
 
-    return await this.commentsService.findAllByAuthorId(+userId);
+    return await this.commentsService.findAllByAuthorId(userId);
   }
 }

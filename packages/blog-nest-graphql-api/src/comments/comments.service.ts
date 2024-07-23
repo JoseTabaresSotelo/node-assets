@@ -25,11 +25,11 @@ export class CommentsService {
   }
 
   async create(comment: NewCommentInput) {
-    const { commentId, author, content, status } = comment;
+    const { author, content, status } = comment;
     const today = new Date();
 
     return await this.pg
-      .query(createCommentQuery, [commentId, author, content, status, today])
+      .query(createCommentQuery, [author, content, status, today])
       .then(([row]) => camelize(row));
   }
 
