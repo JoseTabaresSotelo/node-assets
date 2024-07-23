@@ -7,4 +7,4 @@ export const createUserQuery = `INSERT INTO
   VALUES (DEFAULT, $1, $2, $3, $4, $5, $6, $7, $7) RETURNING *;`
 export const updateUserQuery = `UPDATE public.users SET 
     (user_name, first_name, last_name, email, psw, user_status, updated_at) =
-    ($2, $3, $4, $5, $6, $7, $8) RETURNING *;`  
+    ($2, $3, $4, $5, $6, $7, $8) WHERE user_id = $1 RETURNING *;`  

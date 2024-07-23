@@ -34,4 +34,18 @@ export class User {
   @Field((type) => [Comment], { nullable: 'items' }) 
   comments?: Comment[];
 }
-  
+
+/**
+  type User {
+    userId: ID!
+    userName: String!
+    firstName: String!
+    lastName: String!
+    email: String!
+    psw: String!
+    userStatus: String!
+    createdAt: DateTime
+    updatedAt: DateTime
+    comments: [Comment]!
+  }
+ */

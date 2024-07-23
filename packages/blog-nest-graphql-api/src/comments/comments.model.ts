@@ -27,3 +27,14 @@ export class Comment {
   user?: User;
 }
   
+/**
+  type Comment {
+    commentId: ID!
+    content: String
+    status: String
+    createdAt: DateTime
+    updatedAt: DateTime
+    author: ID!
+    user: User
+  }
+ */
