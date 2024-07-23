@@ -52,6 +52,9 @@ type Post {
   userFkId: Int!
   updatedAt: DateTime
   createdAt: DateTime
+  comments: [Comment]!
+  category: Category
+  user: User
 }
 
 type Query {

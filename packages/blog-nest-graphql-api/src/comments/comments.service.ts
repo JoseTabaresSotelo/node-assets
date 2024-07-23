@@ -5,6 +5,7 @@ import {
   createCommentQuery,
   deleteCommentQuery,
   findAllCommentsByAuthorIdQuery,
+  findAllCommentsByIdQuery,
   findCommentByIdQuery,
   updateCommentQuery,
 } from "./comment.queries";
@@ -54,6 +55,12 @@ export class CommentsService {
   async findAllByAuthorId(userId: number) {
     return await this.pg
       .query(findAllCommentsByAuthorIdQuery, [userId])
+      .then((rows) => rows.map((row) => camelize(row)));
+  }
+
+  async findCommentByIds(commentId: number) {
+    return await this.pg
+      .query(findAllCommentsByIdQuery, [commentId])
       .then((rows) => rows.map((row) => camelize(row)));
   }
 }
