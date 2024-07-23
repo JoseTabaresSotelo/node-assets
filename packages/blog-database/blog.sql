@@ -1,23 +1,3 @@
--- Database: blog
---
--- PostgreSQL database dump
---
-
--- DROP DATABASE IF EXISTS blog;
-
---
--- PostgreSQL database creation
---
-
--- CREATE DATABASE blog
---     WITH
---     OWNER = postgres
---     ENCODING = 'UTF8'
---     TABLESPACE = pg_default
---     CONNECTION LIMIT = -1
---     IS_TEMPLATE = False;
-
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -147,6 +127,11 @@ INSERT INTO posts (post_id, post_title, post_description, image, category_fk_id,
 ---
 --- query sample
 ---
+
+DROP SEQUENCE IF EXISTS user_sequence;
+DROP SEQUENCE IF EXISTS category_sequence;
+DROP SEQUENCE IF EXISTS comment_sequence;
+DROP SEQUENCE IF EXISTS post_sequence;
 
 CREATE SEQUENCE user_sequence START 6;                               
 CREATE SEQUENCE category_sequence START 6;                          
