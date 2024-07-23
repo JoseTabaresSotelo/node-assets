@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "b7009f11-d315-458b-b65b-7c3199e0715d",
+		"name": "blog-graphql-postgres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1966346"
+	},
+	"item": [
+		{
+			"name": "Comment - Get By Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query FindCommentById($findCommentByIdId: Float!) {\r\n  findCommentById(id: $findCommentByIdId) {\r\n    author\r\n    commentId\r\n    content\r\n    createdAt\r\n    status\r\n    updatedAt\r\n    user {\r\n      userId\r\n      firstName\r\n      lastName\r\n      email\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n    \"findCommentByIdId\": 2\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comments - Get All",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Query {\r\n  getComments {\r\n    author\r\n    commentId\r\n    content\r\n    createdAt\r\n    status\r\n    updatedAt\r\n    user {\r\n      userId\r\n      userName\r\n      updatedAt\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment - Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation AddComment($newCommentData: NewCommentInput!) {\r\n  addComment(newCommentData: $newCommentData) {\r\n    author\r\n    commentId\r\n    content\r\n    createdAt\r\n    status\r\n    updatedAt\r\n    user {\r\n      firstName\r\n      lastName\r\n      userName\r\n    }\r\n  }\r\n}\r\n",
+						"variables": "{\r\n  \"newCommentData\": {\r\n    \"author\": 2,\r\n    \"content\": \"New Data!!\",\r\n    \"status\": \"open\"\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment - Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation UpdateComment($updateCommentId: Float!, $updateCommentData: NewCommentInput!) {\r\n  updateComment(id: $updateCommentId, updateCommentData: $updateCommentData) {\r\n    commentId\r\n    content\r\n    author\r\n    updatedAt\r\n    createdAt\r\n    status\r\n    user {\r\n      userName\r\n      firstName\r\n      lastName\r\n      email\r\n    }\r\n  }\r\n}",
+						"variables": "{  \r\n  \"updateCommentId\": 1,\r\n  \"updateCommentData\": {\r\n    \"author\": 2,\r\n    \"content\": \"test ===> \",\r\n    \"status\": \"open\"\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users - Get All",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Query {\r\n  getUsers {\r\n    userId\r\n    firstName\r\n    lastName\r\n    userName\r\n    psw\r\n    email\r\n    updatedAt\r\n    createdAt\r\n    userStatus\r\n    comments {\r\n      commentId\r\n      content\r\n      createdAt\r\n      status\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Get By Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query FindUserById($findUserByIdId: Float!) {\r\n  findUserById(id: $findUserByIdId) {\r\n    userId\r\n    userName\r\n    userStatus\r\n    firstName\r\n    lastName\r\n    comments {\r\n      commentId\r\n      content\r\n      status\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n  \"findUserByIdId\": 2\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users - Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation AddUser($newUserData: NewUserInput!) {\r\n  addUser(newUserData: $newUserData) {\r\n    userId\r\n    userName\r\n    email\r\n    firstName\r\n    lastName\r\n    psw\r\n    updatedAt\r\n    userStatus\r\n    createdAt\r\n    comments {\r\n      commentId\r\n      content\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n  \"newUserData\": {\r\n    \"userName\": \"kicker\",\r\n    \"firstName\": \"Joseph\",\r\n    \"lastName\": \"Wick\",\r\n    \"email\": \"sample@contoso.com\",\r\n    \"psw\": \"@#!@#$%@#@$\",\r\n    \"userStatus\": \"active\"\r\n  },\r\n  \"findUserByIdId\": 2\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users - Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation AddUser($newUserData: NewUserInput!) {\r\n  addUser(newUserData: $newUserData) {\r\n    userId\r\n    userName\r\n    email\r\n    firstName\r\n    lastName\r\n    psw\r\n    updatedAt\r\n    userStatus\r\n    createdAt\r\n    comments {\r\n      commentId\r\n      content\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n  \"newUserData\": {\r\n    \"userName\": \"kicker\",\r\n    \"firstName\": \"Joseph\",\r\n    \"lastName\": \"Wick\",\r\n    \"email\": \"sample@contoso.com\",\r\n    \"psw\": \"@#!@#$%@#@$\",\r\n    \"userStatus\": \"active\"\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

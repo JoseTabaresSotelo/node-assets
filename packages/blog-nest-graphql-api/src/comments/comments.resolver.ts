@@ -63,3 +63,14 @@ export class CommentsResolver {
     return await this.usersService.findOneById(author);
   }
 }
+
+/**
+  SELECT
+    comment_id,
+    user_name,
+    content,
+    status,
+  FROM public.comments AS com
+  LEFT JOIN public.users AS us 
+  ON com.author = us.user_id;
+ */
