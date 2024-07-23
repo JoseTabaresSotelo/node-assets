@@ -11,6 +11,8 @@ import { UsersService } from './users/users.service';
 import { UsersResolver } from './users/users.resolver';
 import { CategoryService } from './categories/categories.service';
 import { CategoryResolver } from './categories/categories.resolver';
+import { PostResolver } from './posts/posts.resolver';
+import { PostService } from './posts/posts.service';
 
 @Module({
   imports: [
@@ -38,7 +40,9 @@ import { CategoryResolver } from './categories/categories.resolver';
     UsersService, 
     UsersResolver,
     CategoryService, 
-    CategoryResolver
+    CategoryResolver,
+    PostService,
+    PostResolver
   ],
 })
 export class AppModule {}

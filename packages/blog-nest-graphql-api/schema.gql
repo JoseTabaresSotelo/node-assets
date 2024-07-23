@@ -42,6 +42,18 @@ type Category {
   createdAt: DateTime
 }
 
+"""post"""
+type Post {
+  postId: ID!
+  postTitle: String!
+  postDescription: String!
+  categoryFkId: Int!
+  commentFkId: Int!
+  userFkId: Int!
+  updatedAt: DateTime
+  createdAt: DateTime
+}
+
 type Query {
   getComments: [Comment!]!
   findCommentById(id: Float!): Comment!
@@ -49,6 +61,8 @@ type Query {
   findUserById(id: Float!): User!
   getCategories: [Category!]!
   findCategoryById(id: Float!): Category!
+  getPosts: [Post!]!
+  findPostById(id: Float!): Post!
 }
 
 type Mutation {
@@ -61,6 +75,9 @@ type Mutation {
   addCategory(newUserData: NewCategoryInput!): Category!
   updateCategory(id: Float!, updateCategoryData: NewCategoryInput!): Category!
   removeCategory(id: Float!): Boolean!
+  addPost(newPostData: NewPostInput!): Post!
+  updatePost(id: Float!, updatePostData: NewPostInput!): Post!
+  removePost(id: Float!): Boolean!
 }
 
 input NewCommentInput {
@@ -82,4 +99,12 @@ input NewCategoryInput {
   categoryName: String!
   categoryDescription: String!
   categoryStatus: String!
+}
+
+input NewPostInput {
+  postTitle: String!
+  postDescription: String!
+  categoryFkId: Int!
+  commentFkId: Int!
+  userFkId: Int!
 }
