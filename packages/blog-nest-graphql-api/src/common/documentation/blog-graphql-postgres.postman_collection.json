@@ -213,6 +213,32 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Post - Get All",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Query {\r\n  getPosts {\r\n    postId\r\n    postTitle\r\n    category {\r\n      categoryId\r\n      categoryName\r\n    }\r\n    user {\r\n      userName\r\n      comments {\r\n        author\r\n        content\r\n        status\r\n        createdAt\r\n        updatedAt\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

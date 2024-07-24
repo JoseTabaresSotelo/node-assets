@@ -11,3 +11,4 @@ export const updateCommentQuery = `UPDATE public.comments SET
 export const deleteCommentQuery = `DELETE FROM public.comments WHERE comment_id=$1  RETURNING *;`;
 export const findCommentByUserIdQuery = `SELECT * FROM public.comments WHERE author=$1;`;
 export const findAllCommentsByAuthorIdQuery = `SELECT * FROM public.comments WHERE author=$1;`;
+export const findAllCommentsByIdQuery = `SELECT * FROM public.comments WHERE commentId=$1;`;
